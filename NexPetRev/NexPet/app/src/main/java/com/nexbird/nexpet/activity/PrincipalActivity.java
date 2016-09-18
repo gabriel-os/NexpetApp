@@ -1,0 +1,95 @@
+package com.nexbird.nexpet.activity;
+
+import android.app.ActivityGroup;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.widget.TabHost;
+
+import com.nexbird.nexpet.R;
+import com.nexbird.nexpet.helper.SQLiteHandler;
+import com.nexbird.nexpet.helper.SessionManager;
+
+
+public class PrincipalActivity extends ActivityGroup {
+
+    private static final String TAG = PrincipalActivity.class.getSimpleName();
+    private SQLiteHandler db;
+    private SessionManager session;
+    private ProgressDialog pDialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_principal);
+
+        session = new SessionManager(getApplicationContext());
+
+        db = new SQLiteHandler(getApplicationContext());
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+
+        if (!session.isRegistredIn()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Cadastro pessoal incompleto!");
+            builder.setMessage("Deseja completar seu cadastro agora?");
+            builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+                    Intent i = new Intent(getApplication(), CadastroCompletoActivity.class);
+                    startActivity(i);
+                }
+            });
+            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+                }
+            });
+            AlertDialog alerta = builder.create();
+            alerta.show();
+        }
+
+        TabHost host = (TabHost) findViewById(R.id.tabHost);
+        host.setup(this.getLocalActivityManager());
+
+        TabHost.TabSpec ts1 = host.newTabSpec("tela1");
+        ts1.setIndicator("", getResources().getDrawable(R.drawable.ic_agendado));
+        ts1.setContent(new Intent(this, AgendadoActivity.class));
+        host.addTab(ts1);
+
+        TabHost.TabSpec ts2 = host.newTabSpec("tela2");
+        ts2.setIndicator("", getResources().getDrawable(R.drawable.ic_agendar));
+        ts2.setContent(new Intent(this, AgendarActivity.class));
+        host.addTab(ts2);
+
+        TabHost.TabSpec ts3 = host.newTabSpec("tela3");
+        ts3.setIndicator("", getResources().getDrawable(R.drawable.ic_config));
+        ts3.setContent(new Intent(this, ConfigActivity.class));
+        host.addTab(ts3);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sair?");
+        builder.setMessage("Deseja realmente sair?");
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                session.setLogin(false);
+
+                db.deleteUsers();
+                finish();
+            }
+        });
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        AlertDialog alerta = builder.create();
+        alerta.show();
+    }
+
+
+}

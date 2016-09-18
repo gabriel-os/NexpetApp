@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin">
+
+    <Spinner
+        android:id="@+id/sp_Logradouro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/txtEndereco"
+        android:layout_toStartOf="@+id/txtEndereco" />
+
+    <EditText
+        android:id="@+id/txtEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#e1e0e0"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPostalAddress"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/sp_Logradouro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/sp_Logradouro"
+        android:layout_below="@+id/sp_Logradouro"
+        android:layout_marginTop="30dp"
+        android:background="#e1e0e0"
+        android:hint="Número"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtComplemento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/sp_Logradouro"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/txtNumero"
+        android:layout_toRightOf="@+id/txtNumero"
+        android:background="#e1e0e0"
+        android:hint="Complemento"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtCEP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtNumero"
+        android:layout_marginTop="30dp"
+
+        android:layout_toLeftOf="@+id/txtComplemento"
+        android:layout_toStartOf="@+id/txtComplemento"
+        android:background="#e1e0e0"
+        android:hint="CEP"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtBairro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtTelefone"
+        android:layout_alignLeft="@+id/txtComplemento"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/txtComplemento"
+        android:background="#e1e0e0"
+        android:ems="10"
+        android:hint="Bairro"
+        android:inputType="number"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtCEP"
+        android:layout_marginTop="80dp"
+        android:layout_toLeftOf="@+id/txtBairro"
+        android:layout_toStartOf="@+id/txtBairro"
+        android:background="#e1e0e0"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="phone"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtCelular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtTelefone"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/txtTelefone"
+        android:layout_toRightOf="@+id/txtTelefone"
+        android:background="#e1e0e0"
+        android:ems="10"
+        android:hint="Celular"
+        android:inputType="phone"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+</RelativeLayout>

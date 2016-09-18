@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">NexPet</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">Próximo</string>
+    <string name="skip">Avançar</string>
+    <string name="start">Vamos Lá!</string>
+
+    <string name="slide_1_title">A qualquer HORA e em qualquer LUGAR</string>
+    <string name="slide_1_desc">Marque serviços para seu PET a qualquer momento e sem sair de CASA!</string>
+
+    <string name="slide_2_title">Interface RÁPIDA, FÁCIL e PRÁTICA</string>
+    <string name="slide_2_desc">Com menus FÁCEIS, longe de COMPLICAÇÕES e inteirament INTUITIVO, navegue pelo NexPet em uma interface feita para VOCÊ!</string>
+
+    <string name="slide_3_title">Evite ligações CARAS e CHATAS</string>
+    <string name="slide_3_desc">Não pague mais por ligações CARAS, DEMORADAS e MONÓTONAS, com o NexPet em apenas alguns TOQUES seu serviço já está marcado!</string>
+
+    <string name="slide_4_title">Bem-vindo ao NexPet!!</string>
+    <string name="slide_4_desc"></string>
+
+    <string name="play_again_desc">Para ver novamente, limpe os dados do app</string>
+    <string name="play_again">Ver novamente</string>
+
+
+</resources>

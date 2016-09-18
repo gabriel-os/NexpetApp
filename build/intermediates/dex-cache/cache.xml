@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Gabriel\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\support-annotations-23.3.0_c5626ec60e15a952f60ed55ac5879e787086d787.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\internal_impl-23.3.0_e88c263f43206d2604f180d067f16110982f81f4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.3.0_a9f1ebbb6db0e9b33efe304c74a7adad548750da.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_e7ea5068b3e4cf76e689eec5beb6f3504930e550.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_48c7eb4b62f835bb5563253784b9a51547bff29e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="37a21838df8994c5723f556b8bfd93c49d746e9e">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\instant-run_c0e714b422c5177583ddd4684a56e9c385db80cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="cf9754bfa8484f88f26e45d28fe298daa544d4f0">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.mcxiaoke.volley-library-aar-1.0.1_f9d13a8461b23de3cb4dfebfc832801e8d69936f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5a9e35c720f9503b632ea570e31dc5e682b4cae1">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_fca5c1cf556b28cc2851b0c445da7aa6c4c8523e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_9269973608fd4f584fda69d96d7ff82b3c7baf4d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\design\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.3.0_5b77042b11f33cc19be6eb3b9b4412effa427f9c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.0.0_6ca857b485a2d157c98454856ecbab3fdc00136d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\Users\Gabriel\Documents\TCC\NexPet\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.3.0_24039f13be1933302cf77fe1360e5cc51fe10c14.jar" />
+    </item>
+
+</items>
