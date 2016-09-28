@@ -35,6 +35,8 @@ public class PerfilpetActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         Intent i = new Intent(getApplicationContext(), PrincipalActivity.class);
+        finish();
         startActivity(i);
+
     }
 }

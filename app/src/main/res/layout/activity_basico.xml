@@ -7,6 +7,20 @@
     android:layout_marginTop="@dimen/activity_vertical_margin">
 
     <EditText
+        android:id="@+id/txtNomeUsuario"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="#e1e0e0"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:paddingTop="5dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="20dp" />
+
+    <EditText
         android:id="@+id/txtConfirmaSenha"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
@@ -41,23 +55,10 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/txtNome"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:background="#e1e0e0"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        android:paddingTop="5dp"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
-        android:textSize="20dp" />
-
-    <EditText
         android:id="@+id/txtEmail"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNome"
+        android:layout_below="@+id/txtNomeUsuario"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:background="#e1e0e0"

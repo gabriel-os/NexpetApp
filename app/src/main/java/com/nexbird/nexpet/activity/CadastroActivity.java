@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -33,17 +34,11 @@ import java.util.Map;
 
 public class CadastroActivity extends ActivityGroup implements View.OnClickListener {
     private static final String TAG = CadastroActivity.class.getSimpleName();
-    private Button btnContinuar, btnPular, btnVoltar, btnTeste;
+    private Button btnContinuar, btnVoltar, btnTeste;
     private TextView txtEndereco, txtNumero, txtCEP, txtComplemento, txtBairro, txtTelefone, txtCelular, txtNome, txtEmail, txtSenha, txtConfirmaSenha;
     private Spinner sp_logradouro;
     private TabHost host;
     private int[] layouts;
-    /* private Button btnRegister;
-     private Button btnLinkToLogin;
-     private EditText inputFullName;
-     private EditText inputEmail;
-     private EditText inputPassword;
-     private EditText inputConfirmPassword;*/
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -53,17 +48,16 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-       /* host = (TabHost) findViewById(R.id.tabHost);*/
+
+        host = (TabHost) findViewById(R.id.tabHost);
         btnContinuar = (Button) findViewById(R.id.btnContinuar);
-        btnPular = (Button) findViewById(R.id.btnPular);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
 
-        /*inputFullName = (EditText) findViewById(R.id.txtNome);
-        inputEmail = (EditText) findViewById(R.id.txtEmail);
-        inputPassword = (EditText) findViewById(R.id.txtSenha);
-        inputConfirmPassword = (EditText) findViewById(R.id.txtConfirma);
-        btnLinkToLogin = (Button) findViewById(R.id.btnVoltar);*/
+        txtNome = (EditText) findViewById(R.id.txtNomeUsuario);
+        txtEmail = (EditText) findViewById(R.id.txtEmail);
+        txtSenha = (EditText) findViewById(R.id.txtSenha);
+        txtConfirmaSenha = (EditText) findViewById(R.id.txtConfirmaSenha);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -84,16 +78,26 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             finish();
         }
         btnContinuar.setOnClickListener(this);
-        btnPular.setOnClickListener(this);
+        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                setTag(host.getCurrentTab());
+            }
+        });
         btnVoltar.setOnClickListener(this);
 
         layouts = new int[]{
-                R.layout.activity_welcome1,
-                R.layout.activity_welcome2,
-                R.layout.activity_welcome3,
-                R.layout.activity_welcome4};
+                R.layout.activity_basico,
+                R.layout.activity_informacao,
+                R.layout.activity_cadanimal};
 
-        // Register Button Click event
+        btnContinuar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("Gabriel: ", String.valueOf(txtNome.getText()));
+            }
+        });
+
        /* btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String name = inputFullName.getText().toString().trim();
@@ -123,7 +127,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             }
         });*/
 
-        host = (TabHost) findViewById(R.id.tabHost);
+
         host.setup(this.getLocalActivityManager());
 
         TabHost.TabSpec ts1 = host.newTabSpec("tela1");
@@ -146,20 +150,14 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
     }
 
-    /**
-     * Function to store user in MySQL database will post params(tag, name,
-     * email, password) to register url
-     */
-
-
     private int getItem(int i) {
         return host.getCurrentTab() + i;
     }
 
     private void registerUser(final String name, final String email, final String password,
-                              final String confimPassoword, final String telefone,
+                              final String confimPassoword/*, final String telefone,
                               final String celular, final String endereco, final String complemento,
-                              final String cep, final String bairro) {
+                              final String cep, final String bairro*/) {
 
         if (password != confimPassoword) {
 
@@ -190,10 +188,10 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                             String email = user.getString("email");
                             String created_at = user
                                     .getString("criado_em");
-                           //String endereco = null, telefone = null;
+                            //String endereco = null, telefone = null;
 
                             // Inserting row in users table
-                            db.addUser(name, email, uid, endereco, telefone, created_at);
+                            //db.addUser(name, email, uid, null, null, created_at);
 
                             Toast.makeText(getApplicationContext(), "Usuário criado com sucesso!!", Toast.LENGTH_LONG).show();
 
@@ -234,12 +232,12 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                     params.put("name", name);
                     params.put("email", email);
                     params.put("password", password);
-                    params.put("telefone", telefone);
+                   /* params.put("telefone", telefone);
                     params.put("celular", celular);
                     params.put("endereco", endereco);
                     params.put("complemento", complemento);
                     params.put("cep", cep);
-                    params.put("bairro", bairro);
+                    params.put("bairro", bairro);*/
                     //params.put("foto", foto);
 
 
@@ -266,76 +264,64 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             pDialog.dismiss();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnContinuar:
-                int current = getItem(+1);
-                Log.e("Teste botão: ", String.valueOf(current));
-                if (current == 1) {
-                    btnPular.setEnabled(false);
-                    btnVoltar.setText("Voltar");
-                    host.setCurrentTab(current);
-                } else if (current < layouts.length) {
-                    // move to next screen
-                    btnVoltar.setText("Voltar etapa");
-                    host.setCurrentTab(current);
-                } else {
-                    btnVoltar.setText("Voltar etapa");
-                    btnContinuar.setText("Cadastrar");
-                    btnPular.setEnabled(false);
-                    btnContinuar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            registerUser(txtNome.getText().toString(),
-                                    txtEmail.getText().toString(),
-                                    txtSenha.getText().toString(),
-                                    txtConfirmaSenha.getText().toString(),
-                                    txtTelefone.getText().toString(),
-                                    txtCelular.getText().toString(),
-                                    txtEndereco.getText().toString(),
-                                    txtComplemento.getText().toString(),
-                                    txtCEP.getText().toString(),
-                                    txtBairro.getText().toString());
-                            Log.e("Teste: ", "Foi!!");
-                        }
-                    });
-                }
-                break;
-            case R.id.btnVoltar:
-                current = getItem(-1);
-                if (current == 1) {
-                    btnPular.setEnabled(false);
-                    btnVoltar.setText("Voltar");
-                    host.setCurrentTab(current);
-                } else if (current < layouts.length) {
-                    // move to next screen
-                    btnVoltar.setText("Voltar etapa");
-                    host.setCurrentTab(current);
-                } else {
-                    btnVoltar.setText("Voltar etapa");
-                    btnContinuar.setText("Cadastrar");
-                    btnPular.setEnabled(false);
-                }
-                break;
-            case R.id.btnPular:
-                current = getItem(-1);
-                if (current == 1) {
-                    btnPular.setEnabled(false);
-                    btnVoltar.setText("Voltar");
-                } else if (current < layouts.length) {
-                    // move to next screen
-                    btnVoltar.setText("Voltar etapa");
-                    host.setCurrentTab(current);
-                } else {
-                    btnVoltar.setText("Voltar etapa");
-                    btnContinuar.setText("Cadastrar");
-                    btnPular.setEnabled(false);
-                }
-                break;
+    public void setCurrentTab(int index) {
 
+        if (index == host.getCurrentTab()) {
+        } else {
+            host.setCurrentTab(index);
+            Log.e("Teste de tela: ", String.valueOf(host.getCurrentTab()));
+        }
+    }
+
+    public void setTag(int index) {
+        if (index == 0) {
+            btnVoltar.setText("Voltar");
+            btnContinuar.setText("Próximo");
+        } else if (index == 1) {
+            btnVoltar.setText("Voltar etapa");
+            btnContinuar.setText("Próximo");
+        } else if (index == 2) {
+            btnVoltar.setText("Voltar etapa");
+            btnContinuar.setText("Cadastrar");
         }
 
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.btnContinuar:
+
+
+                Log.e("Teste variavel: ", "");
+                int current = getItem(+1);
+                setCurrentTab(current);
+                if (btnContinuar.getText().equals("Cadastrar") && host.getCurrentTab() == 2) {
+                    btnContinuar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            registerUser(String.valueOf(txtNome.getText()), String.valueOf(txtEmail.getText()), String.valueOf(txtSenha.getText()), String.valueOf(txtConfirmaSenha.getText()));
+                        }
+                    });
+                } else {
+                    btnContinuar.setOnClickListener(this);
+
+                }
+                break;
+            case R.id.btnVoltar:
+                current = getItem(-1);
+                setCurrentTab(current);
+                btnContinuar.setOnClickListener(this);
+                break;
+            case R.id.tabHost:
+
+                break;
+        }
+
+
+    }
 }
+
+
+

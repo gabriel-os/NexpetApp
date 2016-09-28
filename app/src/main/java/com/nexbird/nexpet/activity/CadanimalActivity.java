@@ -42,7 +42,7 @@ public class CadanimalActivity extends Activity {
     private SessionManager session;
     private TextView txtNome, txtRaca, txtCaracteristica;
     private Button btnOutro, btnRegistrar;
-    private Spinner spPorte;
+    private Spinner spQuantidade;
     private ProgressDialog pDialog;
     private String query;
 
@@ -50,13 +50,7 @@ public class CadanimalActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadanimal);
 
-        spPorte = (Spinner) findViewById(R.id.sp_quantidade);
-       /* txtNome = (TextView) findViewById(R.id.txtNome);
-        txtRaca = (TextView) findViewById(R.id.txtRaca);
-        txtCaracteristica = (TextView) findViewById(R.id.txtCaracteristica);
-        btnOutro = (Button) findViewById(R.id.btnOutro);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrar);*/
-
+        spQuantidade = (Spinner) findViewById(R.id.sp_quantidade);
 
         List<String> categorias = new ArrayList<String>();
         categorias.add("1");
@@ -71,7 +65,7 @@ public class CadanimalActivity extends Activity {
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
-        spPorte.setAdapter(adaptador);
+        spQuantidade.setAdapter(adaptador);
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -99,8 +93,21 @@ public class CadanimalActivity extends Activity {
             }
         });*/
 
+       /* switch (String.valueOf(spQuantidade.getTag())) {
+            case "1":
 
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            case "5":
+                break;
+        }*/
     }
+
 
     private void prepareCompleta(final String query, final String nome, final String porte, final String raca, final String caracteristica) {
 
@@ -127,7 +134,7 @@ public class CadanimalActivity extends Activity {
                         // Now store the user in sqlite
 
                         // Inserting row in users table
-                       // db.(name, email, uid, created_at, endereco, telefone);
+                        // db.(name, email, uid, created_at, endereco, telefone);
 
                         Toast.makeText(getApplicationContext(), "Cadastro de pet concluído com sucesso!!", Toast.LENGTH_LONG).show();
 

@@ -44,6 +44,8 @@ import java.util.Map;
  */
 public class AgendadoActivity extends AppCompatActivity {
     private static final String TAG = AgendadoActivity.class.getSimpleName();
+    private static HashMap rs;
+    public int cont;
     private List<Agendados> listaAgendada = new ArrayList<>();
     private AdaptadorAgendado mAdapter;
     private RecyclerView recyclerView;
@@ -53,8 +55,6 @@ public class AgendadoActivity extends AppCompatActivity {
     private SessionManager session;
     private String[] info;
     private ProgressDialog pDialog;
-    private static HashMap rs;
-    public int cont;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,9 +181,9 @@ public class AgendadoActivity extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Erro ao recuperar: " + error.getMessage());
+               /* Log.e(TAG, "Erro ao recuperar: " + error.getMessage());
                 Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
+                        error.getMessage(), Toast.LENGTH_LONG).show();*/
                 hideDialog();
             }
         }) {
@@ -235,6 +235,12 @@ public class AgendadoActivity extends AppCompatActivity {
         alerta.show();
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.activity_agendado, container, false);
+    }
+
     public interface ClickListener {
         void onClick(View view, int position);
 
@@ -282,12 +288,6 @@ public class AgendadoActivity extends AppCompatActivity {
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
         }
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_agendado, container, false);
     }
 
 }

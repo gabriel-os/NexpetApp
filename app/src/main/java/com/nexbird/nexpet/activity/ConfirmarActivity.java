@@ -34,22 +34,50 @@ import java.util.Map;
 
 public class ConfirmarActivity extends AppCompatActivity {
     private static final String TAG = AgendadoActivity.class.getSimpleName();
-    private TextView lblPetshop, lblServico, lblDataHora, lblPet , lblPS, lblDH, lblS, lblP;
+    private TextView lblPetshop, lblServico, lblDataHora, lblPet, lblPS, lblDH, lblS, lblP;
     private Button btnAgendar, btnBack;
     private SQLiteHandler db;
     private ProgressDialog pDialog;
     private SessionManager session;
     private String dataAgendada, idPet, nomePetshop, servico;
+    View.OnClickListener click = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btnAgendar:
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    builder.setTitle("Deseja realmente agendar o serviço?");
+                    builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            prepareAgendarData();
+                        }
+                    });
+                    builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                        }
+                    });
+                    AlertDialog alerta = builder.create();
+                    alerta.show();
+                    break;
+                case R.id.btnBack:
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar);
 
+        if (!session.isLoggedIn()) {
+            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(i);
+        }
 
         Bundle params = getIntent().getExtras();
 
-        dataAgendada = params.getString("data")+" " + params.getString("hora");
+        dataAgendada = params.getString("data") + " " + params.getString("hora");
         nomePetshop = params.getString("nome");
         nomePetshop = params.getString("nomePetshop");
         servico = params.getString("servico");
@@ -85,33 +113,6 @@ public class ConfirmarActivity extends AppCompatActivity {
         btnBack.setOnClickListener(click);
 
     }
-    View.OnClickListener click = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btnAgendar:
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Deseja realmente agendar o serviço?");
-                    builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            prepareAgendarData();
-                        }
-                    });
-                    builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface arg0, int arg1) {
-                        }
-                    });
-                    AlertDialog alerta = builder.create();
-                    alerta.show();
-                    break;
-
-                case R.id.btnBack:
-
-                    break;
-
-            }
-        }
-    };
 
     private void prepareAgendarData() {
         HashMap<String, String> user = db.getUserDetails();
@@ -143,6 +144,7 @@ public class ConfirmarActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Serviço agendado com sucesso!!", Toast.LENGTH_LONG);
 
                             Intent i = new Intent(getApplicationContext(), PrincipalActivity.class);
+                            finish();
                             startActivity(i);
                         } else {
                             Toast.makeText(getApplicationContext(), "Ocorreu um erro. Tente novamente!", Toast.LENGTH_LONG);
@@ -174,9 +176,11 @@ public class ConfirmarActivity extends AppCompatActivity {
 
             @Override
             protected Map<String, String> getParams() {
+                String temp = dataAgendada.replace("/", "-");
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("dataAgendada", dataAgendada);
+                params.put("dataAgendada", temp);
+                Log.e("Data agendada: ", temp);
                 params.put("nomeAnimal", "Kim");
                 params.put("nomePetshop", nomePetshop);
                 params.put("unique_index", uid);

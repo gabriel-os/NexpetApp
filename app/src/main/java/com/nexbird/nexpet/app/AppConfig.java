@@ -2,7 +2,7 @@ package com.nexbird.nexpet.app;
 
 public class AppConfig {
 
-    public static String URL_GLOBAL = "nexpet.esy.es";
+    public static String URL_GLOBAL = "android.nexpetapp.com.br";
 
     public static String SW = "http://" + URL_GLOBAL + "/";
 

@@ -57,9 +57,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                     + KEY_NAME + " TEXT,"
                     + KEY_EMAIL + " TEXT UNIQUE,"
                     + KEY_UID + " TEXT,"
-                    + KEY_CREATED_AT + " TEXT,"
-                    + KEY_ENDERECO + "TEXT,"
-                    + KEY_TELEFONE + "TEXT)";
+                    + KEY_CREATED_AT + " TEXT)"
+                   /* + KEY_ENDERECO + "TEXT,"
+                    + KEY_TELEFONE + "TEXT)"*/;
 
             String CREATE_PET_TABLE = "CREATE TABLE " + TABLE_PET + " ("
                     + KEY_ID + " INTEGER PRIMARY KEY,"
@@ -99,8 +99,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_NAME, name); // Name
         values.put(KEY_EMAIL, email); // Email
         values.put(KEY_UID, uid); // Email
-        values.put(KEY_ENDERECO, endereco);
-        values.put(KEY_TELEFONE, telefone);
+        // values.put(KEY_ENDERECO, endereco);
+        // values.put(KEY_TELEFONE, telefone);
         values.put(KEY_CREATED_AT, created_at); // Created At
 
         // Inserting Row

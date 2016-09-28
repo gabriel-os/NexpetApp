@@ -25,9 +25,33 @@ public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyVi
     private List<Agendar> agendar;
     private Button btnPerfilPet;
 
+    public AdaptadorAgendar(List<Agendar> agendar) {
+        this.agendar = agendar;
+    }
+
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.linha_agendar, parent, false);
+
+        return new MyViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(MyViewHolder holder, int position) {
+        Agendar ag = agendar.get(position);
+        holder.lblNomePetshop.setText(ag.getNomePetshop());
+        holder.imLogoPetshop.setImageResource(R.mipmap.teste);
+    }
+
+    @Override
+    public int getItemCount() {
+        return agendar.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -66,8 +90,6 @@ public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyVi
                             cont++;
                         }
                     }
-
-
                     Intent i = new Intent(v.getContext(), PerfilpetActivity.class);
 
                     Bundle params = new Bundle();
@@ -82,29 +104,5 @@ public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyVi
             });
         }
 
-    }
-
-    public AdaptadorAgendar(List<Agendar> agendar) {
-        this.agendar = agendar;
-    }
-
-    @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.linha_agendar, parent, false);
-
-        return new MyViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        Agendar ag = agendar.get(position);
-        holder.lblNomePetshop.setText(ag.getNomePetshop());
-        holder.imLogoPetshop.setImageResource(R.mipmap.teste);
-    }
-
-    @Override
-    public int getItemCount() {
-        return agendar.size();
     }
 }
