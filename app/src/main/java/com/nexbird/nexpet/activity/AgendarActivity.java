@@ -41,6 +41,7 @@ import java.util.List;
  */
 public class AgendarActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = AgendarActivity.class.getSimpleName();
+    private static HashMap rs;
     private List<Agendar> listaAgendar = new ArrayList<>();
     private RecyclerView recyclerView;
     private AdaptadorAgendar mAdapter;
@@ -49,7 +50,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
     private SessionManager session;
     private String[] info;
     private ProgressDialog pDialog;
-    private static HashMap rs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +92,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
                 params.putString("descricao", descricao);
                 params.putString("id", id);
                 params.putString("endereco", endereco);
-                params.putString("","");
 
                 i.putExtras(params);
 
@@ -156,7 +155,11 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
                             temp += tempRow.getString("endereco") + ",,, ";
                             temp += tempRow.getString("nomeResposavel") + ",,,";
                             temp += tempRow.getString("telefone") + ",,,";
-                            temp += tempRow.getString("descricao");
+                            temp += tempRow.getString("descricao") + ",,,";
+                            temp += tempRow.getString("servico") + ",,,";
+                            temp += tempRow.getString("preco") + ",,,";
+                            temp += tempRow.getString("descricaoServico");
+
 
                             info.put(i, temp);
                             Log.e("Linhas: ", String.valueOf(info.get(i)));

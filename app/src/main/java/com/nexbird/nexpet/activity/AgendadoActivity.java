@@ -3,6 +3,7 @@ package com.nexbird.nexpet.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -88,7 +89,33 @@ public class AgendadoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Agendados ag = listaAgendada.get(position);
-                Toast.makeText(getApplicationContext(), ag.getNomePetshop() + " foi selecionado!" , Toast.LENGTH_SHORT).show();
+
+                String id = ag.getIdAgendado();
+                String unique_index = ag.getUnique_index();
+                String dataAgendada = ag.getDataMarcada();
+                String nomePetshop = ag.getNomePetshop();
+                String nomeAnimal = ag.getNomePet();
+                String servico = ag.getServico();
+                String precoFinal = ag.getPrecoFinal();
+                String confirmado = ag.getConfirmado();
+
+                Intent i = new Intent(getApplicationContext(), ServicosActivity.class);
+
+                Bundle params = new Bundle();
+
+                params.putString("id", id);
+                params.putString("unique_index", unique_index);
+                params.putString("dataAgendada", dataAgendada);
+                params.putString("nomePetshop", nomePetshop);
+                params.putString("nomeAnimal", nomeAnimal);
+                params.putString("servico", servico);
+                params.putString("precoFinal", precoFinal);
+                params.putString("confirmado", confirmado);
+
+                i.putExtras(params);
+
+                startActivity(i);
+
             }
 
             @Override
@@ -96,8 +123,6 @@ public class AgendadoActivity extends AppCompatActivity {
 
             }
         }));
-
-
 
 
         prepareAgendadoData();
@@ -142,11 +167,14 @@ public class AgendadoActivity extends AppCompatActivity {
                             String temp = "";
                             JSONObject tempRow = rsTemp.getJSONObject(String.valueOf(i));
                             temp += tempRow.getString("id") + ",,,";
+                            temp += tempRow.getString("unique_index") + ",,,";
                             temp += tempRow.getString("dataAgendada") + ",,,";
                             temp += tempRow.getString("nomePetshop") + ",,,";
-                            temp += tempRow.getString("nomeAnimal")+ ",,,";
-                            temp += tempRow.getString("servico")+ ",,,";
-                            temp += tempRow.getString("precoFinal");
+                            temp += tempRow.getString("endereco") + ",,,";
+                            temp += tempRow.getString("nomeAnimal") + ",,,";
+                            temp += tempRow.getString("servico") + ",,,";
+                            temp += tempRow.getString("precoFinal") + ",,,";
+                            temp += tempRow.getString("confirmado");
                             info.put(i, temp);
                             Log.e("Linhas: ", String.valueOf(info.get(i)));
                             AgendadoActivity.rs = info;
@@ -158,7 +186,7 @@ public class AgendadoActivity extends AppCompatActivity {
 
                             String[] temp = info.get((i)).split(",,,");
                             Log.e("Teste Array: ", String.valueOf(temp[0]));
-                            Agendados ag = new Agendados(temp[0], temp[1], temp[2],temp[3], temp[4], temp[5]);
+                            Agendados ag = new Agendados(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
                             listaAgendada.add(ag);
                             mAdapter.notifyDataSetChanged();
                         }

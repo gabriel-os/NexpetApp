@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/ic_fundoapp">
+
+    <TextView
+        android:id="@+id/txtUnique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Erro"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/txtPetshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAnimal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:text="Erro"
+        android:textColor="@color/text"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtAnimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtPetshop"
+        android:layout_alignStart="@+id/txtPetshop"
+        android:layout_below="@+id/txtUnique"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Erro"
+        android:textColor="@color/text"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtServico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtPetshop"
+        android:layout_alignStart="@+id/txtPetshop"
+        android:layout_below="@+id/txtPetshop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Erro"
+        android:textColor="@color/text"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/txtPreco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtServico"
+        android:layout_alignRight="@+id/txtServico"
+        android:layout_below="@+id/txtData"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Erro"
+        android:textColor="@color/text"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/txtEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPetshop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Erro"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/txtData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtEndereco"
+        android:layout_alignRight="@+id/txtEndereco"
+        android:layout_alignTop="@+id/txtServico"
+        android:layout_marginTop="45dp"
+        android:text="Erro"
+        android:textColor="@color/text"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/btnDesmarcar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:text="   Desmarcar   "
+        android:textColor="#fff"
+        android:textSize="15dp" />
+
+</RelativeLayout>

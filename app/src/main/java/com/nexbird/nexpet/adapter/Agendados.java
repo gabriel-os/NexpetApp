@@ -8,21 +8,27 @@ import java.util.HashMap;
 public class Agendados {
 
     private String id;
+    private String unique_index;
     private String nomePetshop;
+    private String endereco;
     private String nomeAnimal;
     private String dataAgendada;
     private String servico;
     private String precoFinal;
+    private String confirmado;
     private HashMap resultado;
 
 
-    public Agendados(String id, String dataAgendada, String nomePetshop, String nomeAnimal, String servico, String precoFinal) {
+    public Agendados(String id, String unique_index, String dataAgendada, String nomePetshop, String endereco, String nomeAnimal, String servico, String precoFinal, String confirmado) {
         this.id = id;
+        this.unique_index = unique_index;
         this.nomePetshop = nomePetshop;
+        this.endereco = endereco;
         this.nomeAnimal = nomeAnimal;
         this.dataAgendada = dataAgendada;
         this.servico = servico;
         this.precoFinal = precoFinal;
+        this.confirmado = confirmado;
     }
 
     public String getIdAgendado() {
@@ -65,19 +71,43 @@ public class Agendados {
         this.resultado = resultado;
     }
 
+    public String getServico() {
+        return servico;
+    }
+
     public void setServico(String servico) {
         this.servico = servico;
+    }
+
+    public String getPrecoFinal() {
+        return precoFinal;
     }
 
     public void setPrecoFinal(String precoFinal) {
         this.precoFinal = precoFinal;
     }
 
-    public String getServico() {
-        return servico;
+    public String getConfirmado() {
+        return confirmado;
     }
 
-    public String getPrecoFinal() {
-        return precoFinal;
+    public void setConfirmado(String confirmado) {
+        this.confirmado = confirmado;
+    }
+
+    public String getUnique_index() {
+        return unique_index;
+    }
+
+    public void setUnique_index(String unique_index) {
+        this.unique_index = unique_index;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }
