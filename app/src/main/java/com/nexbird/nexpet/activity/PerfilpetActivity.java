@@ -13,6 +13,7 @@ import com.nexbird.nexpet.R;
 
 public class PerfilpetActivity extends AppCompatActivity {
     private TextView lblTelefone, lblNome, lblDescricao, lblEndereco;
+    private String servico, preco, descricaoServico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,17 @@ public class PerfilpetActivity extends AppCompatActivity {
 
         Bundle params = getIntent().getExtras();
 
+        servico = params.getString("servico");
+        preco = params.getString("preco");
+        descricaoServico = params.getString("descricaoServico");
+
+
+
         lblNome.setText(params.getString("nome"));
         lblTelefone.setText(params.getString("telefone"));
         lblDescricao.setText(params.getString("descricao"));
         lblEndereco.setText(params.getString("endereco"));
+
     }
 
     public void onBackPressed() {

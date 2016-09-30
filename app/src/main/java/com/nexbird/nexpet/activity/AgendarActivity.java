@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -45,7 +44,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
     private List<Agendar> listaAgendar = new ArrayList<>();
     private RecyclerView recyclerView;
     private AdaptadorAgendar mAdapter;
-    private Button btnPerfil;
     private SQLiteHandler db;
     private SessionManager session;
     private String[] info;
@@ -65,7 +63,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
         pDialog.setCancelable(false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        btnPerfil = (Button) findViewById(R.id.btnPerfilPet);
 
         mAdapter = new AdaptadorAgendar(listaAgendar);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -83,8 +80,12 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
                 String descricao = ag.getDescricaoPetshop();
                 String id = ag.getIdPetshop();
                 String endereco = ag.getEnderecoPetshop();
+                String servico = ag.getServico();
+                String preco = ag.getPreco();
+                String descricaoServico = ag.getDescricaoServico();
 
-                Intent i = new Intent(getApplicationContext(), ServicosActivity.class);
+
+                Intent i = new Intent(getApplicationContext(), PerfilpetActivity.class);
 
                 Bundle params = new Bundle();
 
@@ -92,6 +93,9 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
                 params.putString("descricao", descricao);
                 params.putString("id", id);
                 params.putString("endereco", endereco);
+                params.putString("servico", servico);
+                params.putString("preco", preco);
+                params.putString("descricaoServico", descricaoServico);
 
                 i.putExtras(params);
 
@@ -160,7 +164,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
                             temp += tempRow.getString("preco") + ",,,";
                             temp += tempRow.getString("descricaoServico");
 
-
                             info.put(i, temp);
                             Log.e("Linhas: ", String.valueOf(info.get(i)));
                             AgendarActivity.rs = info;
@@ -172,7 +175,7 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
 
                             String[] temp = info.get((i)).split(",,,");
                             Log.e("Teste Array: ", String.valueOf(temp[2]));
-                            Agendar ag = new Agendar(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[0]);
+                            Agendar ag = new Agendar(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9], temp[0]);
 
                             listaAgendar.add(ag);
                             mAdapter.notifyDataSetChanged();

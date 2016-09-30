@@ -4,26 +4,20 @@ package com.nexbird.nexpet.adapter;
  * Created by Gabriel on 04/07/2016.
  */
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nexbird.nexpet.R;
-import com.nexbird.nexpet.activity.PerfilpetActivity;
 
 import java.util.List;
 
 public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyViewHolder> implements View.OnClickListener {
 
     private List<Agendar> agendar;
-    private Button btnPerfilPet;
 
     public AdaptadorAgendar(List<Agendar> agendar) {
         this.agendar = agendar;
@@ -65,13 +59,7 @@ public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyVi
 
             lblNomePetshop = (TextView) view.findViewById(R.id.lblNomePetshop);
             imLogoPetshop = (ImageView) view.findViewById(R.id.imLogoPetshop);
-            btnPerfilPet = (Button) view.findViewById(R.id.btnPerfilPet);
-
-
-            btnPerfilPet.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
+/*
                     String nomePetshop = (String) lblNomePetshop.getText();
                     int cont = 0;
                     String descricao = "";
@@ -99,9 +87,8 @@ public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyVi
                     params.putString("endereco", endereco);
                     Log.e("Teste: ", nomePetshop + " " + descricao + " " + telefone + " " + endereco);
                     i.putExtras(params);
-                    v.getContext().startActivity(i);
-                }
-            });
+                    v.getContext().startActivity(i);*/
+
         }
 
     }

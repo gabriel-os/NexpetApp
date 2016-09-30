@@ -13,9 +13,12 @@ public class Agendar {
     private String telefonePetshop;
     private String descricaoPetshop;
     private String email;
+    private String servico;
+    private String preco;
+    private String descricaoServico;
 
 
-    public Agendar(String unique_index, String nomePetshop, String email, String enderecoPetshop, String responsavelPetshop, String telefonePetshop, String descricaoPetshop, String logoPetshop) {
+    public Agendar(String unique_index, String nomePetshop, String email, String enderecoPetshop, String responsavelPetshop, String telefonePetshop, String descricaoPetshop, String servico, String preco, String descricaoServico, String logoPetshop) {
         this.unique_index = unique_index;
         this.email = email;
         this.nomePetshop = nomePetshop;
@@ -24,12 +27,15 @@ public class Agendar {
         this.responsavelPetshop = responsavelPetshop;
         this.telefonePetshop = telefonePetshop;
         this.descricaoPetshop = descricaoPetshop;
-
+        this.servico = servico;
+        this.preco = preco;
+        this.descricaoServico = descricaoServico;
     }
 
     public String getIdPetshop() {
         return unique_index;
     }
+
     public void setIdPetshop(String id) {
         this.unique_index = id;
     }
@@ -37,6 +43,7 @@ public class Agendar {
     public String getNomePetshop() {
         return nomePetshop;
     }
+
     public void setNomePet(String nomePetshop) {
         this.nomePetshop = nomePetshop;
     }
@@ -44,6 +51,7 @@ public class Agendar {
     public String getLogoPetshop() {
         return logoPetshop;
     }
+
     public void setLogoPetshop(String logoPetshop) {
         this.logoPetshop = logoPetshop;
     }
@@ -88,4 +96,27 @@ public class Agendar {
         this.email = email;
     }
 
+    public String getServico() {
+        return servico;
+    }
+
+    public void setServico(String servico) {
+        this.servico = servico;
+    }
+
+    public String getPreco() {
+        return preco;
+    }
+
+    public void setPreco(String preco) {
+        this.preco = preco;
+    }
+
+    public String getDescricaoServico() {
+        return descricaoServico;
+    }
+
+    public void setDescricaoServico(String descricaoServico) {
+        this.descricaoServico = descricaoServico;
+    }
 }

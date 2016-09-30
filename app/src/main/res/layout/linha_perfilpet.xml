@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtServico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:text="Nome do serviço"
+        android:textColor="@color/text"
+        android:textSize="15dp" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:background="#fff" />
+
+        <ImageView
+            android:id="@+id/imgPequeno"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#000" />
+
+        <ImageView
+            android:id="@+id/imgMedio"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#aaa" />
+
+        <ImageView
+            android:id="@+id/imgGrande"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#bbb" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tbCao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/txtTeste"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#f44336"
+            android:textColor="@color/text" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#000" />
+
+        <TextView
+            android:id="@+id/txtPequeno"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#64B5F6"
+            android:padding="6dp"
+            android:text="R$20,00"
+            android:textAlignment="center"
+            android:textColor="@color/text" />
+
+        <TextView
+            android:id="@+id/txtMedio"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#1E88E5"
+            android:padding="6dp"
+            android:text="R$40,00"
+            android:textAlignment="center"
+            android:textColor="@color/text" />
+
+        <TextView
+            android:id="@+id/txtGrande"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#0D47A1"
+            android:padding="6dp"
+            android:text="R$60,00"
+            android:textAlignment="center"
+            android:textColor="@color/text" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp">
+
+        <ImageView
+            android:id="@+id/txtB"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#f44666"
+            android:textColor="@color/text" />
+
+        <TextView
+            android:id="@+id/txtA"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:background="#6A1B9A"
+            android:padding="6dp"
+            android:text="R$100,00"
+            android:textAlignment="center"
+            android:textColor="@color/text" />
+    </TableRow>
+
+
+</LinearLayout>
