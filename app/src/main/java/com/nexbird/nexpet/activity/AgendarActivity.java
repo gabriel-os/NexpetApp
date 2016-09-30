@@ -56,7 +56,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
 
         db = new SQLiteHandler(getApplicationContext());
 
-        // session manager
         session = new SessionManager(getApplicationContext());
 
         pDialog = new ProgressDialog(this);

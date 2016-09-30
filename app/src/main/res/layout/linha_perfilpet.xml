@@ -60,7 +60,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/txtTeste"
+            android:id="@+id/txtCao"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/ic_dog"
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="#64B5F6"
+            android:background="#14eb8a"
             android:padding="10dp"
             android:text="R$20,00"
             android:textAlignment="center"
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="#1E88E5"
+            android:background="#10bc6f"
             android:padding="10dp"
             android:text="R$40,00"
             android:textAlignment="center"
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="#0D47A1"
+            android:background="#0c8d53"
             android:padding="10dp"
             android:text="R$60,00"
             android:textAlignment="center"
@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="#0D36B0"
+            android:background="@color/colorPrimaryDark"
             android:padding="10dp"
             android:text="R$80,00"
             android:textAlignment="center"
@@ -121,19 +121,19 @@
         android:layout_marginTop="0dp">
 
         <ImageView
-            android:id="@+id/txtB"
+            android:id="@+id/imgGato"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/ic_cat"
             android:textColor="@color/text" />
 
         <TextView
-            android:id="@+id/txtA"
+            android:id="@+id/txtGato"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_weight="4"
-            android:background="#6A1B9A"
+            android:background="@color/colorPrimaryDark"
             android:padding="10dp"
             android:text="R$100,00"
             android:textAlignment="center"
