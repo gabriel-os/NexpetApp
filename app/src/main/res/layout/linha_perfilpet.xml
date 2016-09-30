@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="125dp"
+    android:layout_height="200dp"
     android:orientation="vertical">
 
     <TextView
@@ -12,39 +12,45 @@
         android:layout_marginBottom="15dp"
         android:text="Nome do serviço"
         android:textColor="@color/text"
-        android:textSize="15dp" />
+        android:textSize="21dp"
+        android:textStyle="bold" />
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="#fff" />
 
         <ImageView
             android:id="@+id/imgPequeno"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:background="#000" />
+            android:background="@mipmap/ic_pequeno" />
 
         <ImageView
             android:id="@+id/imgMedio"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:background="#aaa" />
+            android:background="@mipmap/ic_medio" />
 
         <ImageView
             android:id="@+id/imgGrande"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:background="#bbb" />
+            android:background="@mipmap/ic_grande" />
 
+        <ImageView
+            android:id="@+id/imgGigante"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_gigant" />
 
     </TableRow>
 
@@ -55,48 +61,58 @@
 
         <ImageView
             android:id="@+id/txtTeste"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="#f44336"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/ic_dog"
             android:textColor="@color/text" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#000" />
 
         <TextView
             android:id="@+id/txtPequeno"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#64B5F6"
-            android:padding="6dp"
+            android:padding="10dp"
             android:text="R$20,00"
             android:textAlignment="center"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtMedio"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#1E88E5"
-            android:padding="6dp"
+            android:padding="10dp"
             android:text="R$40,00"
             android:textAlignment="center"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtGrande"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="#0D47A1"
-            android:padding="6dp"
+            android:padding="10dp"
             android:text="R$60,00"
             android:textAlignment="center"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtGigante"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#0D36B0"
+            android:padding="10dp"
+            android:text="R$80,00"
+            android:textAlignment="center"
+            android:textColor="@color/text"
+            android:textStyle="bold" />
     </TableRow>
 
     <TableRow
@@ -106,23 +122,23 @@
 
         <ImageView
             android:id="@+id/txtB"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="#f44666"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/ic_cat"
             android:textColor="@color/text" />
 
         <TextView
             android:id="@+id/txtA"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_weight="4"
             android:background="#6A1B9A"
-            android:padding="6dp"
+            android:padding="10dp"
             android:text="R$100,00"
             android:textAlignment="center"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            android:textStyle="bold" />
     </TableRow>
-
 
 </LinearLayout>

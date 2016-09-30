@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin">
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/ic_fundoapp">
 
     <TextView
         android:id="@+id/textView3"
@@ -15,6 +16,7 @@
         android:text="Falta pouco \npara agendar o serviço!"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#444"
         android:textStyle="bold" />
 
     <TextView
@@ -24,10 +26,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
-        android:layout_marginTop="44dp"
-        android:text="Pet shop:"
+        android:layout_marginTop="35dp"
+        android:text="Petshop:"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_background_cache_hint_selector_material_dark"
+        android:textColor="#444"
         android:visibility="visible" />
 
     <TextView
@@ -37,10 +39,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblPS"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
         android:text="Data e hora:"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_background_cache_hint_selector_material_dark"
+        android:textColor="#444"
         android:visibility="visible" />
 
     <TextView
@@ -50,10 +52,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblDH"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="25dp"
         android:text="Serviço:"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_background_cache_hint_selector_material_dark"
+        android:textColor="#444"
         android:visibility="visible" />
 
     <TextView
@@ -63,10 +65,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblS"
-        android:layout_marginTop="34dp"
-        android:text="Pet:"
+        android:layout_marginTop="25dp"
+        android:text="Pet selecionado:"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_background_cache_hint_selector_material_dark"
+        android:textColor="#444"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/lblAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lblP"
+        android:layout_marginTop="25dp"
+        android:text="Serviço adicional:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#444"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/lblV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblAdd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Valor Total:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
         android:visibility="visible" />
 
     <TextView
@@ -76,11 +103,9 @@
         android:layout_above="@+id/lblDH"
         android:layout_centerInParent="true"
         android:layout_marginLeft="8dp"
-
-
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_input_method_navigation_guard" />
+        android:textColor="@color/text" />
 
     <TextView
         android:id="@+id/lblDataHora"
@@ -89,10 +114,10 @@
         android:layout_above="@+id/lblS"
         android:layout_centerInParent="true"
         android:layout_marginLeft="8dp"
-
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_input_method_navigation_guard" />
+        android:textColor="@color/text"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lblServico"
@@ -103,7 +128,7 @@
         android:layout_marginLeft="8dp"
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_input_method_navigation_guard" />
+        android:textColor="@color/text" />
 
     <TextView
         android:id="@+id/lblPet"
@@ -114,8 +139,100 @@
         android:layout_marginLeft="8dp"
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/abc_input_method_navigation_guard" />
+        android:textColor="@color/text" />
 
+    <TextView
+        android:id="@+id/lblServicoAdicional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/lblAdd"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="8dp"
+        android:text="Erro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text" />
+
+    <TextView
+        android:id="@+id/lblValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblV"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Erro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblValor"
+        android:layout_marginTop="35dp"
+        android:background="#ccc"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="Forma de pagamento:"
+            android:textColor="@color/text"
+            android:textSize="16dp" />
+
+        <RadioGroup
+            android:id="@+id/grPagamento"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbDinheiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dinheiro" />
+
+            <RadioButton
+                android:id="@+id/rbDebito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Débito" />
+
+            <RadioButton
+                android:id="@+id/rbCredito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Crédito" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/linear"
+         android:layout_marginBottom="20dp"
+         android:background="#ccc">
+         <RadioButton
+             android:text="Cartão de crédito"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/rbCartao"
+             android:layout_weight="1" />
+         <RadioButton
+             android:text="Pagar na hora do serviço"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/rbDepois"
+             android:layout_weight="1" />
+     </LinearLayout> -->
     <Button
         android:id="@+id/btnAgendar"
         android:layout_width="150dp"
@@ -126,7 +243,7 @@
         android:layout_marginBottom="16dp"
         android:background="@color/verdePrincipal"
         android:text="Agendar!"
-        android:textColor="@color/abc_primary_text_material_dark"
+        android:textColor="#fff"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -136,23 +253,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnAgendar"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/verdePrincipal"
         android:text="Refazer agendamento"
-        android:textColor="@color/abc_primary_text_material_dark"
-        android:textSize="15dp" /><![CDATA[
-
-    TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Preço final:"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/lblP"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@color/abc_background_cache_hint_selector_material_dark"
-        android:layout_marginTop="32dp" />
-
-    ]]>
+        android:textColor="#fff"
+        android:textSize="15dp" />
 </RelativeLayout>

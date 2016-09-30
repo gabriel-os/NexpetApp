@@ -1,4 +1,4 @@
-package com.nexbird.nexpet.activity;
+/*package com.nexbird.nexpet.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -143,4 +143,4 @@ public class ServicosActivity extends AppCompatActivity {
         });
         //*------------------------------------------------------------------------------------------------*
     }
-}
+}*/
