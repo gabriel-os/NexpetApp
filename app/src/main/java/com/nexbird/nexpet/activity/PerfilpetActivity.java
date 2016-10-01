@@ -12,7 +12,7 @@ import com.nexbird.nexpet.R;
  */
 
 public class PerfilpetActivity extends AppCompatActivity {
-    private TextView lblTelefone, lblNome, lblDescricao, lblEndereco;
+    private TextView lblTelefone, lblNome, lblDescricao, lblEndereco, lblHoraFunc;
     private String servico, preco, descricaoServico;
 
     @Override
@@ -24,6 +24,7 @@ public class PerfilpetActivity extends AppCompatActivity {
         lblNome = (TextView) findViewById(R.id.lblNome);
         lblDescricao = (TextView) findViewById(R.id.lblDescricao);
         lblEndereco = (TextView) findViewById(R.id.lblEndereco);
+        lblHoraFunc = (TextView) findViewById(R.id.lblHoraFunc);
 
 
         Bundle params = getIntent().getExtras();
@@ -38,6 +39,7 @@ public class PerfilpetActivity extends AppCompatActivity {
         lblTelefone.setText(params.getString("telefone"));
         lblDescricao.setText(params.getString("descricao"));
         lblEndereco.setText(params.getString("endereco"));
+        lblHoraFunc.setText(params.getString("endereco"));
 
     }
 

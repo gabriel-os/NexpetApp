@@ -11,6 +11,7 @@ public class Agendar {
     private String enderecoPetshop;
     private String responsavelPetshop;
     private String telefonePetshop;
+    private String horaFunc;
     private String descricaoPetshop;
     private String email;
     private String servico;
@@ -18,7 +19,7 @@ public class Agendar {
     private String descricaoServico;
 
 
-    public Agendar(String unique_index, String nomePetshop, String email, String enderecoPetshop, String responsavelPetshop, String telefonePetshop, String descricaoPetshop, String servico, String preco, String descricaoServico, String logoPetshop) {
+    public Agendar(String unique_index, String nomePetshop, String email, String enderecoPetshop, String responsavelPetshop, String telefonePetshop, String horaFunc, String descricaoPetshop, String servico, String preco, String descricaoServico, String logoPetshop) {
         this.unique_index = unique_index;
         this.email = email;
         this.nomePetshop = nomePetshop;
@@ -26,6 +27,7 @@ public class Agendar {
         this.enderecoPetshop = enderecoPetshop;
         this.responsavelPetshop = responsavelPetshop;
         this.telefonePetshop = telefonePetshop;
+        this.horaFunc = horaFunc;
         this.descricaoPetshop = descricaoPetshop;
         this.servico = servico;
         this.preco = preco;
@@ -118,5 +120,13 @@ public class Agendar {
 
     public void setDescricaoServico(String descricaoServico) {
         this.descricaoServico = descricaoServico;
+    }
+
+    public String getHoraFunc() {
+        return horaFunc;
+    }
+
+    public void setHoraFunc(String horaFunc) {
+        this.horaFunc = horaFunc;
     }
 }

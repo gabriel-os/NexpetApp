@@ -99,7 +99,7 @@ public class AgendadoActivity extends AppCompatActivity {
                 String precoFinal = ag.getPrecoFinal();
                 String confirmado = ag.getConfirmado();
 
-                Intent i = new Intent(getApplicationContext(), ServicosActivity.class);
+                Intent i = new Intent(getApplicationContext(), DetalheagActivity.class);
 
                 Bundle params = new Bundle();
 

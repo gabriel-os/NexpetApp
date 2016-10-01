@@ -42,7 +42,7 @@ import java.util.Map;
  */
 
 
-public class CadanimalActivity extends Activity {
+public class CadanimalActivity extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     private static final String TAG = CadanimalActivity.class.getSimpleName();
     private SQLiteHandler db;
     private List<Animal> listaAnimal = new ArrayList<>();
@@ -80,7 +80,7 @@ public class CadanimalActivity extends Activity {
         // attaching data adapter to spinner
         spQuantidade.setAdapter(adaptador);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view2);
 
         mAdapter = new AdaptadorAnimal(listaAnimal);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -89,7 +89,7 @@ public class CadanimalActivity extends Activity {
         recyclerView.addItemDecoration(new DividerAndSeparator(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
+        /*recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
 
@@ -100,7 +100,9 @@ public class CadanimalActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         "Segurou!", Toast.LENGTH_LONG).show();
             }
-        }));
+        }));*/
+
+        spQuantidade.setOnItemSelectedListener(this);
 
        /* btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,10 +216,20 @@ public class CadanimalActivity extends Activity {
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
+        int temp = Integer.parseInt(parent.getSelectedItem().toString());
+
+        Log.e("Teste Spinner:", String.valueOf(temp)); //Teste de variavél
+
+        Animal ag = new Animal("", "", "", "");
+
+        for (int i = 1; i < temp; i++) {
+            listaAnimal.add(ag);
+            mAdapter.notifyDataSetChanged();
+        }
+
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_LONG).show();
+        //Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_LONG).show();
 
     }
 
@@ -234,6 +246,26 @@ public class CadanimalActivity extends Activity {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.sp_quantidade) {
+
+            int temp = (int) spQuantidade.getSelectedItem();
+
+            Log.e("Teste Spinner:", String.valueOf(temp)); //Teste de variavél
+
+            Animal ag = new Animal("", "", "", "");
+
+            for (int i = 1; i < temp; i++) {
+                listaAnimal.add(ag);
+                mAdapter.notifyDataSetChanged();
+            }
+
+        } else {
+
+        }
     }
 
     public interface ClickListener {

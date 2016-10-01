@@ -20,7 +20,7 @@ public class AdaptadorAnimal extends RecyclerView.Adapter<AdaptadorAnimal.MyView
 
     private List<Animal> animal;
 
-    public AdaptadorAnimal(List<Animal> agendados) {
+    public AdaptadorAnimal(List<Animal> animal) {
         this.animal = animal;
     }
 

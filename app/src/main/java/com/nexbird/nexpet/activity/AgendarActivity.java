@@ -158,6 +158,7 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
                             temp += tempRow.getString("endereco") + ",,, ";
                             temp += tempRow.getString("nomeResposavel") + ",,,";
                             temp += tempRow.getString("telefone") + ",,,";
+                            temp += tempRow.getString("horaAberta") + " às " + tempRow.getString("horaFechamento") + ",,,";
                             temp += tempRow.getString("descricao") + ",,,";
                             temp += tempRow.getString("servico") + ",,,";
                             temp += tempRow.getString("preco") + ",,,";
@@ -174,14 +175,13 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
 
                             String[] temp = info.get((i)).split(",,,");
                             Log.e("Teste Array: ", String.valueOf(temp[2]));
-                            Agendar ag = new Agendar(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9], temp[0]);
+                            Agendar ag = new Agendar(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8], temp[9], temp[10], temp[0]);
 
                             listaAgendar.add(ag);
                             mAdapter.notifyDataSetChanged();
                         }
 
                     } else {
-                        // Error in login. Get the error message
                         String errorMsg = String.valueOf(jObj.get("error_msg"));
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
@@ -204,7 +204,6 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
         Log.e("Teste: ", String.valueOf(info));
 

@@ -94,7 +94,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Gabriel: ", String.valueOf(txtNome.getText()));
             }
         });
 
