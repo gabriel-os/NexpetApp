@@ -1,68 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp">
+    android:layout_height="wrap_content">
 
-
-    <EditText
-        android:id="@+id/txtAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:hint="Nome do pet"
-        android:inputType="textPersonName" />
-
-
-    <Spinner
-        android:id="@+id/sp_raca"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtAnimal"
-        android:layout_toLeftOf="@+id/rbGruop" />
-
-    <Spinner
-        android:id="@+id/sp_porte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/sp_raca"
-        android:layout_toLeftOf="@+id/rbGruop" />
-
-    <RadioGroup
-        android:id="@+id/rbGruop"
+    <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/txtAnimal"
-        android:layout_toRightOf="@+id/txtAnimal">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/rbFeminino"
+        <EditText
+            android:id="@+id/txtAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Nome do pet"
+            android:inputType="textPersonName" />
+
+        <RadioGroup
+            android:id="@+id/rbGruop"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/rbMasculino"
-            android:layout_alignStart="@+id/rbMasculino"
-            android:layout_below="@+id/txtAnimal"
-            android:checked="false"
-            android:text="Feminino" />
+            android:layout_height="match_parent"
+            android:contentDescription="Oi"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <RadioButton
+            <RadioButton
+                android:id="@+id/rbFeminino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="Femêa" />
 
-            android:id="@+id/rbMasculino"
-            android:layout_width="223dp"
+            <RadioButton
+
+                android:id="@+id/rbMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="Macho" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/sp_raca"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_toEndOf="@+id/txtAnimal"
-            android:layout_toRightOf="@+id/txtAnimal"
-            android:checked="false"
-            android:text="Masculino" />
-    </RadioGroup>
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/sp_porte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear2">
+
+        <EditText
+            android:id="@+id/txtCaracteristica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)"
+            android:inputType="textMultiLine"
+            android:textAlignment="center" />
+    </LinearLayout>
+
 
 </RelativeLayout>

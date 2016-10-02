@@ -113,9 +113,6 @@ public class LoginActivity extends Activity {
 
     }
 
-    /**
-     * function to verify login details in mysql db
-     */
     private void checkLogin(final String email, final String password) {
 
 
@@ -147,19 +144,20 @@ public class LoginActivity extends Activity {
 
                         // Now store the user in SQLite
                         String uid = jObj.getString("uid");
-
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
-                        String created_at = user
-                                .getString("created_at");
+                        String endereco = user.getString("endereco");
+                        String complemento = user.getString("complemento");
+                        String telefone = user.getString("telefone");
 
-                        String endereco = null, telefone = null;
+                        String created_at = user.getString("created_at");
 
                         // Inserting row in users table
-                        db.addUser(name, email, uid, endereco, telefone, created_at);
+                        db.addUser(uid, name, email, telefone, telefone, endereco, complemento, created_at);
+                        db.addPet("123", "Kim", "Pequeno", "Maltes", "");
+                        db.addPet("1234", "Thor", "Medio", "Cocker", "");
 
-                        // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,
                                 PrincipalActivity.class);
                         startActivity(intent);

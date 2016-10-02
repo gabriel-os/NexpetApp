@@ -9,12 +9,14 @@ public class Animal {
     private String sexo;
     private String raca;
     private String porte;
+    private String caracteristica;
 
-    public Animal(String nome, String sexo, String raca, String porte) {
+    public Animal(String nome, String sexo, String raca, String porte, String caracteristica) {
         this.nome = nome;
         this.sexo = sexo;
         this.raca = raca;
         this.porte = porte;
+        this.caracteristica = caracteristica;
     }
 
     public String getNome() {
@@ -47,5 +49,13 @@ public class Animal {
 
     public void setPorte(String porte) {
         this.porte = porte;
+    }
+
+    public String getCaracteristica() {
+        return caracteristica;
+    }
+
+    public void setCaracteristica(String caracteristica) {
+        this.caracteristica = caracteristica;
     }
 }

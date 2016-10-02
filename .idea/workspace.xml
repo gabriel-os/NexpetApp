@@ -16,7 +16,19 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6dced4ed-ff11-4012-8cc0-5a74ba2fe02b" name="Default" comment="Versão 1.30092016.3 (Criação de funções do RecyclerView do Perfil do petshop, declaração de Views e seus elementos e criação de funções OnClick())">
+    <list default="true" id="6dced4ed-ff11-4012-8cc0-5a74ba2fe02b" name="Default" comment="Versão 1.01102016.1 (Gerador de linhas do cadastro de animais e serviços no perfil do petshop)">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_android_23.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/library_aar_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_3_0.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -28,13 +40,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendarActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendarActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroCompletoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroCompletoActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAnimal.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAnimal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Agendar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Agendar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Animal.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Animal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/linha_animal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/linha_animal.xml" />
     </list>
     <ignored path="NexPet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,7 +84,89 @@
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="33" />
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLiteHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="530">
+              <caret line="154" column="52" selection-start-line="154" selection-start-column="52" selection-end-line="154" selection-end-column="52" />
+              <folding>
+                <element signature="method#addPet#0;class#SQLiteHandler#0" expanded="false" />
+                <element signature="method#getPetDetails#0;class#SQLiteHandler#0" expanded="false" />
+                <element signature="method#deleteUsers#0;class#SQLiteHandler#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_principal.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdaptadorAnimal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAnimal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="775">
+              <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+              <folding>
+                <element signature="e#1783#1791#0" expanded="true" />
+                <element signature="e#1947#1955#0" expanded="true" />
+                <element signature="e#2154#2162#0" expanded="true" />
+                <element signature="e#2293#2301#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Animal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrincipalActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-68">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CadastroCompletoActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroCompletoActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="105" column="92" selection-start-line="105" selection-start-column="92" selection-end-line="105" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -89,6 +184,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Gabriel Santos" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -1432,7 +1532,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4411095786000" />
-        <entry key="C:\Users\Gabriel\Documents\TCC\NexPet" value="4415192529139" />
+        <entry key="C:\Users\Gabriel\Documents\TCC\NexPet" value="4415268269713" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1698,13 +1798,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/ConfirmarActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Cadastro.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_basico.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/BasicoActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detalheag.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/DetalheagActivity.java" />
@@ -1728,8 +1826,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendarActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/DividerAndSeparator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Animal.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroCompletoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAnimal.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/linha_animal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
@@ -1765,9 +1871,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
@@ -1786,16 +1891,21 @@
               <option name="myItemId" value="NexPet" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="C:/AndroidSDK" />
     <property name="settings.editor.selected.configurable" value="instant.run" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="34ced4e3" />
+    <property name="device.picker.selection" value="0012607460" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
   </component>
   <component name="RecentsManager">
@@ -2211,7 +2321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475278142082</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Versão 1.01102016.1 (Gerador de linhas do cadastro de animais e serviços no perfil do petshop)">
+      <created>1475293138308</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1475293138308</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2221,7 +2338,7 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39693594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2269,7 +2386,8 @@
     <MESSAGE value="Versão 1.30092016.1 (Grandes alterações na estrutura de dados dos agendamentos)" />
     <MESSAGE value="Versão 1.30092016.2 (Criação de diversas telas fragment para o aplicativo)" />
     <MESSAGE value="Versão 1.30092016.3 (Criação de funções do RecyclerView do Perfil do petshop, declaração de Views e seus elementos e criação de funções OnClick())" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versão 1.30092016.3 (Criação de funções do RecyclerView do Perfil do petshop, declaração de Views e seus elementos e criação de funções OnClick())" />
+    <MESSAGE value="Versão 1.01102016.1 (Gerador de linhas do cadastro de animais e serviços no perfil do petshop)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versão 1.01102016.1 (Gerador de linhas do cadastro de animais e serviços no perfil do petshop)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -2281,58 +2399,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_basico.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadcompleto.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_informacao.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="143" column="19" selection-start-line="10" selection-start-column="3" selection-end-line="143" selection-end-column="19" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/WelcomeActivity.java">
@@ -2350,41 +2424,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_basico.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_basico.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="63" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml">
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
@@ -2402,9 +2458,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detalheag.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
@@ -2415,6 +2468,9 @@
             <element signature="e#419#452#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Agendados.java">
@@ -2432,14 +2488,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/btn_redondo.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/app/AppConfig.java">
@@ -2450,14 +2506,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_perfil.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/ServicosActivity.java">
@@ -2468,47 +2524,47 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/linha_agendar.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_agendado.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_agendado.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="17" selection-end-column="44" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_config.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="48" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="48" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_geral.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_geral.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_pequeno.png">
@@ -2518,36 +2574,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_gigante.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_perfilpet.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
           <caret line="99" column="43" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_data.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_data.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_confirmar.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_confirmar.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="208" column="42" selection-start-line="208" selection-start-column="42" selection-end-line="208" selection-end-column="42" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/BasicoActivity.java">
@@ -2558,17 +2614,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_enviar.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="755">
           <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="516">
           <caret line="118" column="50" selection-start-line="118" selection-start-column="50" selection-end-line="118" selection-end-column="50" />
@@ -2576,9 +2635,6 @@
             <element signature="e#4874#4892#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/EnviarActivity.java">
@@ -2589,28 +2645,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/linha_perfilpet.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1622">
           <caret line="135" column="55" selection-start-line="135" selection-start-column="55" selection-end-line="135" selection-end-column="55" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Cadastro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="911">
           <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAgendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2625,19 +2673,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Agendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="e#3222#3223#0" expanded="false" />
-            <element signature="e#3253#3254#0" expanded="false" />
-            <element signature="e#3301#3302#0" expanded="false" />
-            <element signature="e#3341#3342#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2650,14 +2686,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_agendar.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="19" selection-end-column="44" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendarActivity.java">
@@ -2665,7 +2701,7 @@
         <state relative-caret-position="179">
           <caret line="160" column="65" selection-start-line="160" selection-start-column="65" selection-end-line="160" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2674,38 +2710,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="95" column="41" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadanimal.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="9" selection-end-column="49" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAnimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1030#1031#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java">
@@ -2716,23 +2732,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/linha_animal.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SessionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="367">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/DividerAndSeparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Agendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroCompletoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
-          <caret line="231" column="62" selection-start-line="231" selection-start-column="62" selection-end-line="231" selection-end-column="62" />
+          <caret line="105" column="92" selection-start-line="105" selection-start-column="92" selection-end-line="105" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAgendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/adapter/AdaptadorAnimal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+          <folding>
+            <element signature="e#1783#1791#0" expanded="true" />
+            <element signature="e#1947#1955#0" expanded="true" />
+            <element signature="e#2154#2162#0" expanded="true" />
+            <element signature="e#2293#2301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/linha_animal.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="228" column="12" selection-start-line="228" selection-start-column="12" selection-end-line="228" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="154" column="52" selection-start-line="154" selection-start-column="52" selection-end-line="154" selection-end-column="52" />
+          <folding>
+            <element signature="method#addPet#0;class#SQLiteHandler#0" expanded="false" />
+            <element signature="method#getPetDetails#0;class#SQLiteHandler#0" expanded="false" />
+            <element signature="method#deleteUsers#0;class#SQLiteHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2740,7 +2856,7 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="33" />
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding />
         </state>
       </provider>
