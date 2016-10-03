@@ -154,7 +154,7 @@ public class LoginActivity extends Activity {
                         String created_at = user.getString("created_at");
 
                         // Inserting row in users table
-                        db.addUser(uid, name, email, telefone, telefone, endereco, complemento, created_at);
+                        db.addUser(uid, name, email, telefone, telefone, endereco, complemento, created_at, "", "", "");
                         db.addPet("123", "Kim", "Pequeno", "Maltes", "");
                         db.addPet("1234", "Thor", "Medio", "Cocker", "");
 

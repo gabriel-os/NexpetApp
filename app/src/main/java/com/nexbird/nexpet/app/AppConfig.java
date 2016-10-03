@@ -21,7 +21,9 @@ public class AppConfig {
     public static String URL_ARMAZENA_AGENDAMENTO = SW + "storeScheduling.php";
 
     public static String URL_ALTERA_DADOS = SW + "changeData.php";
-
+    //DEPRECATED
     public static String URL_TEMPO_SERVICO = SW + "getDateHour.php";
+
+    public static String URL_RECUPERA_SERVICO = SW + "recoveryService.php";
 
 }

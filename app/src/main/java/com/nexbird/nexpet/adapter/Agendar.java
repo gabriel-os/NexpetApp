@@ -14,12 +14,9 @@ public class Agendar {
     private String horaFunc;
     private String descricaoPetshop;
     private String email;
-    private String servico;
-    private String preco;
-    private String descricaoServico;
 
 
-    public Agendar(String unique_index, String nomePetshop, String email, String enderecoPetshop, String responsavelPetshop, String telefonePetshop, String horaFunc, String descricaoPetshop, String servico, String preco, String descricaoServico, String logoPetshop) {
+    public Agendar(String unique_index, String nomePetshop, String email, String enderecoPetshop, String responsavelPetshop, String telefonePetshop, String horaFunc, String descricaoServico, String logoPetshop) {
         this.unique_index = unique_index;
         this.email = email;
         this.nomePetshop = nomePetshop;
@@ -28,10 +25,6 @@ public class Agendar {
         this.responsavelPetshop = responsavelPetshop;
         this.telefonePetshop = telefonePetshop;
         this.horaFunc = horaFunc;
-        this.descricaoPetshop = descricaoPetshop;
-        this.servico = servico;
-        this.preco = preco;
-        this.descricaoServico = descricaoServico;
     }
 
     public String getIdPetshop() {
@@ -96,30 +89,6 @@ public class Agendar {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getServico() {
-        return servico;
-    }
-
-    public void setServico(String servico) {
-        this.servico = servico;
-    }
-
-    public String getPreco() {
-        return preco;
-    }
-
-    public void setPreco(String preco) {
-        this.preco = preco;
-    }
-
-    public String getDescricaoServico() {
-        return descricaoServico;
-    }
-
-    public void setDescricaoServico(String descricaoServico) {
-        this.descricaoServico = descricaoServico;
     }
 
     public String getHoraFunc() {

@@ -170,7 +170,7 @@ public class AgendadoActivity extends AppCompatActivity {
                             temp += tempRow.getString("unique_index") + ",,,";
                             temp += tempRow.getString("dataAgendada") + ",,,";
                             temp += tempRow.getString("nomePetshop") + ",,,";
-                            temp += tempRow.getString("endereco") + ",,,";
+                            temp += "Rua" + ",,,";
                             temp += tempRow.getString("nomeAnimal") + ",,,";
                             temp += tempRow.getString("servico") + ",,,";
                             temp += tempRow.getString("precoFinal") + ",,,";
@@ -186,7 +186,7 @@ public class AgendadoActivity extends AppCompatActivity {
 
                             String[] temp = info.get((i)).split(",,,");
                             Log.e("Teste Array: ", String.valueOf(temp[0]));
-                            Agendados ag = new Agendados(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
+                            Agendados ag = new Agendados(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[0]);
                             listaAgendada.add(ag);
                             mAdapter.notifyDataSetChanged();
                         }
@@ -218,7 +218,7 @@ public class AgendadoActivity extends AppCompatActivity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting parameters to login url
+
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("uid", uid);
 

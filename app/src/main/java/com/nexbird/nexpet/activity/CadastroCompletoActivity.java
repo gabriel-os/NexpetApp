@@ -103,7 +103,7 @@ public class CadastroCompletoActivity extends AppCompatActivity {
                         // Now store the user in sqlite
 
                         // Inserting row in users table
-                        db.updateUsers(name, email, uid, created_at, endereco, telefone, "", "");
+                        db.updateUsers(name, email, uid, created_at, endereco, telefone, "", "", "", "", "");
 
                         Toast.makeText(getApplicationContext(), "Cadastro concluído com sucesso!!", Toast.LENGTH_LONG).show();
 

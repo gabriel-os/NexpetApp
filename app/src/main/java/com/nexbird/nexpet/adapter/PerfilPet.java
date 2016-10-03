@@ -5,21 +5,29 @@ package com.nexbird.nexpet.adapter;
  */
 public class PerfilPet {
 
+    private String id;
     private String txtServico;
     private String txtPequeno;
     private String txtMedio;
     private String txtGrande;
     private String txtGigante;
     private String txtGato;
+    private String duracaoCao;
+    private String duracaoGato;
+    private String descricao;
 
 
-    public PerfilPet(String txtServico, String txtPequeno, String txtMedio, String txtGrande, String txtGigante, String txtGato) {
+    public PerfilPet(String id, String txtServico, String txtPequeno, String txtMedio, String txtGrande, String txtGigante, String txtGato, String duracaoCao, String duracaoGato, String descricao) {
+        this.id = id;
         this.txtServico = txtServico;
         this.txtPequeno = txtPequeno;
         this.txtMedio = txtMedio;
         this.txtGrande = txtGrande;
         this.txtGigante = txtGigante;
         this.txtGato = txtGato;
+        this.duracaoCao = duracaoCao;
+        this.duracaoGato = duracaoGato;
+        this.descricao = descricao;
     }
 
     public String getTxtServico() {
@@ -68,5 +76,37 @@ public class PerfilPet {
 
     public void setTxtGato(String txtGato) {
         this.txtGato = txtGato;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDuracaoCao() {
+        return duracaoCao;
+    }
+
+    public void setDuracaoCao(String duracaoCao) {
+        this.duracaoCao = duracaoCao;
+    }
+
+    public String getDuracaoGato() {
+        return duracaoGato;
+    }
+
+    public void setDuracaoGato(String duracaoGato) {
+        this.duracaoGato = duracaoGato;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

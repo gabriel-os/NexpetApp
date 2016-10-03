@@ -59,6 +59,8 @@ public class AdaptadorAgendar extends RecyclerView.Adapter<AdaptadorAgendar.MyVi
 
             lblNomePetshop = (TextView) view.findViewById(R.id.lblNomePetshop);
             imLogoPetshop = (ImageView) view.findViewById(R.id.imLogoPetshop);
+
+
 /*
                     String nomePetshop = (String) lblNomePetshop.getText();
                     int cont = 0;

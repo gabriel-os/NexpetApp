@@ -154,9 +154,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             user.put("endereco", cursor.getString(6));
             user.put("numero", cursor.getString(7));
             user.put("complemento", cursor.getString(8));
-            user.put("cep", cursor.getString(9));
-            user.put("bairro", cursor.getString(10));
-            user.put("created_at", cursor.getString(11));
+//            user.put("cep", cursor.getString(9));
+//            user.put("bairro", cursor.getString(10));
+//            user.put("created_at", cursor.getString(11));
         }
         cursor.close();
         db.close();
