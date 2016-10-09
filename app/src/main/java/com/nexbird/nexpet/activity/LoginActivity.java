@@ -155,15 +155,15 @@ public class LoginActivity extends Activity {
 
                         // Inserting row in users table
                         db.addUser(uid, name, email, telefone, telefone, endereco, complemento, created_at, "", "", "");
-                        db.addPet("123", "Kim", "Pequeno", "Maltes", "");
-                        db.addPet("1234", "Thor", "Medio", "Cocker", "");
+                        // db.addPet("123", "Kim", "Pequeno", "Maltes", "");
+                        // db.addPet("1234", "Thor", "Medio", "Cocker", "");
 
                         Intent intent = new Intent(LoginActivity.this,
                                 PrincipalActivity.class);
                         startActivity(intent);
 
                     } else {
-                        // Error in login. Get the error message
+
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();

@@ -1,6 +1,7 @@
 package com.nexbird.nexpet.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,9 +77,41 @@ public class PerfilpetActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerAndSeparator(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new AgendarActivity.RecyclerTouchListener(getApplicationContext(), recyclerView, new AgendarActivity.ClickListener() {
+        recyclerView.addOnItemTouchListener(new PerfilpetActivity.RecyclerTouchListener(getApplicationContext(), recyclerView, new AgendarActivity.ClickListener() {
             @Override
             public void onClick(View view, int position) {
+                PerfilPet ag = listaServico.get(position);
+
+                String id = ag.getId();
+                String nome = ag.getTxtServico();
+                String precoP = ag.getTxtPequeno();
+                String precoM = ag.getTxtMedio();
+                String precoG = ag.getTxtGrande();
+                String precoGG = ag.getTxtGigante();
+                String precoGato = ag.getTxtGato();
+                String duracaoCao = ag.getDuracaoCao();
+                String duracaoGato = ag.getDuracaoGato();
+                String descricao = ag.getDescricao();
+
+                Intent i = new Intent(getApplicationContext(), PerfilpetActivity.class);
+
+                Bundle params = new Bundle();
+
+                params.putString("id", id);
+                params.putString("nome", nome);
+                params.putString("precoP", precoP);
+                params.putString("precoM", precoM);
+                params.putString("precoG", precoG);
+                params.putString("precoGG", precoGG);
+                params.putString("precoGato", precoGato);
+                params.putString("duracaoCao", duracaoCao);
+                params.putString("duracaoGato", duracaoGato);
+                params.putString("descricao", descricao);
+
+                i.putExtras(params);
+
+                startActivity(i);
+
 
             }
 
@@ -218,4 +253,54 @@ public class PerfilpetActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
+
+    public interface ClickListener {
+        void onClick(View view, int position);
+
+        void onLongClick(View view, int position);
+    }
+
+    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
+
+        private GestureDetector gestureDetector;
+        private AgendarActivity.ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final AgendarActivity.ClickListener clickListener) {
+            this.clickListener = clickListener;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
+                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildPosition(child));
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+        }
+    }
+
 }

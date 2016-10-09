@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin">
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    tools:context="com.nexbird.nexpet.activity.BasicoActivity">
 
     <EditText
         android:id="@+id/txtNomeUsuario"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:background="#e1e0e0"
@@ -22,7 +24,7 @@
 
     <EditText
         android:id="@+id/txtConfirmaSenha"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtSenha"
         android:layout_alignStart="@+id/txtSenha"
@@ -39,7 +41,7 @@
 
     <EditText
         android:id="@+id/txtSenha"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtEmail"
         android:layout_alignStart="@+id/txtEmail"
@@ -54,11 +56,57 @@
         android:textColorHint="#999999"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="350dp"
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtNomeUsuario"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="#e1e0e0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sexo:"
+            android:textSize="15dp" />
+
+        <RadioGroup
+            android:id="@+id/rgSexo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rbMasc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#e1e0e0"
+                android:text="Masculino"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/rbFem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#e1e0e0"
+                android:text="Feminino"
+                android:textSize="15dp" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:background="#e1e0e0"
@@ -70,4 +118,6 @@
         android:textColor="#000000"
         android:textColorHint="#999999"
         android:textSize="20dp" />
+
+
 </RelativeLayout>

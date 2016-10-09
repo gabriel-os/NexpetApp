@@ -43,6 +43,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_NOME = "nome";
     private static final String KEY_PORTE = "porte";
     private static final String KEY_RACA = "raca";
+    private static final String KEY_TIPO = "tipo";
     private static final String KEY_CARACTERISTICA = "caracteristica";
 
     public SQLiteHandler(Context context) {
@@ -71,10 +72,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
             String CREATE_PET_TABLE = "CREATE TABLE " + TABLE_PET + " ("
                     + KEY_ID + " INTEGER PRIMARY KEY,"
-                    + KEY_NOME + " TEXT,"
-                    + KEY_UID + " TEXT,"
-                    + KEY_PORTE + " TEXT,"
-                    + KEY_RACA + " TEXT,"
+                    + KEY_UID + " TEXT, "
+                    + KEY_NOME + " TEXT, "
+                    + KEY_PORTE + " TEXT, "
+                    + KEY_RACA + " TEXT, "
+                    + KEY_TIPO + " TEXT, "
                     + KEY_CARACTERISTICA + " TEXT) ";
 
             db.execSQL(CREATE_LOGIN_TABLE);
@@ -120,14 +122,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Novo usuario inserido no SQLite: " + id);
     }
 
-    public void addPet(String uid, String nome, String porte, String raca, String caracteristica) {
+    public void addPet(String uid, String nome, String porte, String raca, String tipo, String caracteristica) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(KEY_UID, uid); // UID
         values.put(KEY_NOME, nome); // Nome
-        values.put(KEY_UID, uid); // Nome
         values.put(KEY_PORTE, porte); // Porte
         values.put(KEY_RACA, raca); //raca
+        values.put(KEY_TIPO, tipo); //tipo
         values.put(KEY_CARACTERISTICA, caracteristica); //caracteristica
 
         // Inserting Row
@@ -154,9 +157,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             user.put("endereco", cursor.getString(6));
             user.put("numero", cursor.getString(7));
             user.put("complemento", cursor.getString(8));
-//            user.put("cep", cursor.getString(9));
-//            user.put("bairro", cursor.getString(10));
-//            user.put("created_at", cursor.getString(11));
+            user.put("cep", cursor.getString(9));
+            user.put("bairro", cursor.getString(10));
+            user.put("created_at", cursor.getString(11));
         }
         cursor.close();
         db.close();
@@ -175,11 +178,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         // Move to first row
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
-            pet.put("nome", cursor.getString(1));
-            pet.put("uid", cursor.getString(2));
+            pet.put("uid", cursor.getString(1));
+            pet.put("nome", cursor.getString(2));
             pet.put("porte", cursor.getString(3));
             pet.put("raca", cursor.getString(4));
-            pet.put("caracteristica", cursor.getString(5));
+            pet.put("tipo", cursor.getString(5));
+            pet.put("caracteristica", cursor.getString(6));
         }
         cursor.close();
         db.close();
@@ -199,7 +203,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Tabelas de usuario e animal deletados");
     }
 
-    public void updateUsers(String uid, String name, String email, String telefoneUm, String telefoneDois, String endereco, String numero, String cep, String bairro, String complemento, String created_at) {
+    public void updateUsers(String uid, String name, String email, String telefoneUm, String telefoneDois, String endereco,
+                            String numero, String cep, String bairro, String complemento, String created_at) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Update rows
         ContentValues values = new ContentValues();
@@ -215,7 +220,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_BAIRRO, bairro);
         values.put(KEY_CREATED_AT, created_at); // Created At
 
-
         db.update(TABLE_USER, values, uid, null);
         db.close();
 
@@ -223,7 +227,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    public void updatePets(String uid, String nome, String porte, String raca, String caracteristica) {
+    public void updatePets(String uid, String nome, String porte, String raca, String tipo, String caracteristica) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Update rows
         ContentValues values = new ContentValues();
@@ -231,6 +235,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_UID, uid); // Nome
         values.put(KEY_PORTE, porte); // Porte
         values.put(KEY_RACA, raca); //raca
+        values.put(KEY_TIPO, tipo); //tipo
         values.put(KEY_CARACTERISTICA, caracteristica); //caracteristica
 
 

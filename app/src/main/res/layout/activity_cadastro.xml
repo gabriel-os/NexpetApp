@@ -8,7 +8,7 @@
     tools:context="com.nexbird.nexpet.activity.CadastroActivity">
 
     <TabHost
-        android:id="@+id/tabHost"
+        android:id="@+id/tabHost2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/linear"
@@ -35,53 +35,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:orientation="vertical">
+                <include
+                    android:id="@+id/layout1"
+                    layout="@layout/activity_basico" />
 
+                <include
+                    android:id="@+id/layout2"
+                    layout="@layout/activity_informacao" />
 
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:orientation="vertical">
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:orientation="vertical">
-
-
-                </RelativeLayout>
+                <include
+                    android:id="@+id/layout3"
+                    layout="@layout/activity_cadanimal" />
 
             </FrameLayout>
         </LinearLayout>
+
     </TabHost>
 
     <LinearLayout
-        android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -107,6 +80,6 @@
             android:text="Próximo"
             android:textColor="#fff"
             android:textSize="18dp" />
-    </LinearLayout>
 
+    </LinearLayout>
 </RelativeLayout>

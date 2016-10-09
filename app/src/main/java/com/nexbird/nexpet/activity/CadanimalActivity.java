@@ -5,15 +5,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -63,31 +60,8 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
 
         db = new SQLiteHandler(getApplicationContext());
 
-        spQuantidade = (Spinner) findViewById(R.id.sp_quantidade);
 
-        List<String> categorias = new ArrayList<String>();
-        categorias.add("1");
-        categorias.add("2");
-        categorias.add("3");
-        categorias.add("4");
-        categorias.add("5");
 
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categorias);
-
-        // Drop down layout style - list view with radio button
-        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spQuantidade.setAdapter(adaptador);
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view2);
-
-        mAdapter = new AdaptadorAnimal(listaAnimal);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerAndSeparator(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setAdapter(mAdapter);
 
         /*recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override

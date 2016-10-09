@@ -11,7 +11,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp"
-        android:background="@layout/btn_redondo"
+        android:layout_marginTop="5dp"
+        android:background="@mipmap/ic_logout"
         android:gravity="center_vertical|center_horizontal"
         android:textColor="#fff" />
 
@@ -23,7 +24,7 @@
         android:layout_alignStart="@+id/btnGeral"
         android:layout_below="@+id/btnGeral"
         android:layout_marginTop="50dp"
-        android:background="@layout/btn_redondo"
+        android:background="@mipmap/ic_notificacao"
         android:gravity="center_vertical|center_horizontal"
         android:textColor="#fff" />
 
@@ -35,7 +36,7 @@
         android:layout_marginTop="30dp"
         android:layout_toLeftOf="@+id/btnLogout"
         android:layout_toStartOf="@+id/btnLogout"
-        android:background="@layout/btn_redondo"
+        android:background="@mipmap/ic_geral"
         android:gravity="center_vertical|center_horizontal"
         android:textColor="#fff" />
 

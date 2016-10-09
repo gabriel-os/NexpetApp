@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TabHost;
 
 import com.nexbird.nexpet.R;
@@ -17,6 +19,7 @@ public class PrincipalActivity extends ActivityGroup {
 
     private static final String TAG = PrincipalActivity.class.getSimpleName();
     private SQLiteHandler db;
+    private ImageButton btnToolbar;
     private SessionManager session;
     private ProgressDialog pDialog;
 
@@ -24,6 +27,8 @@ public class PrincipalActivity extends ActivityGroup {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+        btnToolbar = (ImageButton) findViewById(R.id.imgBtnPerfil);
 
         session = new SessionManager(getApplicationContext());
 
@@ -67,6 +72,14 @@ public class PrincipalActivity extends ActivityGroup {
         ts3.setIndicator("", getResources().getDrawable(R.drawable.ic_config));
         ts3.setContent(new Intent(this, ConfigActivity.class));
         host.addTab(ts3);
+
+        btnToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.addPet("123456", "Kim", "Pequeno", "Maltês", "Cachorro", "Nenhuma");
+                db.addPet("12345", "Thor", "Grande", "Cocker", "Cachorro", "Agressivo");
+            }
+        });
 
     }
 

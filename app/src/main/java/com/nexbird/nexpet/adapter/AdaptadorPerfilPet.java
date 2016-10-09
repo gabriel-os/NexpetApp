@@ -41,11 +41,11 @@ public class AdaptadorPerfilPet extends RecyclerView.Adapter<AdaptadorPerfilPet.
 
         holder.txtServico.setText(ag.getTxtServico());
 
-        holder.txtPequeno.setText(ag.getTxtPequeno());
-        holder.txtMedio.setText(ag.getTxtMedio());
-        holder.txtGrande.setText(ag.getTxtGrande());
-        holder.txtGigante.setText(ag.getTxtGigante());
-        holder.txtGato.setText(ag.getTxtGato());
+        holder.txtPequeno.setText("R$" + ag.getTxtPequeno());
+        holder.txtMedio.setText("R$" + ag.getTxtMedio());
+        holder.txtGrande.setText("R$" + ag.getTxtGrande());
+        holder.txtGigante.setText("R$" + ag.getTxtGigante());
+        holder.txtGato.setText("R$" + ag.getTxtGato());
     }
 
     @Override

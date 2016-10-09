@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="210dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:background="@layout/borda_layout"
     android:orientation="vertical">
 
     <TextView
@@ -9,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="0dp"
         android:text="Nome do serviço"
         android:textColor="@color/text"
         android:textSize="21dp"
@@ -134,6 +138,7 @@
             android:layout_gravity="center"
             android:layout_weight="4"
             android:background="@color/colorPrimaryDark"
+            android:gravity="center"
             android:padding="10dp"
             android:text="R$100,00"
             android:textAlignment="center"
