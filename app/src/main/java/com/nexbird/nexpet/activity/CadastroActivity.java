@@ -163,6 +163,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         spQuantidade = (Spinner) findViewById(R.id.sp_quantidade);
 
         List<String> numero = new ArrayList<String>();
+        numero.add("0");
         numero.add("1");
         numero.add("2");
         numero.add("3");
@@ -200,7 +201,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
         if (password != confimPassoword) {
 
-            // Tag used to cancel the request
             String tag_string_req = "req_register";
 
             pDialog.setMessage("Registrando ...");
@@ -218,17 +218,45 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                         JSONObject jObj = new JSONObject(response);
                         boolean error = jObj.getBoolean("error");
                         if (!error) {
+                            int quantidade = Integer.parseInt(spQuantidade.getSelectedItem().toString());
 
                             String uid = jObj.getString("uid");
 
                             JSONObject user = jObj.getJSONObject("user");
                             String name = user.getString("name");
                             String email = user.getString("email");
-                            String created_at = user
-                                    .getString("criado_em");
-                            //String endereco = null, telefone = null;
+                            String created_at = user.getString("criado_em");
 
-                            //db.addUser(name, email, uid, null, null, created_at);
+                            if (quantidade == 0) {
+                                Toast.makeText(getApplicationContext(), "Usuário criado com sucesso!!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(
+                                        CadastroActivity.this,
+                                        LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                String nome = "";
+                                String sexo = "";
+                                String raca = "";
+                                String porte = "";
+                                String caracteristica = "";
+
+                                for (int i = 0; i < quantidade; i++) {
+                                    Animal ag = listaAnimal.get(i);
+
+                                    nome += ag.getNome() + ",";
+                                    Log.e("Nome animal: ", nome);
+                                    sexo += ag.getSexo() + ",";
+                                    Log.e("Sexo animal: ", sexo);
+                                    raca += ag.getRaca() + ",";
+                                    Log.e("Raca animal: ", raca);
+                                    porte += ag.getPorte() + ",";
+                                    Log.e("Porte animal: ", porte);
+                                    caracteristica += ag.getCaracteristica() + ",";
+                                }
+
+                                // registerAnimal(nome, sexo, raca, porte, caracteristica, uid, quantidade);
+                            }
 
                             Toast.makeText(getApplicationContext(), "Usuário criado com sucesso!!", Toast.LENGTH_LONG).show();
 
@@ -287,6 +315,88 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         }
     }
 
+    private void registerAnimal(final String nome, final String sexo, final String raca,
+                                final String porte, final String caracteristica, final String uid,
+                                final int quantidade) {
+
+        String tag_string_req = "req_registerAnimal";
+
+        pDialog.setMessage("Registrando animais ...");
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Method.POST,
+                AppConfig.URL_REGISTRAR_ANIMAL, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Resposta do registro: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+                    if (!error) {
+
+                        String uid = jObj.getString("uid");
+
+                        JSONObject user = jObj.getJSONObject("user");
+                        String name = user.getString("name");
+                        String email = user.getString("email");
+                        String created_at = user.getString("criado_em");
+                        //String endereco = null, telefone = null;
+
+                        //db.addUser(name, email, uid, null, null, created_at);
+
+                        Toast.makeText(getApplicationContext(), "Usuário criado com sucesso!!", Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(
+                                CadastroActivity.this,
+                                LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Resposta do registro: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("nome", nome);
+                params.put("sexo", sexo);
+                params.put("raca", raca);
+                params.put("porte", porte);
+                params.put("caracteristica", caracteristica);
+                //params.put("foto", foto);
+                params.put("uid", uid);
+                params.put("quantidade", String.valueOf(quantidade));
+
+                return params;
+            }
+
+        };
+
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+
+    }
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -326,7 +436,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.btnContinuar:
-                Log.e("Foi: ", "Foooooooooooooooooooooooooooooooooooooi");
+
                 int current = getItem(+1);
                 setCurrentTab(current);
                 setTag(current);
@@ -347,7 +457,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                             email = String.valueOf(txtEmail.getText()).trim();
                             senha = String.valueOf(txtSenha.getText());
                             confSenha = String.valueOf(txtConfirmaSenha.getText());
-                            endereco = String.valueOf(txtEndereco.getText()).trim();
+                            endereco = sp_Logradouro.getSelectedItem().toString() + " " + String.valueOf(txtEndereco.getText()).trim();
                             numero = String.valueOf(txtNumero.getText());
                             complemento = String.valueOf(txtComplemento.getText());
                             cep = String.valueOf(txtCEP.getText());
@@ -355,14 +465,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                             telefone = String.valueOf(txtTelefone.getText());
                             celular = String.valueOf(txtCelular.getText());
 
+
                             if (nomeUsuario.isEmpty() || email.isEmpty() || senha.isEmpty() || confSenha.isEmpty()) {
                                 Toast.makeText(getApplicationContext(),
                                         "Há informações faltando, verifique seus dados", Toast.LENGTH_LONG).show();
                             }
 
-                            if (num == 0) {
+                            if (num == R.id.rbMasc) {
                                 sexo = "Masculino";
-                            } else if (num == 1) {
+                            } else if (num == R.id.rbFem) {
                                 sexo = "Feminino";
                             }
                             registerUser(nomeUsuario, email, senha, confSenha, sexo, telefone, celular, endereco + ", " + numero, complemento, cep, bairro);

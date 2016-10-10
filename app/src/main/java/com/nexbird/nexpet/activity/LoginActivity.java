@@ -155,8 +155,8 @@ public class LoginActivity extends Activity {
 
                         // Inserting row in users table
                         db.addUser(uid, name, email, telefone, telefone, endereco, complemento, created_at, "", "", "");
-                        // db.addPet("123", "Kim", "Pequeno", "Maltes", "");
-                        // db.addPet("1234", "Thor", "Medio", "Cocker", "");
+                        db.addPet("123", "Kim", "Pequeno", "Maltes", "Cachorro", "");
+                        db.addPet("1234", "Thor", "Medio", "Cocker", "Gato", "");
 
                         Intent intent = new Intent(LoginActivity.this,
                                 PrincipalActivity.class);

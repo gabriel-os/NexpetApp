@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SQLiteHandler extends SQLiteOpenHelper {
@@ -167,6 +168,32 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Usuario encontrado no SQLite: " + user.toString());
 
         return user;
+    }
+
+    public ArrayList<String> getPetNameAndType() {
+        ArrayList<String> pet = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_PET;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                pet.add(cursor.getString(1));
+                pet.add(cursor.getString(2));
+                pet.add(cursor.getString(3));
+                pet.add(cursor.getString(4));
+                pet.add(cursor.getString(5));
+                pet.add(cursor.getString(6));
+            }
+        }
+        cursor.close();
+        db.close();
+        // return user
+        Log.d(TAG, "Animal encontrado no SQLite: " + pet.toString());
+
+        return pet;
     }
 
     public HashMap<String, String> getPetDetails() {

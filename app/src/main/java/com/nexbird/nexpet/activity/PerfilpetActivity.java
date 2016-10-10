@@ -93,7 +93,7 @@ public class PerfilpetActivity extends AppCompatActivity {
                 String duracaoGato = ag.getDuracaoGato();
                 String descricao = ag.getDescricao();
 
-                Intent i = new Intent(getApplicationContext(), PerfilpetActivity.class);
+                Intent i = new Intent(getApplicationContext(), SelecionarhoraActivity.class);
 
                 Bundle params = new Bundle();
 

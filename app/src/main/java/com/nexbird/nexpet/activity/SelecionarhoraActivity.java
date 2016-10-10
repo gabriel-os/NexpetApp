@@ -3,15 +3,16 @@ package com.nexbird.nexpet.activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.GridView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.nexbird.nexpet.R;
 import com.nexbird.nexpet.adapter.AdaptadorHora;
 import com.nexbird.nexpet.app.AppConfig;
 import com.nexbird.nexpet.app.AppController;
+import com.nexbird.nexpet.helper.SQLiteHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +32,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,15 +41,58 @@ import java.util.Map;
 
 public class SelecionarhoraActivity extends AppCompatActivity {
 
+    private static final String TAG = SelecionarhoraActivity.class.getSimpleName();
     private Button btnData, btnContinuar;
     private TextView lblData, lblAtiv;
+    View.OnClickListener click = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btnData:
+                    final Calendar c = Calendar.getInstance();
+
+                    int y = c.get(Calendar.YEAR);
+                    int m = c.get(Calendar.MONTH);
+                    int d = c.get(Calendar.DAY_OF_MONTH);
+
+                    DatePickerDialog dp = new DatePickerDialog(SelecionarhoraActivity.this,
+                            new DatePickerDialog.OnDateSetListener() {
+
+                                @Override
+                                public void onDateSet(DatePicker view, int year,
+                                                      int monthOfYear, int dayOfMonth) {
+                                    String erg = "";
+                                    if (dayOfMonth < 9) {
+                                        erg = "0" + String.valueOf(dayOfMonth);
+                                    } else if (dayOfMonth > 9) {
+                                        erg = String.valueOf(dayOfMonth);
+                                    }
+                                    if (monthOfYear < 10) {
+                                        erg += "/0" + String.valueOf(monthOfYear + 1);
+                                    } else if (monthOfYear > 9) {
+                                        erg += "/" + String.valueOf(monthOfYear + 1);
+                                    }
+                                    erg += "/" + year;
+                                    dataMarcada = erg;
+                                    lblData.setText(erg);
+                                    lblAtiv.setText("Selecione a hora:");
+                                }
+                            }, y, m, d);
+                    dp.show();
+                    break;
+
+            }
+
+        }
+    };
     private GridView gridView;
     private AdaptadorHora mAdapter;
     private String idPetshop, nomePetshop, enderecoPetshop, servico, dataMarcada;
     private ProgressDialog pDialog;
-    private static final String TAG = SelecionarhoraActivity.class.getSimpleName();
     private ArrayList<String> horas = new ArrayList<>();
     private String hora = "";
+    private Spinner sp_animal;
+    private List<String> animal;
+    private SQLiteHandler db;
 
     @Override
 
@@ -59,20 +105,47 @@ public class SelecionarhoraActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
+        db = new SQLiteHandler(getApplicationContext());
+        Log.e("Teste de SQL: ", String.valueOf(db.getPetNameAndType()));
         btnData = (Button) findViewById(R.id.btnData);
 
 
         lblData = (TextView) findViewById(R.id.lblData);
         lblAtiv = (TextView)   findViewById(R.id.lblAtiv);
+        gridView = (GridView) findViewById(R.id.gridView);
+        sp_animal = (Spinner) findViewById(R.id.sp_animal);
+
+        animal = new ArrayList<String>();
+        animal.add("Selecione o seu pet");
+
+        animal.add("Avenida");
+        animal.add("Beco");
+        animal.add("Viela");
+
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, animal);
+
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        sp_animal.setAdapter(adaptador);
 
         Bundle params = getIntent().getExtras();
+
+        params.getString("id");
+        params.getString("nome");
+        params.getString("precoP");
+        params.getString("precoM");
+        params.getString("precoG");
+        params.getString("precoGG");
+        params.getString("precoGato");
+        params.getString("duracaoCao");
+        params.getString("duracaoGato");
+        params.getString("descricao");
 
         idPetshop = params.getString("id");
         nomePetshop = params.getString("nomePetshop");
         enderecoPetshop = params.getString("endereco");
         servico = params.getString("servico");
 
-        gridView = (GridView) findViewById(R.id.gridView);
         mAdapter = new AdaptadorHora(this, horas);
         gridView.setAdapter(mAdapter);
 
@@ -102,48 +175,6 @@ public class SelecionarhoraActivity extends AppCompatActivity {
 
         btnData.setOnClickListener(click);
     }
-
-    View.OnClickListener click = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btnData:
-                    final Calendar c = Calendar.getInstance();
-
-                    int y = c.get(Calendar.YEAR);
-                    int m = c.get(Calendar.MONTH);
-                    int d = c.get(Calendar.DAY_OF_MONTH);
-
-                    DatePickerDialog dp = new DatePickerDialog(SelecionarhoraActivity.this,
-                            new DatePickerDialog.OnDateSetListener() {
-
-                                @Override
-                                public void onDateSet(DatePicker view, int year,
-                                                      int monthOfYear, int dayOfMonth) {
-                                    String erg = "";
-                                    if (dayOfMonth < 10) {
-                                        erg = "0" + String.valueOf(dayOfMonth);
-                                    } else if (dayOfMonth > 9) {
-                                        erg = String.valueOf(dayOfMonth);
-                                    }
-                                    if (monthOfYear < 10) {
-                                        erg += "/0" + String.valueOf(monthOfYear + 1);
-                                    } else if (monthOfYear > 9) {
-                                        erg += "/" + String.valueOf(monthOfYear + 1);
-                                    }
-                                    erg += "/" + year;
-                                    dataMarcada = erg;
-                                    lblData.setText(erg);
-                                    changedDate();
-                                    lblAtiv.setText("Selecione a hora:");
-                                }
-                            }, y, m, d);
-                    dp.show();
-                    break;
-
-            }
-
-        }
-    };
 
     private void prepareSelecionarData() {
         String tag_string_req = "req_DataHora";
@@ -273,7 +304,7 @@ public class SelecionarhoraActivity extends AppCompatActivity {
 
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_TEMPO_SERVICO, new Response.Listener<String>() {
+                AppConfig.URL_RECUPERA_SERVICO, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

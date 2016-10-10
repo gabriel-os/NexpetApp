@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.nexbird.nexpet.R;
 
@@ -46,18 +46,17 @@ public class AdaptadorAnimal extends RecyclerView.Adapter<AdaptadorAnimal.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-
-        public TextView nomeAnimal, txtCaracteristica;
+        public EditText nomeAnimal, txtCaracteristica;
         public RadioGroup sexoAnimal;
         public Spinner racaAnimal, porteAnimal;
 
         public MyViewHolder(View view) {
             super(view);
-            nomeAnimal = (TextView) view.findViewById(R.id.txtAnimal);
+            nomeAnimal = (EditText) view.findViewById(R.id.txtAnimal);
             sexoAnimal = (RadioGroup) view.findViewById(R.id.rbGruop);
             racaAnimal = (Spinner) view.findViewById(R.id.sp_raca);
             porteAnimal = (Spinner) view.findViewById(R.id.sp_porte);
-            txtCaracteristica = (TextView) view.findViewById(R.id.txtCaracteristica);
+            txtCaracteristica = (EditText) view.findViewById(R.id.txtCaracteristica);
 
             List<String> raca = new ArrayList<String>();
             raca.add("Maltês");
@@ -73,10 +72,9 @@ public class AdaptadorAnimal extends RecyclerView.Adapter<AdaptadorAnimal.MyView
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, raca);
             ArrayAdapter<String> adaptadorPorte = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, porte);
 
-            // Drop down layout style - list view with radio button
             adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             adaptadorPorte.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            // attaching data adapter to spinner
+
             racaAnimal.setAdapter(adaptador);
             porteAnimal.setAdapter(adaptadorPorte);
 
