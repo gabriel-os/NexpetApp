@@ -50,6 +50,7 @@ public class PerfilpetActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SessionManager session;
     private ProgressDialog pDialog;
+    private String hora, nomePetshop, enderecoPetshop, uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,20 @@ public class PerfilpetActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerAndSeparator(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
+
+
+        Bundle params = getIntent().getExtras();
+
+        hora = params.getString("hora");
+        uid = params.getString("id");
+        nomePetshop = params.getString("nome");
+        enderecoPetshop = params.getString("endereco");
+
+        lblNome.setText(nomePetshop);
+        lblTelefone.setText(params.getString("telefone"));
+        lblDescricao.setText(params.getString("descricao"));
+        lblEndereco.setText(enderecoPetshop);
+        lblHoraFunc.setText(hora);
 
         recyclerView.addOnItemTouchListener(new PerfilpetActivity.RecyclerTouchListener(getApplicationContext(), recyclerView, new AgendarActivity.ClickListener() {
             @Override
@@ -104,32 +119,26 @@ public class PerfilpetActivity extends AppCompatActivity {
                 params.putString("precoG", precoG);
                 params.putString("precoGG", precoGG);
                 params.putString("precoGato", precoGato);
-                params.putString("duracaoCao", duracaoCao);
-                params.putString("duracaoGato", duracaoGato);
+                params.putInt("duracaoCao", Integer.parseInt(duracaoCao));
+                params.putInt("duracaoGato", Integer.parseInt(duracaoGato));
                 params.putString("descricao", descricao);
+                params.putString("hora", hora);
+                params.putString("idPetshop", uid);
+                params.putString("nomePetshop", nomePetshop);
+                params.putString("endereco", enderecoPetshop);
 
                 i.putExtras(params);
 
                 startActivity(i);
-
-
             }
 
             @Override
             public void onLongClick(View view, int position) {
+                PerfilPet ag = listaServico.get(position);
                 Toast.makeText(getApplicationContext(),
-                        "Segurou!", Toast.LENGTH_LONG).show();
+                        ag.getDescricao(), Toast.LENGTH_LONG).show();
             }
         }));
-
-        Bundle params = getIntent().getExtras();
-
-        String uid = params.getString("id");
-        lblNome.setText(params.getString("nome"));
-        lblTelefone.setText(params.getString("telefone"));
-        lblDescricao.setText(params.getString("descricao"));
-        lblEndereco.setText(params.getString("endereco"));
-        lblHoraFunc.setText(params.getString("hora"));
 
         prepareRecuperaServicos(uid);
     }

@@ -179,6 +179,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         // Move to first row
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
+            pet.add(cursor.getString(1));
+            pet.add(cursor.getString(2));
+            pet.add(cursor.getString(3));
+            pet.add(cursor.getString(4));
+            pet.add(cursor.getString(5));
+            pet.add(cursor.getString(6));
             while (cursor.moveToNext()) {
                 pet.add(cursor.getString(1));
                 pet.add(cursor.getString(2));

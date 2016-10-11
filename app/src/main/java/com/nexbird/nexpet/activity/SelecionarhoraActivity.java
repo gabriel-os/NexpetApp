@@ -32,67 +32,29 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by Gabriel on 06/08/2016.
  */
 
-public class SelecionarhoraActivity extends AppCompatActivity {
+public class SelecionarhoraActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private static final String TAG = SelecionarhoraActivity.class.getSimpleName();
-    private Button btnData, btnContinuar;
+    private Button btnData;
     private TextView lblData, lblAtiv;
-    View.OnClickListener click = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btnData:
-                    final Calendar c = Calendar.getInstance();
-
-                    int y = c.get(Calendar.YEAR);
-                    int m = c.get(Calendar.MONTH);
-                    int d = c.get(Calendar.DAY_OF_MONTH);
-
-                    DatePickerDialog dp = new DatePickerDialog(SelecionarhoraActivity.this,
-                            new DatePickerDialog.OnDateSetListener() {
-
-                                @Override
-                                public void onDateSet(DatePicker view, int year,
-                                                      int monthOfYear, int dayOfMonth) {
-                                    String erg = "";
-                                    if (dayOfMonth < 9) {
-                                        erg = "0" + String.valueOf(dayOfMonth);
-                                    } else if (dayOfMonth > 9) {
-                                        erg = String.valueOf(dayOfMonth);
-                                    }
-                                    if (monthOfYear < 10) {
-                                        erg += "/0" + String.valueOf(monthOfYear + 1);
-                                    } else if (monthOfYear > 9) {
-                                        erg += "/" + String.valueOf(monthOfYear + 1);
-                                    }
-                                    erg += "/" + year;
-                                    dataMarcada = erg;
-                                    lblData.setText(erg);
-                                    lblAtiv.setText("Selecione a hora:");
-                                }
-                            }, y, m, d);
-                    dp.show();
-                    break;
-
-            }
-
-        }
-    };
     private GridView gridView;
     private AdaptadorHora mAdapter;
-    private String idPetshop, nomePetshop, enderecoPetshop, servico, dataMarcada;
+    private String idPetshop, nomePetshop, enderecoPetshop, servico, dataMarcada, precoP, precoM, precoG, precoGG, precoGato, horaFunc,
+            nome, nomePet, portePet, racaPet, tipoPet, caracPet, horaAbertura, horaFecha, hora = "";
+    private int duracaoCao, duracaoGato;
     private ProgressDialog pDialog;
     private ArrayList<String> horas = new ArrayList<>();
-    private String hora = "";
     private Spinner sp_animal;
-    private List<String> animal;
+    private ArrayList<String> animal;
+    private ArrayList resultSQL;
     private SQLiteHandler db;
+    private String[] temp;
 
     @Override
 
@@ -101,26 +63,45 @@ public class SelecionarhoraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
-
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
         db = new SQLiteHandler(getApplicationContext());
-        Log.e("Teste de SQL: ", String.valueOf(db.getPetNameAndType()));
+
         btnData = (Button) findViewById(R.id.btnData);
-
-
         lblData = (TextView) findViewById(R.id.lblData);
-        lblAtiv = (TextView)   findViewById(R.id.lblAtiv);
+        lblAtiv = (TextView) findViewById(R.id.lblAtiv);
         gridView = (GridView) findViewById(R.id.gridView);
-        sp_animal = (Spinner) findViewById(R.id.sp_animal);
+        sp_animal = (Spinner) findViewById(R.id.spAnimal);
+
+        btnData.setEnabled(false);
+
+        resultSQL = db.getPetNameAndType();
+
+        Log.e("Teste de SQL:", String.valueOf(resultSQL));
 
         animal = new ArrayList<String>();
-        animal.add("Selecione o seu pet");
+        animal.add("");
 
-        animal.add("Avenida");
-        animal.add("Beco");
-        animal.add("Viela");
+        for (int i = 0; i < resultSQL.size(); i++) {
+            switch (i) {
+                case 1:
+                    animal.add(String.valueOf(resultSQL.get(i)));
+                    break;
+                case 7:
+                    animal.add(String.valueOf(resultSQL.get(i)));
+                    break;
+                case 13:
+                    animal.add(String.valueOf(resultSQL.get(i)));
+                    break;
+                case 19:
+                    animal.add(String.valueOf(resultSQL.get(i)));
+                    break;
+                case 25:
+                    animal.add(String.valueOf(resultSQL.get(i)));
+                    break;
+            }
+        }
 
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, animal);
 
@@ -130,25 +111,24 @@ public class SelecionarhoraActivity extends AppCompatActivity {
 
         Bundle params = getIntent().getExtras();
 
-        params.getString("id");
-        params.getString("nome");
-        params.getString("precoP");
-        params.getString("precoM");
-        params.getString("precoG");
-        params.getString("precoGG");
-        params.getString("precoGato");
-        params.getString("duracaoCao");
-        params.getString("duracaoGato");
-        params.getString("descricao");
+        nome = params.getString("nome");
+        precoP = params.getString("precoP");
+        precoM = params.getString("precoM");
+        precoG = params.getString("precoG");
+        precoGG = params.getString("precoGG");
+        precoGato = params.getString("precoGato");
+        duracaoCao = params.getInt("duracaoCao");
+        duracaoGato = params.getInt("duracaoGato");
+        horaFunc = params.getString("hora");
 
-        idPetshop = params.getString("id");
+        temp = horaFunc.split(" às ");
+
+        idPetshop = params.getString("idPetshop");
         nomePetshop = params.getString("nomePetshop");
         enderecoPetshop = params.getString("endereco");
-        servico = params.getString("servico");
 
         mAdapter = new AdaptadorHora(this, horas);
         gridView.setAdapter(mAdapter);
-
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -173,7 +153,8 @@ public class SelecionarhoraActivity extends AppCompatActivity {
             }
         });
 
-        btnData.setOnClickListener(click);
+        btnData.setOnClickListener(this);
+        sp_animal.setOnItemSelectedListener(this);
     }
 
     private void prepareSelecionarData() {
@@ -374,4 +355,99 @@ public class SelecionarhoraActivity extends AppCompatActivity {
             pDialog.dismiss();
     }
 
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnData:
+                final Calendar c = Calendar.getInstance();
+
+                int y = c.get(Calendar.YEAR);
+                int m = c.get(Calendar.MONTH);
+                int d = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dp = new DatePickerDialog(SelecionarhoraActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                String erg = "";
+                                if (dayOfMonth < 9) {
+                                    erg = "0" + String.valueOf(dayOfMonth);
+                                } else if (dayOfMonth > 9) {
+                                    erg = String.valueOf(dayOfMonth);
+                                }
+                                if (monthOfYear < 9) {
+                                    erg += "/0" + String.valueOf(monthOfYear + 1);
+                                } else if (monthOfYear > 9) {
+                                    erg += "/" + String.valueOf(monthOfYear + 1);
+                                }
+                                erg += "/" + year;
+                                dataMarcada = erg;
+                                lblData.setText(erg);
+                                lblAtiv.setText("Selecione a hora:");
+                            }
+                        }, y, m, d);
+                dp.show();
+                if (tipoPet.equals("Cachorro")) {
+                    generateHours(duracaoCao, temp[0], temp[1]);
+                } else {
+                    generateHours(duracaoGato, temp[0], temp[1]);
+                }
+                break;
+        }
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String temp = parent.getSelectedItem().toString();
+        int numPosition = parent.getSelectedItemPosition();
+
+        if (temp.equals("") || numPosition == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Selecione um animal para continuar!", Toast.LENGTH_LONG).show();
+        } else {
+            btnData.setEnabled(true);
+        }
+
+        switch (numPosition) {
+            case 1:
+                portePet = String.valueOf(resultSQL.get(2));
+                racaPet = String.valueOf(resultSQL.get(3));
+                tipoPet = String.valueOf(resultSQL.get(4));
+                caracPet = String.valueOf(resultSQL.get(5));
+                break;
+            case 2:
+                portePet = String.valueOf(resultSQL.get(8));
+                racaPet = String.valueOf(resultSQL.get(9));
+                tipoPet = String.valueOf(resultSQL.get(10));
+                caracPet = String.valueOf(resultSQL.get(11));
+                break;
+            case 3:
+                portePet = String.valueOf(resultSQL.get(14));
+                racaPet = String.valueOf(resultSQL.get(15));
+                tipoPet = String.valueOf(resultSQL.get(16));
+                caracPet = String.valueOf(resultSQL.get(17));
+                break;
+            case 4:
+                portePet = String.valueOf(resultSQL.get(20));
+                racaPet = String.valueOf(resultSQL.get(21));
+                tipoPet = String.valueOf(resultSQL.get(22));
+                caracPet = String.valueOf(resultSQL.get(23));
+                break;
+            case 5:
+                portePet = String.valueOf(resultSQL.get(26));
+                racaPet = String.valueOf(resultSQL.get(27));
+                tipoPet = String.valueOf(resultSQL.get(28));
+                caracPet = String.valueOf(resultSQL.get(29));
+                break;
+        }
+
+    }
+
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
