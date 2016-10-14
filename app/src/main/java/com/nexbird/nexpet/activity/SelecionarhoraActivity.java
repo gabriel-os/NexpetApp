@@ -2,10 +2,16 @@ package com.nexbird.nexpet.activity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +28,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.nexbird.nexpet.R;
 import com.nexbird.nexpet.adapter.AdaptadorHora;
+import com.nexbird.nexpet.adapter.AdaptadorServico;
+import com.nexbird.nexpet.adapter.ServicoAdicional;
 import com.nexbird.nexpet.app.AppConfig;
 import com.nexbird.nexpet.app.AppController;
 import com.nexbird.nexpet.helper.SQLiteHandler;
@@ -32,6 +40,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -41,14 +50,18 @@ import java.util.Map;
 public class SelecionarhoraActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private static final String TAG = SelecionarhoraActivity.class.getSimpleName();
+    private static HashMap rs;
     private Button btnData;
     private TextView lblData, lblAtiv;
     private GridView gridView;
+    private RecyclerView recyclerView;
     private AdaptadorHora mAdapter;
+    private AdaptadorServico mAdapterRV;
     private String idPetshop, nomePetshop, enderecoPetshop, servico, dataMarcada, precoP, precoM, precoG, precoGG, precoGato, horaFunc,
             nome, nomePet, portePet, racaPet, tipoPet, caracPet, horaAbertura, horaFecha, hora = "";
     private int duracaoCao, duracaoGato;
     private ProgressDialog pDialog;
+    private List<ServicoAdicional> listaServico = new ArrayList<>();
     private ArrayList<String> horas = new ArrayList<>();
     private Spinner sp_animal;
     private ArrayList<String> animal;
@@ -73,6 +86,8 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
         lblAtiv = (TextView) findViewById(R.id.lblAtiv);
         gridView = (GridView) findViewById(R.id.gridView);
         sp_animal = (Spinner) findViewById(R.id.spAnimal);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view4);
+
 
         btnData.setEnabled(false);
 
@@ -130,6 +145,14 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
         mAdapter = new AdaptadorHora(this, horas);
         gridView.setAdapter(mAdapter);
 
+
+        mAdapterRV = new AdaptadorServico(listaServico);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerAndSeparator(this, LinearLayoutManager.VERTICAL));
+        recyclerView.setAdapter(mAdapterRV);
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -152,6 +175,17 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
 
             }
         });
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 
         btnData.setOnClickListener(this);
         sp_animal.setOnItemSelectedListener(this);
@@ -277,33 +311,59 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
         mAdapter.notifyDataSetChanged();
     }
 
-    public void changedDate() {
+    public void getAdditional() {
+
+        rs = new HashMap<Integer, String>();
+
+        final HashMap<Integer, String> info = new HashMap<Integer, String>();
+
         String tag_string_req = "req_DataHora";
 
         pDialog.setMessage("Verificando ...");
         showDialog();
 
-
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_RECUPERA_SERVICO, new Response.Listener<String>() {
+                AppConfig.URL_SERVICO_ADCIONAL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Resposta do DataHora: " + response.toString());
+                Log.e(TAG, "Resposta do Serviço adicional: " + response.toString());
                 hideDialog();
                 try {
                     JSONObject jObj = new JSONObject(response);
+                    int cont = jObj.getInt("cont");
                     boolean error = jObj.getBoolean("error");
 
+                    Log.e("Teste de cont: ", String.valueOf(cont));
+                    Log.e(TAG, "Resposta do JSON: " + jObj);
+
                     if (!error) {
-                        JSONObject info = jObj.getJSONObject("msg");
-                        int duracao = info.getInt("duracao");
-                        String horaAbertura = info.getString("horaAbertura");
-                        String horaFechamento = info.getString("horaFechamento");
-                        generateHours(duracao, horaAbertura, horaFechamento);
+
+                        JSONObject rsTemp = jObj.getJSONObject("response");
+                        for (int i = 0; cont > i; i++) {
+                            String temp = "";
+                            JSONObject tempRow = rsTemp.getJSONObject(String.valueOf(i));
+                            temp += tempRow.getString("nomeServico") + ",,,";
+                            temp += tempRow.getString("preco") + ",,,";
+                            temp += tempRow.getString("descricaoServico");
+
+                            info.put(i, temp);
+                            Log.e("Linhas: ", String.valueOf(info.get(i)));
+                            SelecionarhoraActivity.rs = info;
+                        }
+                        Log.e("Array: ", String.valueOf(info));
+                        Log.e("Número de info: ", String.valueOf(info.size()));
+                        for (int i = 0; i < info.size(); i++) {
+                            Log.e("For: ", String.valueOf(i));
+
+                            String[] temp = info.get((i)).split(",,,");
+                            Log.e("Teste Array: ", String.valueOf(temp[0]));
+                            ServicoAdicional ag = new ServicoAdicional(temp[0], temp[1], temp[2]);
+                            listaServico.add(ag);
+                            mAdapter.notifyDataSetChanged();
+                        }
 
                     } else {
-                        // Error in login. Get the error message
                         String errorMsg = String.valueOf(jObj.get("error_msg"));
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
@@ -329,10 +389,8 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("uid", idPetshop);
-                Log.e("Teste uid: ", idPetshop);
                 params.put("nome", servico);
                 Log.e("Teste servico: ", servico);
 
@@ -340,7 +398,6 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
             }
         };
 
-        // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
 
     }
@@ -359,6 +416,7 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
         switch (v.getId()) {
             case R.id.btnData:
                 final Calendar c = Calendar.getInstance();
+                getAdditional();
 
                 int y = c.get(Calendar.YEAR);
                 int m = c.get(Calendar.MONTH);
@@ -371,12 +429,12 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 String erg = "";
-                                if (dayOfMonth < 9) {
+                                if (dayOfMonth < 10) {
                                     erg = "0" + String.valueOf(dayOfMonth);
                                 } else if (dayOfMonth > 9) {
                                     erg = String.valueOf(dayOfMonth);
                                 }
-                                if (monthOfYear < 9) {
+                                if (monthOfYear < 10) {
                                     erg += "/0" + String.valueOf(monthOfYear + 1);
                                 } else if (monthOfYear > 9) {
                                     erg += "/" + String.valueOf(monthOfYear + 1);
@@ -385,14 +443,17 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
                                 dataMarcada = erg;
                                 lblData.setText(erg);
                                 lblAtiv.setText("Selecione a hora:");
+                                gridView.invalidateViews();
+                                horas.clear();
+                                mAdapter.notifyDataSetChanged();
+                                if (tipoPet.equals("Cachorro")) {
+                                    generateHours(duracaoCao, temp[0], temp[1]);
+                                } else if (tipoPet.equals("Gato")) {
+                                    generateHours(duracaoGato, temp[0], temp[1]);
+                                }
                             }
                         }, y, m, d);
                 dp.show();
-                if (tipoPet.equals("Cachorro")) {
-                    generateHours(duracaoCao, temp[0], temp[1]);
-                } else {
-                    generateHours(duracaoGato, temp[0], temp[1]);
-                }
                 break;
         }
 
@@ -400,6 +461,11 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        gridView.invalidateViews();
+        horas.clear();
+        mAdapter.notifyDataSetChanged();
+
         String temp = parent.getSelectedItem().toString();
         int numPosition = parent.getSelectedItemPosition();
 
@@ -449,5 +515,54 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public interface ClickListener {
+        void onClick(View view, int position);
+
+        void onLongClick(View view, int position);
+    }
+
+    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
+
+        private GestureDetector gestureDetector;
+        private SelecionarhoraActivity.ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final SelecionarhoraActivity.ClickListener clickListener) {
+            this.clickListener = clickListener;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
+                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildPosition(child));
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
     }
 }

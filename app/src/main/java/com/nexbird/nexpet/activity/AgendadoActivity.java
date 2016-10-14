@@ -96,19 +96,21 @@ public class AgendadoActivity extends AppCompatActivity {
                 String nomePetshop = ag.getNomePetshop();
                 String nomeAnimal = ag.getNomePet();
                 String servico = ag.getServico();
+                String endereco = ag.getEndereco();
                 String precoFinal = ag.getPrecoFinal();
                 String confirmado = ag.getConfirmado();
 
                 Intent i = new Intent(getApplicationContext(), DetalheagActivity.class);
 
                 Bundle params = new Bundle();
-
+                Log.e("Teste Agendado: ", dataAgendada);
                 params.putString("id", id);
                 params.putString("unique_index", unique_index);
-                params.putString("dataAgendada", dataAgendada);
+                params.putString("dataAgendada", inverterHora(dataAgendada));
                 params.putString("nomePetshop", nomePetshop);
                 params.putString("nomeAnimal", nomeAnimal);
                 params.putString("servico", servico);
+                //  params.putString("endereco", endereco);
                 params.putString("precoFinal", precoFinal);
                 params.putString("confirmado", confirmado);
 
@@ -186,7 +188,8 @@ public class AgendadoActivity extends AppCompatActivity {
 
                             String[] temp = info.get((i)).split(",,,");
                             Log.e("Teste Array: ", String.valueOf(temp[0]));
-                            Agendados ag = new Agendados(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7], temp[0]);
+
+                            Agendados ag = new Agendados(temp[0], temp[1], inverterHora(temp[2]), temp[3], temp[4], temp[5], temp[6], temp[7], temp[0]);
                             listaAgendada.add(ag);
                             mAdapter.notifyDataSetChanged();
                         }
@@ -232,6 +235,16 @@ public class AgendadoActivity extends AppCompatActivity {
         Log.e("Teste: ", String.valueOf(info));
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    public String inverterHora(String hora) {
+
+        String[] tempData = hora.split("-");
+        String[] dia = tempData[2].split(" ");
+        String[] tempHora = tempData[2].replace(dia[0], "").split(":");
+        String horaFormatada = dia[0] + "/" + tempData[1] + "/" + tempData[0] + " às" + tempHora[0] + ":" + tempHora[1];
+        Log.e("Teste com horas: ", horaFormatada);
+        return horaFormatada;
     }
 
     private void showDialog() {

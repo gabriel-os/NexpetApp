@@ -28,7 +28,7 @@ public class AppConfig {
 
     public static String URL_DELETAR_AGENDAMENTO = SW + "deleteScheduled.php";
 
-    public static String URL_SERVICO_ADCIONAL = SW + "getAditionalService.php";
+    public static String URL_SERVICO_ADCIONAL = SW + "getAdditionalService.php";
 
     public static String URL_RECUPERA_HORAAGENDADA = SW + "recoveryHours.php";
 

@@ -49,9 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtPetshop"
         android:layout_alignStart="@+id/txtPetshop"
-        android:layout_below="@+id/txtPetshop"
+        android:layout_below="@+id/txtEndereco"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:text="Erro"
         android:textColor="@color/text"
         android:textSize="18dp" />
@@ -60,8 +60,6 @@
         android:id="@+id/txtPreco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtServico"
-        android:layout_alignRight="@+id/txtServico"
         android:layout_below="@+id/txtData"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
@@ -75,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtPetshop"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:text="Erro"
         android:textSize="15dp" />
 
@@ -83,10 +81,9 @@
         android:id="@+id/txtData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txtEndereco"
-        android:layout_alignRight="@+id/txtEndereco"
-        android:layout_alignTop="@+id/txtServico"
-        android:layout_marginTop="45dp"
+        android:layout_below="@+id/txtServico"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
         android:text="Erro"
         android:textColor="@color/text"
         android:textSize="18dp" />

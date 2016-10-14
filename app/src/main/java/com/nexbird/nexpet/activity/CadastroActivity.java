@@ -7,15 +7,13 @@ import android.app.ActivityGroup;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TabHost;
@@ -44,18 +42,21 @@ import java.util.Map;
 public class CadastroActivity extends ActivityGroup implements View.OnClickListener, AdapterView.OnItemSelectedListener {
     private static final String TAG = CadastroActivity.class.getSimpleName();
     private EditText txtEndereco, txtNumero, txtCEP, txtComplemento, txtBairro, txtTelefone, txtCelular, txtNome, txtEmail, txtSenha, txtConfirmaSenha;
+    private EditText txtAnimal, txtCaracteristica;
+    private RadioGroup rbGroup;
+    private Spinner sp_raca, sp_porte;
     private Button btnVoltar, btnContinuar;
     private TabHost host;
-    private Spinner sp_Logradouro, spQuantidade;
+    private Spinner sp_Logradouro, sp_Quantidade;
     private RadioGroup rbSexo;
     private int[] layouts;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
     private List<String> logradouros, numero;
-    private RecyclerView recyclerView;
     private List<Animal> listaAnimal = new ArrayList<>();
     private AdaptadorAnimal mAdapter;
+    private LinearLayout linear1, linear2, linear3, linear4, linear5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,12 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         setContentView(R.layout.activity_cadastro);
 
         host = (TabHost) findViewById(R.id.tabHost2);
+
+        linear1 = (LinearLayout) findViewById(R.id.linear1);
+        linear2 = (LinearLayout) findViewById(R.id.linear2);
+        linear3 = (LinearLayout) findViewById(R.id.linear3);
+        linear4 = (LinearLayout) findViewById(R.id.linear4);
+        linear5 = (LinearLayout) findViewById(R.id.linear5);
 
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
         btnContinuar = (Button) findViewById(R.id.btnContinuar);
@@ -93,13 +100,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         // SQLite database handler
         db = new SQLiteHandler(getApplicationContext());
 
-        /*host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String tabId) {
-                setTag(host.getCurrentTab());
-            }
-        });*/
-
         layouts = new int[]{
                 R.layout.activity_basico,
                 R.layout.activity_informacao,
@@ -122,30 +122,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         spec3.setContent(R.id.layout3);
         host.addTab(spec3);
 
-        /* host.addTab(host.newTabSpec("tela1").setIndicator("Etapa 1")
-                .setContent(new Intent(this, BasicoActivity.class)));
-
-        host.addTab(host.newTabSpec("tela2").setIndicator("Etapa 2")
-                .setContent(new Intent(this, InformacaoActivity.class)));
-
-        host.addTab(host.newTabSpec("tela3").setIndicator("Etapa 3")
-                .setContent(new Intent(this, CadanimalActivity.class)));
-*/
-      /*  TabHost.TabSpec ts1 = host.newTabSpec("tela1");
-        ts1.setIndicator("Etapa 1");
-        ts1.setContent(new Intent(this, BasicoActivity.class));
-        host.addTab(ts1);
-
-        TabHost.TabSpec ts2 = host.newTabSpec("tela2");
-        ts2.setIndicator("Etapa 2");
-        ts2.setContent(new Intent(this, InformacaoActivity.class));
-        host.addTab(ts2);
-
-        TabHost.TabSpec ts3 = host.newTabSpec("tela3");
-        ts3.setIndicator("Etapa 3");
-        ts3.setContent(new Intent(this, CadanimalActivity.class));
-        host.addTab(ts3);*/
-
         sp_Logradouro = (Spinner) findViewById(R.id.sp_Logradouro);
 
         logradouros = new ArrayList<String>();
@@ -160,7 +136,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
         sp_Logradouro.setAdapter(adaptador);
 
-        spQuantidade = (Spinner) findViewById(R.id.sp_quantidade);
+        sp_Quantidade = (Spinner) findViewById(R.id.sp_quantidade);
 
         List<String> numero = new ArrayList<String>();
         numero.add("0");
@@ -174,18 +150,9 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
         adaptador2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spQuantidade.setAdapter(adaptador2);
+        sp_Quantidade.setAdapter(adaptador2);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view2);
-
-        mAdapter = new AdaptadorAnimal(listaAnimal);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerAndSeparator(this, LinearLayoutManager.VERTICAL));
-        recyclerView.setAdapter(mAdapter);
-
-        spQuantidade.setOnItemSelectedListener(this);
+        sp_Quantidade.setOnItemSelectedListener(this);
 
         rbSexo.check(R.id.rbMasc);
     }
@@ -218,7 +185,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                         JSONObject jObj = new JSONObject(response);
                         boolean error = jObj.getBoolean("error");
                         if (!error) {
-                            int quantidade = Integer.parseInt(spQuantidade.getSelectedItem().toString());
+                            int quantidade = Integer.parseInt(sp_Quantidade.getSelectedItem().toString());
 
                             String uid = jObj.getString("uid");
 
@@ -500,16 +467,37 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         int temp = Integer.parseInt(parent.getSelectedItem().toString());
-        mAdapter.notifyItemRangeRemoved(0, 5);
+
         Log.e("Teste Spinner:", String.valueOf(temp)); //Teste de variavél
 
-        Animal ag = new Animal("", "", "", "", "");
-        listaAnimal.clear();
-        for (int i = 1; i <= temp; i++) {
-            Log.e("For Spinner:*******", String.valueOf(i));
-            listaAnimal.add(ag);
-            mAdapter.notifyDataSetChanged();
+        switch (temp) {
+            case 0:
+                linear1.setVisibility(View.GONE);
+                linear2.setVisibility(View.GONE);
+                linear3.setVisibility(View.GONE);
+                linear4.setVisibility(View.GONE);
+                linear5.setVisibility(View.GONE);
+                break;
+            case 1:
+                linear2.setVisibility(View.GONE);
+                linear3.setVisibility(View.GONE);
+                linear4.setVisibility(View.GONE);
+                linear5.setVisibility(View.GONE);
+                break;
+            case 2:
+                linear3.setVisibility(View.GONE);
+                linear4.setVisibility(View.GONE);
+                linear5.setVisibility(View.GONE);
+                break;
+            case 3:
+                linear4.setVisibility(View.GONE);
+                linear5.setVisibility(View.GONE);
+                break;
+            case 4:
+                linear5.setVisibility(View.GONE);
+                break;
         }
+
     }
 
     @Override
@@ -517,3 +505,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
     }
 }
+/*
+
+LinearLayout one = (LinearLayout) findViewById(R.id.one);
+one.setVisibility(View.GONE);
+
+I suggest that you use GONE insteady of INVISIBLE in the
+onclick event because with View.GONE the place for the
+layout will not be visible and the application will not
+appear to have unused space in it unlike the View.INVISIBLE
+that will leave the gap that is intended for the the layout
+
+ */

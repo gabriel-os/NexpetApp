@@ -59,13 +59,13 @@ public class PrincipalActivity extends ActivityGroup {
         host.setup(this.getLocalActivityManager());
 
         TabHost.TabSpec ts1 = host.newTabSpec("tela1");
-        ts1.setIndicator("", getResources().getDrawable(R.drawable.ic_agendado));
-        ts1.setContent(new Intent(this, AgendadoActivity.class));
+        ts1.setIndicator("", getResources().getDrawable(R.drawable.ic_agendar));
+        ts1.setContent(new Intent(this, AgendarActivity.class));
         host.addTab(ts1);
 
         TabHost.TabSpec ts2 = host.newTabSpec("tela2");
-        ts2.setIndicator("", getResources().getDrawable(R.drawable.ic_agendar));
-        ts2.setContent(new Intent(this, AgendarActivity.class));
+        ts2.setIndicator("", getResources().getDrawable(R.drawable.ic_agendado));
+        ts2.setContent(new Intent(this, AgendadoActivity.class));
         host.addTab(ts2);
 
         TabHost.TabSpec ts3 = host.newTabSpec("tela3");
