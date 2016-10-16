@@ -2,13 +2,10 @@ package com.nexbird.nexpet.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -60,58 +57,7 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
 
         db = new SQLiteHandler(getApplicationContext());
 
-
-
-
-        /*recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-                Toast.makeText(getApplicationContext(),
-                        "Segurou!", Toast.LENGTH_LONG).show();
-            }
-        }));*/
-
-        spQuantidade.setOnItemSelectedListener(this);
-
-       /* btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nome = txtNome.getText().toString().trim();
-                String porte = (String) spPorte.getSelectedItem();
-                String raca = txtRaca.getText().toString().trim();
-                String caracteristica = txtCaracteristica.getText().toString().trim();
-                if (!nome.isEmpty() || !raca.isEmpty() || !caracteristica.isEmpty()) {
-
-                    query = "update tbPet set endereco = '" + nome + "', telefone = '" + raca + "' where unique_id = '" + porte + "';";
-                    prepareCompleta(query, nome, porte, raca, caracteristica);
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Por favor, digite suas informações!", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-        });*/
-
-       /* switch (String.valueOf(spQuantidade.getTag())) {
-            case "1":
-
-                break;
-            case "2":
-                break;
-            case "3":
-                break;
-            case "4":
-                break;
-            case "5":
-                break;
-        }*/
     }
-
 
     private void prepareCompleta(final String query, final String nome, final String porte, final String raca, final String caracteristica) {
 
@@ -204,8 +150,6 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
     }
 
     public void onNothingSelected(AdapterView<?> arg0) {
-
-
     }
 
     private void showDialog() {
@@ -222,48 +166,6 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
         void onClick(View view, int position);
 
         void onLongClick(View view, int position);
-    }
-
-    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-
-        private GestureDetector gestureDetector;
-        private CadanimalActivity.ClickListener clickListener;
-
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final CadanimalActivity.ClickListener clickListener) {
-            this.clickListener = clickListener;
-            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
-                    }
-                }
-            });
-        }
-
-        @Override
-        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
-            }
-            return false;
-        }
-
-        @Override
-        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-        }
-
-        @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-        }
     }
 
 }

@@ -39,7 +39,7 @@ public class ConfirmarActivity extends AppCompatActivity {
     private SQLiteHandler db;
     private ProgressDialog pDialog;
     private SessionManager session;
-    private String dataAgendada, idPet, nomePetshop, servico;
+    private String dataAgendada, nomeAnimal, nomePetshop, servico, servicoAd, preco, formaPag, endereco;
 
     View.OnClickListener click = new View.OnClickListener() {
         public void onClick(View v) {
@@ -79,10 +79,14 @@ public class ConfirmarActivity extends AppCompatActivity {
         Bundle params = getIntent().getExtras();
 
         dataAgendada = params.getString("data") + " " + params.getString("hora");
-        nomePetshop = params.getString("nome");
+        nomePetshop = params.getString("nomePetshop");
+        nomeAnimal = params.getString("nomeAnimal");
         nomePetshop = params.getString("nomePetshop");
         servico = params.getString("servico");
-        idPet = "1";
+        servicoAd = params.getString("servicoAd");
+        preco = params.getString("preco");
+        formaPag = params.getString("formaPag");
+        endereco = params.getString("endereco");
 
         db = new SQLiteHandler(getApplicationContext());
 
@@ -91,7 +95,6 @@ public class ConfirmarActivity extends AppCompatActivity {
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
-
 
         lblPetshop = (TextView) findViewById(R.id.lblPetshop);
         lblServico = (TextView) findViewById(R.id.lblServico);
@@ -105,7 +108,7 @@ public class ConfirmarActivity extends AppCompatActivity {
         lblPetshop.setText(nomePetshop);
         lblServico.setText(servico);
         lblDataHora.setText(dataAgendada);
-        lblPet.setText(idPet);
+        lblPet.setText(nomeAnimal);
 
         btnAgendar = (Button) findViewById(R.id.btnAgendar);
         btnBack = (Button) findViewById(R.id.btnBack);
@@ -144,7 +147,17 @@ public class ConfirmarActivity extends AppCompatActivity {
                         if (result) {
                             Toast.makeText(getApplicationContext(), "Serviço agendado com sucesso!!", Toast.LENGTH_LONG);
 
-                            Intent i = new Intent(getApplicationContext(), PrincipalActivity.class);
+                            Bundle params = new Bundle();
+                            params.putString("nomeAnimal", nomeAnimal);
+                            params.putString("nomePetshop", nomePetshop);
+                            params.putString("endereco", endereco);
+                            params.putString("servico", servico);
+                            params.putString("servicoAd", "");
+                            params.putString("preco", preco);
+                            params.putString("formaPag", formaPag);
+                            params.putString("data", dataAgendada);
+                            Intent i = new Intent(getApplicationContext(), EnviarActivity.class);
+                            i.putExtras(params);
                             finish();
                             startActivity(i);
                         } else {
@@ -152,7 +165,6 @@ public class ConfirmarActivity extends AppCompatActivity {
                         }
 
                     } else {
-                        // Error in login. Get the error message
                         String errorMsg = String.valueOf(jObj.get("error_msg"));
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
@@ -177,16 +189,26 @@ public class ConfirmarActivity extends AppCompatActivity {
 
             @Override
             protected Map<String, String> getParams() {
-                String temp = dataAgendada.replace("/", "-");
-                // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("dataAgendada", temp);
-                Log.e("Data agendada: ", temp);
-                params.put("nomeAnimal", "Kim");
+                params.put("dataAgendada", dataAgendada);
+                Log.e("Data agendada: ", dataAgendada);
+                params.put("nomeAnimal", nomeAnimal);
+                Log.e("Data agendada: ", nomeAnimal);
                 params.put("nomePetshop", nomePetshop);
+                Log.e("Data agendada: ", nomePetshop);
                 params.put("unique_index", uid);
+                Log.e("Data agendada: ", uid);
                 params.put("servico", servico);
-                params.put("precoFinal", "50.00");
+                Log.e("Data agendada: ", servico);
+                params.put("precoFinal", preco);
+                Log.e("Data agendada: ", preco);
+                params.put("servicoAdicional", "");
+                Log.e("Data agendada: ", "");
+                params.put("formaPagamento", formaPag);
+                Log.e("Data agendada: ", formaPag);
+                params.put("pagou", String.valueOf(false));
+                Log.e("Data agendada: ", String.valueOf(false));
+
                 return params;
             }
 

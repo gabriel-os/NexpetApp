@@ -598,15 +598,3 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
     }
 }
-/*
-
-LinearLayout one = (LinearLayout) findViewById(R.id.one);
-one.setVisibility(View.GONE);
-
-I suggest that you use GONE insteady of INVISIBLE in the
-onclick event because with View.GONE the place for the
-layout will not be visible and the application will not
-appear to have unused space in it unlike the View.INVISIBLE
-that will leave the gap that is intended for the the layout
-
- */

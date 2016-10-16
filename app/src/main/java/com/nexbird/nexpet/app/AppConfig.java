@@ -34,4 +34,6 @@ public class AppConfig {
 
     public static String URL_REGISTRAR_ANIMAL = SW + "registerAnimal.php";
 
+    public static String URL_ENVIAR_EMAIL = SW + "sendEmailService.php";
+
 }

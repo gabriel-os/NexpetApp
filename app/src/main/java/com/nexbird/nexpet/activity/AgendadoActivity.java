@@ -106,7 +106,7 @@ public class AgendadoActivity extends AppCompatActivity {
                 Log.e("Teste Agendado: ", dataAgendada);
                 params.putString("id", id);
                 params.putString("unique_index", unique_index);
-                params.putString("dataAgendada", inverterHora(dataAgendada));
+                params.putString("dataAgendada", dataAgendada);
                 params.putString("nomePetshop", nomePetshop);
                 params.putString("nomeAnimal", nomeAnimal);
                 params.putString("servico", servico);
@@ -195,13 +195,11 @@ public class AgendadoActivity extends AppCompatActivity {
                         }
 
                     } else {
-                        // Error in login. Get the error message
                         String errorMsg = String.valueOf(jObj.get("error_msg"));
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
-                    // JSON error
                     e.printStackTrace();
                     Log.e(TAG, "Resposta do JSON: " + e);
                     Toast.makeText(getApplicationContext(), "Json erro: " + e.getMessage(), Toast.LENGTH_LONG).show();

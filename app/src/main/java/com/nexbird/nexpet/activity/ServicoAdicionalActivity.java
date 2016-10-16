@@ -88,23 +88,6 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         preco = params.getString("preco");
         data = params.getString("data");
         hora = params.getString("hora");
-
-        switch (rgPagamento.getCheckedRadioButtonId()) {
-
-            case R.id.rbDinheiro:
-                formaPag = "Dinheiro";
-                break;
-
-            case R.id.rbDebito:
-                formaPag = "Débito";
-                break;
-
-            case R.id.rbCredito:
-                formaPag = "Crédito";
-                break;
-
-        }
-
         btnProximo.setOnClickListener(this);
     }
 
@@ -214,6 +197,22 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         switch (v.getId()) {
 
             case R.id.btnProximo:
+
+                switch (rgPagamento.getCheckedRadioButtonId()) {
+
+                    case R.id.rbDinheiro:
+                        formaPag = "Dinheiro";
+                        break;
+
+                    case R.id.rbDebito:
+                        formaPag = "Débito";
+                        break;
+
+                    case R.id.rbCredito:
+                        formaPag = "Crédito";
+                        break;
+
+                }
 
                 Intent j = new Intent(getApplicationContext(), ConfirmarActivity.class);
 
