@@ -8,12 +8,14 @@ public class ServicoAdicional {
     private String nomeServico;
     private String preco;
     private String descricaoServico;
+    private boolean isSelected;
 
 
-    public ServicoAdicional(String nomeServico, String preco, String descricaoServico) {
+    public ServicoAdicional(String nomeServico, String preco, String descricaoServico, boolean isSelected) {
         this.nomeServico = nomeServico;
         this.preco = preco;
         this.descricaoServico = descricaoServico;
+        this.isSelected = isSelected;
     }
 
     public String getNomeServico() {
@@ -38,5 +40,13 @@ public class ServicoAdicional {
 
     public void setDescricaoServico(String descricaoServico) {
         this.descricaoServico = descricaoServico;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }

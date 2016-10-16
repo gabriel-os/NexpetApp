@@ -47,7 +47,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
     private Spinner sp_raca, sp_porte;
     private Button btnVoltar, btnContinuar;
     private TabHost host;
-    private Spinner sp_Logradouro, sp_Quantidade;
+    private Spinner sp_Logradouro, sp_Quantidade, sp_raca1, sp_raca2, sp_raca3, sp_raca4, sp_raca5;
     private RadioGroup rbSexo;
     private int[] layouts;
     private ProgressDialog pDialog;
@@ -57,6 +57,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
     private List<Animal> listaAnimal = new ArrayList<>();
     private AdaptadorAnimal mAdapter;
     private LinearLayout linear1, linear2, linear3, linear4, linear5;
+    private String uid;
+    private int[] txtAnimalView = {R.id.txtAnimal1, R.id.txtAnimal2, R.id.txtAnimal3, R.id.txtAnimal4, R.id.txtAnimal5};
+    private int[] rbGroupView = {R.id.rbGruop1, R.id.rbGruop2, R.id.rbGruop1, R.id.rbGruop3, R.id.rbGruop4, R.id.rbGruop5};
+    private int[] rbMasculinoView = {R.id.rbMasculino1, R.id.rbMasculino2, R.id.rbMasculino3, R.id.rbMasculino4, R.id.rbMasculino5};
+    private int[] rbFemininoView = {R.id.rbFeminino1, R.id.rbFeminino2, R.id.rbFeminino3, R.id.rbFeminino4, R.id.rbFeminino5};
+    private int[] sp_racaView = {R.id.sp_porte1, R.id.sp_porte2, R.id.sp_porte3, R.id.sp_porte4, R.id.sp_porte5};
+    private int[] sp_porteView = {R.id.sp_porte1, R.id.sp_porte2, R.id.sp_porte3, R.id.sp_porte4, R.id.sp_porte5};
+    private int[] txtCaracteristicaView = {R.id.txtCaracteristica1, R.id.txtCaracteristica2, R.id.txtCaracteristica3, R.id.txtCaracteristica4, R.id.txtCaracteristica5};
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -146,15 +155,52 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         numero.add("4");
         numero.add("5");
 
-        ArrayAdapter<String> adaptador2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, numero);
+        ArrayAdapter<String> adaptadorQuantidade = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, numero);
 
-        adaptador2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adaptadorQuantidade.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        sp_Quantidade.setAdapter(adaptador2);
+        sp_Quantidade.setAdapter(adaptadorQuantidade);
 
         sp_Quantidade.setOnItemSelectedListener(this);
 
+        List<String> raca = new ArrayList<String>();
+        numero.add("0");
+        numero.add("1");
+        numero.add("2");
+        numero.add("3");
+        numero.add("4");
+        numero.add("5");
+
+        List<String> porte = new ArrayList<String>();
+        numero.add("Pequeno");
+        numero.add("Médio");
+        numero.add("Grande");
+        numero.add("Gigante");
+
+        ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, raca);
+        ArrayAdapter<String> adaptadorPorte = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, porte);
+
+        adaptadorRaca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adaptadorPorte.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        int temp = 0;
+
+        while (temp < 5) {
+            sp_raca = (Spinner) findViewById(sp_racaView[temp]);
+            sp_raca.setAdapter(adaptadorRaca);
+
+            sp_porte = (Spinner) findViewById(sp_porteView[temp]);
+            sp_porte.setAdapter(adaptadorPorte);
+
+            temp++;
+        }
+
         rbSexo.check(R.id.rbMasc);
+
+        linear1.setVisibility(View.GONE);
+        linear2.setVisibility(View.GONE);
+        linear3.setVisibility(View.GONE);
+        linear4.setVisibility(View.GONE);
+        linear5.setVisibility(View.GONE);
     }
 
     private int getItem(int i) {
@@ -187,7 +233,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                         if (!error) {
                             int quantidade = Integer.parseInt(sp_Quantidade.getSelectedItem().toString());
 
-                            String uid = jObj.getString("uid");
+                            uid = jObj.getString("uid");
 
                             JSONObject user = jObj.getJSONObject("user");
                             String name = user.getString("name");
@@ -398,6 +444,42 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
     }
 
+    public String[] getValues(int quantidade) {
+
+        String[] values = {"", "", "", "", ""};
+
+        String temp = ",";
+
+        for (int i = 0; i < quantidade; i++) {
+
+            if (i - quantidade == 1 || i - quantidade == -1) {
+                temp = "";
+            }
+            txtAnimal = (EditText) findViewById(txtAnimalView[i]);
+            rbGroup = (RadioGroup) findViewById(rbGroupView[i]);
+            sp_raca = (Spinner) findViewById(sp_porteView[i]);
+            sp_porte = (Spinner) findViewById(sp_porteView[i]);
+            txtCaracteristica = (EditText) findViewById(txtCaracteristicaView[i]);
+
+            values[0] += String.valueOf(txtAnimal.getText()).trim() + temp;
+
+            if (rbGroup.getCheckedRadioButtonId() == rbMasculinoView[i]) {
+                values[1] += "Macho" + temp;
+            } else if (rbGroup.getCheckedRadioButtonId() == rbFemininoView[i]) {
+                values[1] += "Fêmea" + temp;
+            }
+
+            values[2] += String.valueOf(sp_raca.getSelectedItem()) + temp;
+
+            values[3] += String.valueOf(sp_porte.getSelectedItem()) + temp;
+
+            values[4] += String.valueOf(txtCaracteristica.getText()).trim() + temp;
+
+        }
+        Log.e("Teste de função: ", values[0]);
+        return values;
+    }
+
     @Override
     public void onClick(View v) {
 
@@ -443,7 +525,10 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                             } else if (num == R.id.rbFem) {
                                 sexo = "Feminino";
                             }
+                            int tempQuantidade = Integer.parseInt(sp_Quantidade.getSelectedItem().toString());
+                            String[] temp = getValues(tempQuantidade);
                             registerUser(nomeUsuario, email, senha, confSenha, sexo, telefone, celular, endereco + ", " + numero, complemento, cep, bairro);
+                            registerAnimal(temp[0], temp[1], temp[2], temp[3], temp[4], uid, tempQuantidade);
                         }
 
                     });
@@ -460,8 +545,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                 btnContinuar.setOnClickListener(this);
                 break;
         }
-
-
     }
 
     @Override
@@ -479,21 +562,31 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                 linear5.setVisibility(View.GONE);
                 break;
             case 1:
+                linear1.setVisibility(View.VISIBLE);
                 linear2.setVisibility(View.GONE);
                 linear3.setVisibility(View.GONE);
                 linear4.setVisibility(View.GONE);
                 linear5.setVisibility(View.GONE);
                 break;
             case 2:
+                linear1.setVisibility(View.VISIBLE);
+                linear2.setVisibility(View.VISIBLE);
                 linear3.setVisibility(View.GONE);
                 linear4.setVisibility(View.GONE);
                 linear5.setVisibility(View.GONE);
                 break;
             case 3:
+                linear1.setVisibility(View.VISIBLE);
+                linear2.setVisibility(View.VISIBLE);
+                linear3.setVisibility(View.VISIBLE);
                 linear4.setVisibility(View.GONE);
                 linear5.setVisibility(View.GONE);
                 break;
             case 4:
+                linear1.setVisibility(View.VISIBLE);
+                linear2.setVisibility(View.VISIBLE);
+                linear3.setVisibility(View.VISIBLE);
+                linear4.setVisibility(View.VISIBLE);
                 linear5.setVisibility(View.GONE);
                 break;
         }

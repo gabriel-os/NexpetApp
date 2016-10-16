@@ -40,6 +40,7 @@ public class ConfirmarActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private String dataAgendada, idPet, nomePetshop, servico;
+
     View.OnClickListener click = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
@@ -70,10 +71,10 @@ public class ConfirmarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar);
 
-        if (!session.isLoggedIn()) {
+/*        if (!session.isLoggedIn()) {
             Intent i = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(i);
-        }
+        }*/
 
         Bundle params = getIntent().getExtras();
 

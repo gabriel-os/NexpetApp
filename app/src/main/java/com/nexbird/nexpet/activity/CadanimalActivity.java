@@ -189,7 +189,7 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
 
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        int temp = Integer.parseInt(parent.getSelectedItem().toString());
+       /* int temp = Integer.parseInt(parent.getSelectedItem().toString());
         mAdapter.notifyItemRangeRemoved(0, 5);
         Log.e("Teste Spinner:", String.valueOf(temp)); //Teste de variavél
 
@@ -200,7 +200,7 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
             listaAnimal.add(ag);
             mAdapter.notifyDataSetChanged();
 
-        }
+        }*/
     }
 
     public void onNothingSelected(AdapterView<?> arg0) {
