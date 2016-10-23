@@ -143,4 +143,17 @@
             android:textSize="20dp" />
     </LinearLayout>
 
+    <Button
+        android:text="Salvar"
+        android:background="@color/colorPrimaryDark"
+        android:padding="5dp"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSalvar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

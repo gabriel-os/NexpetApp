@@ -141,7 +141,7 @@ public class AgendadoActivity extends AppCompatActivity {
 
         String tag_string_req = "req_agendado";
         final HashMap<Integer, String> info = new HashMap<Integer, String>();
-        ;
+
         pDialog.setMessage("Atualizando ...");
         showDialog();
 

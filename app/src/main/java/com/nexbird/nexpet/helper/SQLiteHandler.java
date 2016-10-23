@@ -44,6 +44,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_NOME = "nome";
     private static final String KEY_PORTE = "porte";
     private static final String KEY_RACA = "raca";
+    private static final String KEY_SEXO = "sexo";
     private static final String KEY_TIPO = "tipo";
     private static final String KEY_CARACTERISTICA = "caracteristica";
 
@@ -76,6 +77,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                     + KEY_UID + " TEXT, "
                     + KEY_NOME + " TEXT, "
                     + KEY_PORTE + " TEXT, "
+                    + KEY_SEXO + " TEXT, "
                     + KEY_RACA + " TEXT, "
                     + KEY_TIPO + " TEXT, "
                     + KEY_CARACTERISTICA + " TEXT) ";
@@ -123,13 +125,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Novo usuario inserido no SQLite: " + id);
     }
 
-    public void addPet(String uid, String nome, String porte, String raca, String tipo, String caracteristica) {
+    public void addPet(String uid, String nome, String porte, String sexo, String raca, String tipo, String caracteristica) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_UID, uid); // UID
         values.put(KEY_NOME, nome); // Nome
         values.put(KEY_PORTE, porte); // Porte
+        values.put(KEY_SEXO, sexo); // Sexo
         values.put(KEY_RACA, raca); //raca
         values.put(KEY_TIPO, tipo); //tipo
         values.put(KEY_CARACTERISTICA, caracteristica); //caracteristica
@@ -185,6 +188,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             pet.add(cursor.getString(4));
             pet.add(cursor.getString(5));
             pet.add(cursor.getString(6));
+            pet.add(cursor.getString(7));
             while (cursor.moveToNext()) {
                 pet.add(cursor.getString(1));
                 pet.add(cursor.getString(2));
@@ -192,6 +196,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 pet.add(cursor.getString(4));
                 pet.add(cursor.getString(5));
                 pet.add(cursor.getString(6));
+                pet.add(cursor.getString(7));
             }
         }
         cursor.close();
@@ -260,7 +265,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    public void updatePets(String uid, String nome, String porte, String raca, String tipo, String caracteristica) {
+    public void updatePets(String uid, String nome, String porte, String sexo, String raca, String tipo, String caracteristica) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Update rows
         ContentValues values = new ContentValues();
@@ -268,6 +273,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_UID, uid); // Nome
         values.put(KEY_PORTE, porte); // Porte
         values.put(KEY_RACA, raca); //raca
+        values.put(KEY_SEXO, sexo); //sexo
         values.put(KEY_TIPO, tipo); //tipo
         values.put(KEY_CARACTERISTICA, caracteristica); //caracteristica
 

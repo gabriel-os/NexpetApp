@@ -92,16 +92,16 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
                 case 1:
                     animal.add(String.valueOf(resultSQL.get(i)));
                     break;
-                case 7:
+                case 8:
                     animal.add(String.valueOf(resultSQL.get(i)));
                     break;
-                case 13:
+                case 14:
                     animal.add(String.valueOf(resultSQL.get(i)));
                     break;
-                case 19:
+                case 20:
                     animal.add(String.valueOf(resultSQL.get(i)));
                     break;
-                case 25:
+                case 26:
                     animal.add(String.valueOf(resultSQL.get(i)));
                     break;
             }
@@ -391,36 +391,37 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
                 nomePet = String.valueOf(resultSQL.get(1));
                 portePet = String.valueOf(resultSQL.get(2));
                 racaPet = String.valueOf(resultSQL.get(3));
-                tipoPet = String.valueOf(resultSQL.get(4));
-                caracPet = String.valueOf(resultSQL.get(5));
+                tipoPet = String.valueOf(resultSQL.get(5));
+                caracPet = String.valueOf(resultSQL.get(6));
+
                 break;
             case 2:
-                nomePet = String.valueOf(resultSQL.get(7));
-                portePet = String.valueOf(resultSQL.get(8));
-                racaPet = String.valueOf(resultSQL.get(9));
-                tipoPet = String.valueOf(resultSQL.get(10));
-                caracPet = String.valueOf(resultSQL.get(11));
+                nomePet = String.valueOf(resultSQL.get(8));
+                portePet = String.valueOf(resultSQL.get(9));
+                racaPet = String.valueOf(resultSQL.get(10));
+                tipoPet = String.valueOf(resultSQL.get(12));
+                caracPet = String.valueOf(resultSQL.get(13));
                 break;
             case 3:
-                nomePet = String.valueOf(resultSQL.get(13));
-                portePet = String.valueOf(resultSQL.get(14));
-                racaPet = String.valueOf(resultSQL.get(15));
-                tipoPet = String.valueOf(resultSQL.get(16));
-                caracPet = String.valueOf(resultSQL.get(17));
+                nomePet = String.valueOf(resultSQL.get(15));
+                portePet = String.valueOf(resultSQL.get(16));
+                racaPet = String.valueOf(resultSQL.get(17));
+                tipoPet = String.valueOf(resultSQL.get(19));
+                caracPet = String.valueOf(resultSQL.get(20));
                 break;
             case 4:
-                nomePet = String.valueOf(resultSQL.get(19));
-                portePet = String.valueOf(resultSQL.get(20));
-                racaPet = String.valueOf(resultSQL.get(21));
-                tipoPet = String.valueOf(resultSQL.get(22));
-                caracPet = String.valueOf(resultSQL.get(23));
+                nomePet = String.valueOf(resultSQL.get(22));
+                portePet = String.valueOf(resultSQL.get(23));
+                racaPet = String.valueOf(resultSQL.get(24));
+                tipoPet = String.valueOf(resultSQL.get(26));
+                caracPet = String.valueOf(resultSQL.get(27));
                 break;
             case 5:
-                nomePet = String.valueOf(resultSQL.get(25));
-                portePet = String.valueOf(resultSQL.get(26));
-                racaPet = String.valueOf(resultSQL.get(27));
-                tipoPet = String.valueOf(resultSQL.get(28));
-                caracPet = String.valueOf(resultSQL.get(29));
+                nomePet = String.valueOf(resultSQL.get(29));
+                portePet = String.valueOf(resultSQL.get(30));
+                racaPet = String.valueOf(resultSQL.get(31));
+                tipoPet = String.valueOf(resultSQL.get(33));
+                caracPet = String.valueOf(resultSQL.get(34));
                 break;
         }
 

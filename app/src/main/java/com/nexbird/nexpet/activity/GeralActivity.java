@@ -1,7 +1,9 @@
 package com.nexbird.nexpet.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.nexbird.nexpet.R;
@@ -19,5 +21,19 @@ public class GeralActivity extends AppCompatActivity {
         btnDados = (Button) findViewById(R.id.btnDados);
         btnSenha = (Button) findViewById(R.id.btnSenha);
         btnPet = (Button) findViewById(R.id.btnPet);
+
+        btnDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), InformacaoActivity.class);
+
+                Bundle params = new Bundle();
+                params.putBoolean("alteracao", true);
+
+                i.putExtras(params);
+
+                startActivity(i);
+            }
+        });
     }
 }

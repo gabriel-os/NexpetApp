@@ -115,8 +115,6 @@ public class LoginActivity extends Activity {
 
     private void checkLogin(final String email, final String password) {
 
-
-        // Tag used to cancel the request
         String tag_string_req = "req_login";
 
         pDialog.setMessage("Entrando ...");
@@ -134,27 +132,27 @@ public class LoginActivity extends Activity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
 
-                    // Check for error node in json
                     if (!error) {
-                        // user successfully logged in
-                        // Create login session
+
                         session.setLogin(true);
                         session.setFullRegistred(false);
                         session.setPetRegistred(false);
 
-                        // Now store the user in SQLite
                         String uid = jObj.getString("uid");
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
                         String endereco = user.getString("endereco");
+                        String cep = user.getString("cep");
+                        String bairro = user.getString("bairro");
                         String complemento = user.getString("complemento");
                         String telefone = user.getString("telefone");
+                        String celular = user.getString("celular");
 
+                        String[] tempEndereco = endereco.split(", ");
                         String created_at = user.getString("created_at");
 
-                        // Inserting row in users table
-                        db.addUser(uid, name, email, telefone, telefone, endereco, complemento, created_at, "", "", "");
+                        db.addUser(uid, name, email, telefone, celular, tempEndereco[0], tempEndereco[1], cep, bairro, complemento, created_at);
 
                         Intent intent = new Intent(LoginActivity.this,
                                 PrincipalActivity.class);
@@ -186,7 +184,6 @@ public class LoginActivity extends Activity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", email);
                 params.put("password", password);
@@ -199,7 +196,6 @@ public class LoginActivity extends Activity {
         String teste2 = tag_string_req;
         Log.e("-----------------", teste);
         Log.e("**********", teste2);
-        // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
 
     }

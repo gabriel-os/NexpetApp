@@ -36,7 +36,7 @@ import java.util.Map;
  */
 
 
-public class CadanimalActivity extends Activity implements AdapterView.OnItemSelectedListener {
+public class CadanimalActivity extends Activity {
     private static final String TAG = CadanimalActivity.class.getSimpleName();
     private SQLiteHandler db;
     private List<Animal> listaAnimal = new ArrayList<>();
@@ -134,24 +134,6 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
     }
 
 
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       /* int temp = Integer.parseInt(parent.getSelectedItem().toString());
-        mAdapter.notifyItemRangeRemoved(0, 5);
-        Log.e("Teste Spinner:", String.valueOf(temp)); //Teste de variavél
-
-        Animal ag = new Animal("", "", "", "", "");
-        listaAnimal.clear();
-        for (int i = 1; i <= temp; i++) {
-            Log.e("For Spinner:*******", String.valueOf(i));
-            listaAnimal.add(ag);
-            mAdapter.notifyDataSetChanged();
-
-        }*/
-    }
-
-    public void onNothingSelected(AdapterView<?> arg0) {
-    }
-
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -161,11 +143,4 @@ public class CadanimalActivity extends Activity implements AdapterView.OnItemSel
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-
-    public interface ClickListener {
-        void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
-    }
-
 }

@@ -16,11 +16,19 @@
 
         <ImageButton
             android:id="@+id/imgBtnPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             app:srcCompat="@mipmap/teste" />
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:ems="10"
+            android:hint="Pesquisar"
+            android:inputType="textPersonName" />
     </android.support.v7.widget.Toolbar>
 
     <TabHost

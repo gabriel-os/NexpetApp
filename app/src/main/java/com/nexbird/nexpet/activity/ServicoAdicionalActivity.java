@@ -88,6 +88,9 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         preco = params.getString("preco");
         data = params.getString("data");
         hora = params.getString("hora");
+
+        getAdditional();
+
         btnProximo.setOnClickListener(this);
     }
 
