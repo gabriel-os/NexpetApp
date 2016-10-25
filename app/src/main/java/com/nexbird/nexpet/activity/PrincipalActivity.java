@@ -76,8 +76,8 @@ public class PrincipalActivity extends ActivityGroup {
         btnToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.addPet("123456", "Kim", "Pequeno", "Maltês", "Cachorro", "Nenhuma");
-                db.addPet("12345", "Thor", "Grande", "Cocker", "Cachorro", "Agressivo");
+                db.addPet("123456", "Kim", "Pequeno", "Macho","Maltês", "Cachorro", "Nenhuma");
+                db.addPet("12345", "Thor", "Grande", "Femea","Cocker", "Cachorro", "Agressivo");
             }
         });
 

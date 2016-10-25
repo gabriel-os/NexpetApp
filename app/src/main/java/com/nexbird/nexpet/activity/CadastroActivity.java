@@ -488,7 +488,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             }
             txtAnimal = (EditText) findViewById(txtAnimalView[i]);
             rbGroup = (RadioGroup) findViewById(rbGroupView[i]);
-            sp_raca = (Spinner) findViewById(sp_porteView[i]);
+            sp_raca = (Spinner) findViewById(sp_racaView[i]);
             sp_porte = (Spinner) findViewById(sp_porteView[i]);
             sp_tipo = (Spinner) findViewById(sp_tipoView[i]);
             txtCaracteristica = (EditText) findViewById(txtCaracteristicaView[i]);
@@ -591,15 +591,40 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         return retorno[0];
     }
 
+    public boolean testeEtapaTres(int quantidade){
+
+        boolean retorno = false;
+
+        for (int i = 0; i < quantidade; i++){
+            String nomeAnimal = (findViewById(txtAnimalView[i])).toString();
+            rbGroup = (RadioGroup) findViewById(rbGroupView[i]);
+            String sexo = "";
+            String porte= (findViewById(sp_porteView[i])).toString();
+            String raca = (findViewById(sp_racaView[i])).toString();
+            String tipo = (findViewById(sp_tipoView[i])).toString();
+            String caracteristica = (findViewById(txtCaracteristicaView[i])).toString();
+
+            if (rbGroup.getCheckedRadioButtonId() == rbMasculinoView[i]) {
+                sexo += "Masculino";
+            } else if (rbGroup.getCheckedRadioButtonId() == rbFemininoView[i]) {
+                sexo += "Feminino";
+            }
+
+                if(nomeAnimal.isEmpty() || sexo.isEmpty() || porte.isEmpty() || raca.isEmpty() || tipo.isEmpty() || caracteristica.isEmpty()){
+
+                }
+
+        }
+
+        return retorno;
+    }
+
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
             case R.id.btnContinuar:
 
-                int current = getItem(+1);
-                setCurrentTab(current);
-                setTag(current);
                 if (host.getCurrentTab() == 0) {
                     nomeUsuario = String.valueOf(txtNome.getText()).trim();
                     email = String.valueOf(txtEmail.getText()).trim();
@@ -626,6 +651,10 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                     celular = String.valueOf(txtCelular.getText());
                     testeEtapaDois(endereco, numeroEndereco, complemento, cep, bairro, telefone, celular);
                 }
+
+                int current = getItem(+1);
+                setCurrentTab(current);
+                setTag(current);
 
                 if (btnContinuar.getText().equals("Cadastrar") && host.getCurrentTab() == 2) {
 

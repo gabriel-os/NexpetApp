@@ -45,7 +45,7 @@ public class PerfilpetActivity extends AppCompatActivity {
     private static HashMap rs;
     private TextView lblTelefone, lblNome, lblDescricao, lblEndereco, lblHoraFunc;
     private SQLiteHandler db;
-    private List<PerfilPet> listaServico = new ArrayList<>();
+    private ArrayList<PerfilPet> listaServico = new ArrayList<>();
     private AdaptadorPerfilPet mAdapter;
     private RecyclerView recyclerView;
     private SessionManager session;

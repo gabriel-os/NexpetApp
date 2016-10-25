@@ -7,30 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b74e24-3941-425b-a2e9-b1f988d22947" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/GeralActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/GeralActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/InformacaoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/InformacaoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/SelecionarhoraActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/SelecionarhoraActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/ServicoAdicionalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/ServicoAdicionalActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadanimal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadanimal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_informacao.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_informacao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_principal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java" />
     </list>
     <ignored path="NexPet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,48 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InformacaoActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/InformacaoActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="method#recuperaInfo#0;class#InformacaoActivity#0" expanded="false" />
-                <element signature="method#showDialog#0;class#InformacaoActivity#0" expanded="false" />
-                <element signature="method#hideDialog#0;class#InformacaoActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2584">
-              <caret line="177" column="33" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLiteHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3876">
-              <caret line="271" column="8" selection-start-line="271" selection-start-column="8" selection-end-line="277" selection-end-column="72" />
-              <folding>
-                <element signature="method#getPetNameAndType#0;class#SQLiteHandler#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CadastroActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CadastroActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="591" column="5" selection-start-line="591" selection-start-column="5" selection-end-line="591" selection-end-column="5" />
+            <state relative-caret-position="873">
+              <caret line="656" column="32" selection-start-line="656" selection-start-column="32" selection-end-line="656" selection-end-column="32" />
               <folding>
                 <element signature="method#registerUser#0;class#CadastroActivity#0" expanded="false" />
                 <element signature="method#registerAnimal#0;class#CadastroActivity#0" expanded="false" />
@@ -121,16 +75,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AgendadoActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2771">
-              <caret line="201" column="17" selection-start-line="156" selection-start-column="16" selection-end-line="201" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#11582#11583#0" expanded="false" />
-                <element signature="e#11633#11634#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1485,7 +1435,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\Gabriel\Documents\TCC\NexPet" value="4419259553787" />
+        <entry key="C:\Users\Gabriel\Documents\TCC\NexPet" value="4419433132669" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1820,11 +1770,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/GeralActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/SelecionarhoraActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_cadanimal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -1859,13 +1811,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NexPet" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NexPet" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1874,6 +1847,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
+    <property name="device.picker.selection" value="LGK430SODEBEBI" />
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -2105,7 +2079,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration default="false" name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2180,6 +2154,14 @@
       <option name="presentableId" value="Default" />
       <updated>1477098140236</updated>
     </task>
+    <task id="LOCAL-00001" summary="Versão 1.23102016.1 (Funções no sistema de cadastro e melhoria na tela agendados)">
+      <created>1477266187102</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1477266187102</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2198,7 +2180,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.64395887" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2208,7 +2190,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2238,10 +2220,82 @@
     <option name="LAST_COMMIT_MESSAGE" value="Versão 1.23102016.1 (Funções no sistema de cadastro e melhoria na tela agendados)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/InformacaoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#recuperaInfo#0;class#InformacaoActivity#0" expanded="false" />
+            <element signature="method#showDialog#0;class#InformacaoActivity#0" expanded="false" />
+            <element signature="method#hideDialog#0;class#InformacaoActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="177" column="33" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/helper/SQLiteHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3876">
+          <caret line="271" column="8" selection-start-line="271" selection-start-column="8" selection-end-line="277" selection-end-column="72" />
+          <folding>
+            <element signature="method#getPetNameAndType#0;class#SQLiteHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3604">
+          <caret line="591" column="5" selection-start-line="591" selection-start-column="5" selection-end-line="591" selection-end-column="5" />
+          <folding>
+            <element signature="method#registerUser#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#registerAnimal#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#showDialog#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#hideDialog#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#setCurrentTab#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#setTag#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#getValues#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#testeEtapaUm#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#testeEtapaDois#0;class#CadastroActivity#0" expanded="false" />
+            <element signature="method#onItemSelected#0;class#CadastroActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/AgendadoActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2771">
+          <caret line="201" column="17" selection-start-line="156" selection-start-column="16" selection-end-line="201" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#11582#11583#0" expanded="false" />
+            <element signature="e#11633#11634#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/InformacaoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
@@ -2483,14 +2537,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadastro.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadanimalActivity.java">
@@ -2501,23 +2555,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_geral.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/GeralActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-          <folding>
-            <element signature="e#734#1114#0" expanded="true" />
-            <element signature="e#1113#1114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2538,14 +2588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
           <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -2557,18 +2599,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="115" column="45" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/SelecionarhoraActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="395" column="16" selection-start-line="395" selection-start-column="16" selection-end-line="395" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2593,17 +2627,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_informacao.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1750">
           <caret line="151" column="33" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadanimal.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cadanimal.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1133">
           <caret line="91" column="56" selection-start-line="91" selection-start-column="56" selection-end-line="91" selection-end-column="56" />
@@ -2616,18 +2653,11 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/ConfigActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="54" selection-end-column="30" />
-          <folding>
-            <element signature="e#1131#2021#0" expanded="true" />
-            <element signature="e#2020#2021#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2643,10 +2673,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PrincipalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="79" column="59" selection-start-line="79" selection-start-column="59" selection-end-line="79" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/PerfilpetActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="47" column="45" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nexbird/nexpet/activity/CadastroActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="591" column="5" selection-start-line="591" selection-start-column="5" selection-end-line="591" selection-end-column="5" />
+        <state relative-caret-position="873">
+          <caret line="656" column="32" selection-start-line="656" selection-start-column="32" selection-end-line="656" selection-end-column="32" />
           <folding>
             <element signature="method#registerUser#0;class#CadastroActivity#0" expanded="false" />
             <element signature="method#registerAnimal#0;class#CadastroActivity#0" expanded="false" />
@@ -2659,6 +2705,14 @@
             <element signature="method#testeEtapaDois#0;class#CadastroActivity#0" expanded="false" />
             <element signature="method#onItemSelected#0;class#CadastroActivity#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
