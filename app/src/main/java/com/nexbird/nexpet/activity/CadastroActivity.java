@@ -71,6 +71,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
     private int[] sp_porteView = {R.id.sp_porte1, R.id.sp_porte2, R.id.sp_porte3, R.id.sp_porte4, R.id.sp_porte5};
     private int[] sp_tipoView = {R.id.sp_tipo1, R.id.sp_tipo2, R.id.sp_tipo3, R.id.sp_tipo4, R.id.sp_tipo5};
     private int[] txtCaracteristicaView = {R.id.txtCaracteristica1, R.id.txtCaracteristica2, R.id.txtCaracteristica3, R.id.txtCaracteristica4, R.id.txtCaracteristica5};
+    private int temp;
 
 
     @Override
@@ -365,8 +366,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                             String raca = tempRow.getString("raca");
                             String porte = tempRow.getString("porte");
                             String caracteristica = tempRow.getString("caracteristica");
-
-                            db.addPet(id, nome, porte, sexo, raca, tipo, caracteristica);
                         }
 
                     } else {
@@ -428,7 +427,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                 params.put("porte", porte);
                 params.put("tipo", tipo);
                 params.put("caracteristica", caracteristica);
-                //params.put("foto", foto);
                 params.put("uid", uid);
                 params.put("quantidade", String.valueOf(quantidade));
 
@@ -511,7 +509,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             values[2] += String.valueOf(sp_raca.getSelectedItem()) + temp;
 
-
             values[5] += String.valueOf(txtCaracteristica.getText()).trim() + temp;
 
         }
@@ -523,11 +520,11 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
         boolean retorno = false;
 
-       /* if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmaSenha.isEmpty() || sexo.isEmpty()) {
+        if (nome.isEmpty() && email.isEmpty() && senha.isEmpty() && confirmaSenha.isEmpty() && sexo.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Ops!\nParece que há informações faltando!\nObs:Você não pode pular essa etapa",
                     Toast.LENGTH_LONG).show();
             retorno = true;
-        } else */if (nome.length() < 6) {
+        } else if (nome.length() < 6) {
             Toast.makeText(getApplicationContext(), "Ops!\nPrecisamos do seu nome completo :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
@@ -535,7 +532,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "Ops!\nHá algo errado com o email digitado\nQue tal verificar? :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
-        } else if (!senha.equals(confirmaSenha)) {
+        }else if(senha.isEmpty() || senha.length() < 6){
+            Toast.makeText(getApplicationContext(), "Ops!\nDigite uma senha válida e/ou com no minímo 6 caracteres :D",
+                    Toast.LENGTH_LONG).show();
+            retorno = true;
+        }else if(confirmaSenha.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de confimar a senha! :D",
+                    Toast.LENGTH_LONG).show();
+            retorno = true;
+        }else if (!senha.equals(confirmaSenha)) {
             Toast.makeText(getApplicationContext(), "Ops!\nAs sennhas não correspondem :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
@@ -548,20 +553,6 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         final boolean[] retorno = {false};
 
         if (endereco.isEmpty() && numero.isEmpty() && complemento.isEmpty() && cep.isEmpty() && bairro.isEmpty() && telefone.isEmpty() && celular.isEmpty()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(CadastroActivity.this);
-            builder.setTitle("Tem certeza que deseja pular essa etapa?\nVocê poderá complentar essa etapa mais tarde :D");
-            builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-
-                }
-            });
-            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface arg0, int arg1) {
-                    retorno[0] = true;
-                }
-            });
-            AlertDialog alerta = builder.create();
-            alerta.show();
         } else if (endereco.isEmpty() && numero.isEmpty() && complemento.isEmpty() && cep.isEmpty() && bairro.isEmpty() && telefone.isEmpty() && celular.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Ops!\nParece que há informações faltando!\nObs:Você pode pular essa etapa",
                     Toast.LENGTH_LONG).show();
@@ -591,15 +582,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         return retorno[0];
     }
 
-    public boolean testeEtapaTres(int quantidade){
+    public boolean testeEtapaTres(int quantidade) {
 
-        boolean retorno = false;
+        final boolean retorno[] = {false};
 
-        for (int i = 0; i < quantidade; i++){
+        for (int i = 0; i < quantidade; i++) {
             String nomeAnimal = (findViewById(txtAnimalView[i])).toString();
             rbGroup = (RadioGroup) findViewById(rbGroupView[i]);
             String sexo = "";
-            String porte= (findViewById(sp_porteView[i])).toString();
+            String porte = (findViewById(sp_porteView[i])).toString();
             String raca = (findViewById(sp_racaView[i])).toString();
             String tipo = (findViewById(sp_tipoView[i])).toString();
             String caracteristica = (findViewById(txtCaracteristicaView[i])).toString();
@@ -610,13 +601,30 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                 sexo += "Feminino";
             }
 
-                if(nomeAnimal.isEmpty() || sexo.isEmpty() || porte.isEmpty() || raca.isEmpty() || tipo.isEmpty() || caracteristica.isEmpty()){
+            if (quantidade == 0) {
 
-                }
-
+            } else if (nomeAnimal.isEmpty() && sexo.isEmpty() || porte.isEmpty() || raca.isEmpty() || tipo.isEmpty() || caracteristica.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Ops!\nParece que há informações faltando!\nObs:Você pode pular essa etapa",
+                        Toast.LENGTH_LONG).show();
+            } else if (nomeAnimal.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu o nome do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
+                        Toast.LENGTH_LONG).show();
+            } else if (sexo.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu o sexo do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
+                        Toast.LENGTH_LONG).show();
+            } else if (porte.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de selecionar o porte do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
+                        Toast.LENGTH_LONG).show();
+            } else if (raca.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de selecionar a raça do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
+                        Toast.LENGTH_LONG).show();
+            } else if (tipo.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de selecionar o tipo do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
+                        Toast.LENGTH_LONG).show();
+            }
         }
 
-        return retorno;
+        return retorno[0];
     }
 
     @Override
@@ -636,20 +644,24 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                         sexo = "Masculino";
                     } else if (num == R.id.rbFem) {
                         sexo = "Feminino";
-                    }else {sexo="";}
+                    } else {
+                        sexo = "";
+                    }
 
                     if (testeEtapaUm(nomeUsuario, email, senha, confSenha, sexo)) {
                         break;
                     }
                 } else if (host.getCurrentTab() == 1) {
-                    endereco = sp_Logradouro.getSelectedItem().toString() + " " + String.valueOf(txtEndereco.getText()).trim();
+                    endereco = String.valueOf(txtEndereco.getText()).trim();
                     numeroEndereco = String.valueOf(txtNumero.getText());
                     complemento = String.valueOf(txtComplemento.getText());
                     cep = String.valueOf(txtCEP.getText());
                     bairro = String.valueOf(txtBairro.getText());
                     telefone = String.valueOf(txtTelefone.getText());
                     celular = String.valueOf(txtCelular.getText());
-                    testeEtapaDois(endereco, numeroEndereco, complemento, cep, bairro, telefone, celular);
+                    if(testeEtapaDois(endereco, numeroEndereco, complemento, cep, bairro, telefone, celular)){
+                        break;
+                    }
                 }
 
                 int current = getItem(+1);
@@ -658,17 +670,17 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
                 if (btnContinuar.getText().equals("Cadastrar") && host.getCurrentTab() == 2) {
 
-                    btnContinuar.setOnClickListener(new View.OnClickListener() {
+                    if (testeEtapaTres(temp)) {
+                        btnContinuar.setOnClickListener(new View.OnClickListener() {
 
-                        @Override
+                            @Override
 
-                        public void onClick(View v) {
+                            public void onClick(View v) {
+                                registerUser(nomeUsuario, email, senha, confSenha, sexo, telefone, celular, endereco + ", " + numero, complemento, cep, bairro);
+                            }
 
-
-                            registerUser(nomeUsuario, email, senha, confSenha, sexo, telefone, celular, endereco + ", " + numero, complemento, cep, bairro);
-                        }
-
-                    });
+                        });
+                    }
 
                 } else {
                     btnContinuar.setOnClickListener(this);
@@ -689,7 +701,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         String tipo;
         switch (parent.getId()) {
             case R.id.sp_quantidade:
-                int temp = Integer.parseInt(parent.getSelectedItem().toString());
+                temp = Integer.parseInt(parent.getSelectedItem().toString());
 
                 Log.e("Teste Spinner:", String.valueOf(temp)); //Teste de variavél
 
@@ -744,10 +756,21 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                 sp_porte = (Spinner) findViewById(R.id.sp_tipo1);
 
                 if (tipo.equals("Gato")) {
-                    sp_porte.setEnabled(false);
-                    ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
-                    sp_raca.setAdapter(adaptadorRaca);
+                    for(int i = 0; temp > i; i++){
+                        sp_raca = (Spinner) findViewById(sp_racaView[i]);
+                        sp_porte.setEnabled(false);
+                        ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
+                        sp_raca.setAdapter(adaptadorRaca);
+                    }
+
+
                 } else if (tipo.equals("Cachorro")) {
+                    for(int i = 0; temp > i; i++){
+                        sp_raca = (Spinner) findViewById(sp_racaView[i]);
+                        sp_porte.setEnabled(true);
+                        ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
+                        sp_raca.setAdapter(adaptadorRaca);
+                    }
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
@@ -807,10 +830,12 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                     sp_porte.setEnabled(false);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
                     sp_raca.setAdapter(adaptadorRaca);
+                    sp_raca.notify();
                 } else if (tipo.equals("Cachorro")) {
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
+                    sp_raca.notify();
                 }
                 break;
 

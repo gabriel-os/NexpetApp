@@ -87,13 +87,13 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/sp_raca1"
+                    android:id="@+id/sp_tipo1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <Spinner
-                    android:id="@+id/sp_tipo1"
+                    android:id="@+id/sp_raca1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -196,13 +196,13 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/sp_raca2"
+                    android:id="@+id/sp_tipo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <Spinner
-                    android:id="@+id/sp_tipo2"
+                    android:id="@+id/sp_raca2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -305,13 +305,13 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/sp_raca3"
+                    android:id="@+id/sp_tipo3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <Spinner
-                    android:id="@+id/sp_tipo3"
+                    android:id="@+id/sp_raca3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -349,7 +349,6 @@
                 android:layout_marginBottom="3dp"
                 android:background="#0c7244" />
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/linear4"
@@ -415,13 +414,13 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/sp_raca4"
+                    android:id="@+id/sp_tipo4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <Spinner
-                    android:id="@+id/sp_tipo4"
+                    android:id="@+id/sp_raca4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -524,13 +523,13 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/sp_raca5"
+                    android:id="@+id/sp_tipo5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <Spinner
-                    android:id="@+id/sp_tipo5"
+                    android:id="@+id/sp_raca5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
