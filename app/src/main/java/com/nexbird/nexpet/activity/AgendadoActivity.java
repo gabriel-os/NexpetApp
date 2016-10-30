@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -46,16 +48,15 @@ import java.util.Map;
 public class AgendadoActivity extends AppCompatActivity {
     private static final String TAG = AgendadoActivity.class.getSimpleName();
     private static HashMap rs;
-    public int cont;
     private List<Agendados> listaAgendada = new ArrayList<>();
     private AdaptadorAgendado mAdapter;
     private RecyclerView recyclerView;
-    private Toolbar toolbar;
-    private Button btnTeste;
     private SQLiteHandler db;
     private SessionManager session;
-    private String[] info;
+
     private ProgressDialog pDialog;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,7 @@ public class AgendadoActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
         //toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 /*        toolbar.setLogo(R.mipmap.teste);
@@ -126,12 +128,31 @@ public class AgendadoActivity extends AppCompatActivity {
             }
         }));
 
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        prepareAgendadoData();
+
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 3000);
+            }
+        });
 
         prepareAgendadoData();
         mAdapter.notifyDataSetChanged();
     }
 
     private void prepareAgendadoData() {
+
+        listaAgendada.clear();
+        mAdapter.notifyDataSetChanged();
+
         HashMap<String, String> user = db.getUserDetails();
         String[] temp = new String[4];
         String temp2 = "";
@@ -274,11 +295,6 @@ public class AgendadoActivity extends AppCompatActivity {
         alerta.show();
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_agendado, container, false);
-    }
 
     public interface ClickListener {
         void onClick(View view, int position);

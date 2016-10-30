@@ -46,7 +46,6 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
     private Button btnData;
     private TextView lblData, lblAtiv;
     private GridView gridView;
-    private RecyclerView recyclerView;
     private AdaptadorHora mAdapter;
     private String idPetshop, nomePetshop, enderecoPetshop, servico, dataMarcada, precoP, precoM, precoG, precoGG, precoGato, horaFunc,
             nome, nomePet, portePet, racaPet, tipoPet, caracPet, horaAbertura, horaFecha, hora = "";
@@ -76,7 +75,6 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
         lblAtiv = (TextView) findViewById(R.id.lblAtiv);
         gridView = (GridView) findViewById(R.id.gridView);
         sp_animal = (Spinner) findViewById(R.id.spAnimal);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view4);
 
         btnData.setEnabled(false);
 

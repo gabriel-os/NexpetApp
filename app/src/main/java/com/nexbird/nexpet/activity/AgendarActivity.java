@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -40,7 +42,7 @@ import java.util.Map;
 /**
  * Created by Gabriel on 13/07/2016.
  */
-public class AgendarActivity extends AppCompatActivity implements View.OnClickListener {
+public class AgendarActivity extends AppCompatActivity{
     private static final String TAG = AgendarActivity.class.getSimpleName();
     private static HashMap rs;
     private List<Agendar> listaAgendar = new ArrayList<>();
@@ -51,6 +53,7 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
     private SessionManager session;
     private String[] info;
     private ProgressDialog pDialog;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
         pDialog.setCancelable(false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
 
         mAdapter = new AdaptadorAgendar(listaAgendar);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -111,18 +115,32 @@ public class AgendarActivity extends AppCompatActivity implements View.OnClickLi
             }
         }));
 
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        prepareAgendarData();
+
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 3000);
+            }
+        });
 
         prepareAgendarData();
         mAdapter.notifyDataSetChanged();
     }
 
 
-    @Override
-    public void onClick(View v) {
-
-    }
-
     private void prepareAgendarData() {
+
+        listaAgendar.clear();
+        mAdapter.notifyDataSetChanged();
+
 
         rs = new HashMap<Integer, String>();
 

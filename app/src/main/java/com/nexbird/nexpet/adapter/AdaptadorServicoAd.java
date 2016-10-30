@@ -4,54 +4,62 @@ package com.nexbird.nexpet.adapter;
  * Created by Gabriel on 12/10/2016.
  */
 
+import java.util.List;
+
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.nexbird.nexpet.R;
 
-import java.util.List;
-
-public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.MyViewHolder> implements View.OnClickListener {
+public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.ViewHolder> {
 
     private List<ServicoAdicional> servico;
 
     public AdaptadorServicoAd(List<ServicoAdicional> servico) {
         this.servico = servico;
-    }
-
-    @Override
-    public void onClick(View v) {
 
     }
 
+    // Create new views
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.linha_servicoad, parent, false);
+    public AdaptadorServicoAd.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                             int viewType) {
+        // create a new view
+        View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.linha_servicoad, null);
 
-        return new MyViewHolder(itemView);
+        // create ViewHolder
+
+        ViewHolder viewHolder = new ViewHolder(itemLayoutView);
+
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        ServicoAdicional ag = servico.get(position);
-        holder.cb_servico.setTag(ag.getNomeServico());
-        holder.cb_servico.setChecked(ag.isSelected());
-
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
         final int pos = position;
 
+        viewHolder.nomeServico.setText(servico.get(position).getNomeServico());
 
-        holder.cb_servico.setOnClickListener(new View.OnClickListener() {
+        viewHolder.chkSelected.setTag(servico.get(position));
+
+
+        viewHolder.chkSelected.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 CheckBox cb = (CheckBox) v;
-//                ServicoAdicional contact = (ServicoAdicional) cb.getTag();
+                ServicoAdicional contact = (ServicoAdicional) cb.getTag();
 
-                //  contact.setSelected(cb.isChecked());
+                contact.setSelected(cb.isChecked());
                 servico.get(pos).setSelected(cb.isChecked());
 
                 Toast.makeText(
@@ -60,56 +68,38 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
                                 + cb.isChecked(), Toast.LENGTH_LONG).show();
             }
         });
+
     }
 
+    // Return the size arraylist
     @Override
     public int getItemCount() {
         return servico.size();
     }
 
-    public List<ServicoAdicional> getServico() {
-        return servico;
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView nomeServico;
 
-        public CheckBox cb_servico;
+        public CheckBox chkSelected;
 
-        public MyViewHolder(View view) {
-            super(view);
+        public ServicoAdicional singlestudent;
 
-            cb_servico = (CheckBox) view.findViewById(R.id.cb_servico);
-/*
-                    String nomePetshop = (String) lblNomePetshop.getText();
-                    int cont = 0;
-                    String descricao = "";
-                    String telefone = "";
-                    String endereco = "";
+        public ViewHolder(View itemLayoutView) {
+            super(itemLayoutView);
 
-                    for (int i = 0; i < agendar.size(); i++) {
-                        String comp = agendar.get(i).getNomePetshop();
-                        if (comp.equals(nomePetshop)) {
-                            descricao = agendar.get(cont).getDescricaoPetshop();
-                            telefone = agendar.get(cont).getTelefonePetshop();
-                            endereco = agendar.get(cont).getEnderecoPetshop();
-                            Log.e("Teste de variavél: ", String.valueOf(agendar.get(0)));
-                            break;
-                        } else {
-                            cont++;
-                        }
-                    }
-                    Intent i = new Intent(v.getContext(), PerfilpetActivity.class);
+            nomeServico = (TextView) itemLayoutView.findViewById(R.id.txtServico);
 
-                    Bundle params = new Bundle();
-                    params.putString("nome", nomePetshop);
-                    params.putString("descricao", descricao);
-                    params.putString("telefone", telefone);
-                    params.putString("endereco", endereco);
-                    Log.e("Teste: ", nomePetshop + " " + descricao + " " + telefone + " " + endereco);
-                    i.putExtras(params);
-                    v.getContext().startActivity(i);*/
+            chkSelected = (CheckBox) itemLayoutView
+                    .findViewById(R.id.cb_servico);
 
         }
 
     }
+
+    // method to access in activity after updating selection
+    public List<ServicoAdicional> getServicoSelecionado() {
+        return servico;
+    }
+
 }

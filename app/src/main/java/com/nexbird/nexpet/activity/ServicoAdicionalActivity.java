@@ -43,7 +43,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
     private RecyclerView recyclerView;
     private Button btnProximo;
     private AdaptadorServicoAd mAdapter;
-    private List<ServicoAdicional> listaServico = new ArrayList<>();
+    private List<ServicoAdicional> listaServico;
     private RadioGroup rgPagamento;
     private String nomeAnimal, nomePetshop, endereco, servico, preco, formaPag, data, hora;
 
@@ -58,12 +58,22 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
         btnProximo = (Button) findViewById(R.id.btnProximo);
         rgPagamento = (RadioGroup) findViewById(R.id.rgPagamento);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view4);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
       /*  ServicoAdicional sd = new ServicoAdicional("Taxi Dog","40,00","Transporta o seu animal até sua casa!", false);
         ServicoAdicional sd2 = new ServicoAdicional("Corte de unha","50,00","Corta a unha do seu pet", false);
         listaServico.add(sd);
         listaServico.add(sd2);*/
+
+
+        listaServico = new ArrayList<ServicoAdicional>();
+
+        for (int i = 1; i <= 15; i++) {
+            ServicoAdicional st = new ServicoAdicional("ServicoAdicional " + i, "androidstudent" + i
+                    + "@gmail.com", "", false);
+
+            listaServico.add(st);
+        }
 
         mAdapter = new AdaptadorServicoAd(listaServico);
 
@@ -234,16 +244,17 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
                 j.putExtras(params);
 
                 startActivity(j);
-                String dados = "";
-                List<ServicoAdicional> stList = ((AdaptadorServicoAd) mAdapter).getServico();
+                String data = "";
+                List<ServicoAdicional> servico = ((AdaptadorServicoAd) mAdapter)
+                        .getServicoSelecionado();
 
-                for (int i = 0; i < stList.size(); i++) {
-                    ServicoAdicional singleStudent = stList.get(i);
+                for (int i = 0; i < servico.size(); i++) {
+                    ServicoAdicional singleStudent = servico.get(i);
                     if (singleStudent.isSelected() == true) {
 
-                        dados = dados + "\n" + singleStudent.getNomeServico().toString();
-                        /*
-                         * Toast.makeText( CardViewActivity.this, " " +
+                        data = data + "\n" + singleStudent.getNomeServico().toString();
+						/*
+						 * Toast.makeText( CardViewActivity.this, " " +
 						 * singleStudent.getName() + " " +
 						 * singleStudent.getEmailId() + " " +
 						 * singleStudent.isSelected(),
@@ -253,9 +264,9 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
                 }
 
-                Toast.makeText(ServicoAdicionalActivity.this,
-                        "Selected Students: \n" + data, Toast.LENGTH_LONG)
+                Toast.makeText(ServicoAdicionalActivity.this,"Selected : \n" + data, Toast.LENGTH_LONG)
                         .show();
+
                 break;
         }
     }
