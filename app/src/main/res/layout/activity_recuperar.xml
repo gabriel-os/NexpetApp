@@ -14,12 +14,15 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="31dp"
-        android:text="Digite seu e-mail cadastrado e aguarde sua senha!"
+        android:text="@string/aguardesenha"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/txtEmail"
+        android:background="#ccc"
+        android:padding="5dp"
+        android:ems="10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -28,7 +31,7 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="92dp"
-        android:hint="E-mail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress" />
 
     <Button
@@ -41,9 +44,9 @@
         android:layout_marginBottom="185dp"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:background="#0c7244"
-        android:text="Recuperar!"
-        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:text="@string/recuperar"
+        android:textColor="@color/textWhite"
         android:textSize="20dp" />
 
 </RelativeLayout>

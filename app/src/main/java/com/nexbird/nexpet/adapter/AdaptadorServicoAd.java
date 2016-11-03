@@ -26,18 +26,14 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
 
     public AdaptadorServicoAd(List<ServicoAdicional> servico) {
         this.servico = servico;
-
     }
 
-    // Create new views
     @Override
     public AdaptadorServicoAd.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                              int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.linha_servicoad, null);
-
-        // create ViewHolder
 
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
 
@@ -62,16 +58,12 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
                 contact.setSelected(cb.isChecked());
                 servico.get(pos).setSelected(cb.isChecked());
 
-                Toast.makeText(
-                        v.getContext(),
-                        "Clicked on Checkbox: " + cb.getText() + " is "
-                                + cb.isChecked(), Toast.LENGTH_LONG).show();
+
             }
         });
 
     }
 
-    // Return the size arraylist
     @Override
     public int getItemCount() {
         return servico.size();
@@ -83,12 +75,11 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
 
         public CheckBox chkSelected;
 
-        public ServicoAdicional singlestudent;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
 
-            nomeServico = (TextView) itemLayoutView.findViewById(R.id.txtServico);
+            nomeServico = (TextView) itemLayoutView.findViewById(R.id.nomeServico);
 
             chkSelected = (CheckBox) itemLayoutView
                     .findViewById(R.id.cb_servico);
@@ -96,8 +87,6 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
         }
 
     }
-
-    // method to access in activity after updating selection
     public List<ServicoAdicional> getServicoSelecionado() {
         return servico;
     }

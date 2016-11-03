@@ -2,10 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_fundoapp">
     android:layout_marginBottom="@dimen/activity_vertical_margin"
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_vertical_margin"
     android:layout_marginTop="@dimen/activity_vertical_margin">
+
 
     <TextView
         android:id="@+id/lblGeral"
@@ -15,42 +17,116 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="85dp"
         android:layout_marginTop="32dp"
-        android:text="Geral"
+        android:text="@string/geral"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="35dp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnDados"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblGeral"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorPrimaryDark"
-        android:text="Alterar dados\n pessoais"
-        android:textColor="#fff" />
 
-    <Button
-        android:id="@+id/btnSenha"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnDados"
-        android:layout_alignStart="@+id/btnDados"
-        android:layout_below="@+id/btnDados"
-        android:layout_marginTop="40dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Alterar senha"
-        android:textColor="#fff" />
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lblNot"
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnPet"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSenha"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Alterar dados\n do pet"
-        android:textColor="#fff" />
+        <Button
+            android:id="@+id/btnSenha"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@+id/btnPet"
+            android:layout_alignLeft="@+id/btnDados"
+            android:layout_alignStart="@+id/btnDados"
+            android:layout_marginBottom="55dp"
+            android:background="@drawable/i_senha"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <TextView
+            android:id="@+id/lblSenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnSenha"
+            android:layout_alignBottom="@+id/btnSenha"
+            android:layout_alignLeft="@+id/lblAlPet"
+            android:layout_alignStart="@+id/lblAlPet"
+            android:text="@string/altSenha"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lblNot"
+        android:layout_marginTop="500dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPet"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignLeft="@+id/btnSenha"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/btnSenha"
+            android:layout_marginBottom="45dp"
+            android:background="@drawable/i_dadospet" />
+
+        <TextView
+            android:id="@+id/lblAlPet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnPet"
+            android:layout_alignBottom="@+id/btnPet"
+            android:layout_toEndOf="@+id/btnDados"
+            android:layout_toRightOf="@+id/btnDados"
+            android:text="@string/altDadosPet"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lblNot"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDados"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@+id/btnSenha"
+            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_toLeftOf="@+id/lblAlUsu"
+            android:layout_toStartOf="@+id/lblAlUsu"
+            android:background="@drawable/i_dadosusuario" />
+
+        <TextView
+            android:id="@+id/lblAlUsu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnDados"
+            android:layout_alignBottom="@+id/btnDados"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:text="@string/altDadosUsuario"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </RelativeLayout>

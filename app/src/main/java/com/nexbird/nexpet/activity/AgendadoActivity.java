@@ -53,7 +53,6 @@ public class AgendadoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private SQLiteHandler db;
     private SessionManager session;
-
     private ProgressDialog pDialog;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -72,7 +71,7 @@ public class AgendadoActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
+        //mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
         //toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 /*        toolbar.setLogo(R.mipmap.teste);
@@ -128,7 +127,8 @@ public class AgendadoActivity extends AppCompatActivity {
             }
         }));
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+      /*  mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
             @Override
             public void onRefresh() {
 
@@ -142,7 +142,7 @@ public class AgendadoActivity extends AppCompatActivity {
                     }
                 }, 3000);
             }
-        });
+        });*/
 
         prepareAgendadoData();
         mAdapter.notifyDataSetChanged();

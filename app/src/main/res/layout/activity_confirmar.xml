@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/ic_fundoapp">
 
     <TextView
@@ -13,109 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Falta pouco \npara agendar o serviço!"
+        android:text="@string/faltaPouco"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#444"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/lblPS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="35dp"
-        android:text="Petshop:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#444"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/lblDH"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblPS"
-        android:layout_marginTop="25dp"
-        android:text="Data e hora:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#444"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/lblS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblDH"
-        android:layout_marginTop="25dp"
-        android:text="Serviço:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#444"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/lblP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblS"
-        android:layout_marginTop="25dp"
-        android:text="Pet selecionado:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#444"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/lblAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblP"
-        android:layout_marginTop="25dp"
-        android:text="Serviço adicional:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#444"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/lblV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblAdd"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:text="Valor Total:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/lblPetshop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/lblDH"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="8dp"
-        android:text="Erro"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text" />
-
-    <TextView
-        android:id="@+id/lblDataHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/lblS"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="8dp"
-        android:text="Erro"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/text"
         android:textStyle="bold" />
 
@@ -128,7 +28,8 @@
         android:layout_marginLeft="8dp"
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text" />
+        android:textColor="@color/text"
+        android:textSize="19sp"/>
 
     <TextView
         android:id="@+id/lblPet"
@@ -139,32 +40,22 @@
         android:layout_marginLeft="8dp"
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text" />
+        android:textColor="@color/text"
+        android:textSize="19sp"/>
 
     <TextView
         android:id="@+id/lblServicoAdicional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/lblAdd"
-        android:layout_centerInParent="true"
         android:layout_marginRight="8dp"
-        android:layout_toRightOf="@+id/lblAdd"
-        android:text="Erro"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/text" />
-
-    <TextView
-        android:id="@+id/lblValor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblV"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
         android:text="Erro"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/text"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/lblPet"
+        android:layout_alignStart="@+id/lblPet"
+        android:textSize="19sp"/>
 
 
     <!-- <LinearLayout
@@ -202,9 +93,10 @@
             android:layout_weight="1"
             android:background="@color/verdePrincipal"
             android:padding="5dp"
-            android:text="Refazer\nagendamento"
-            android:textColor="#fff"
-            android:textSize="15dp" />
+            android:text="@string/refazer"
+            android:textColor="@color/textWhite"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/btnAgendar"
@@ -216,10 +108,130 @@
             android:background="@color/verdePrincipal"
             android:gravity="center"
             android:padding="5dp"
-            android:text="Agendar!"
-            android:textColor="#fff"
+            android:text="@string/agendar"
+            android:textColor="@color/textWhite"
             android:textSize="20dp"
             android:textStyle="bold" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/servAdd"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:visibility="visible"
+        android:layout_below="@+id/lblP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/lblV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="@string/valorTotal"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:visibility="visible"
+        android:layout_below="@+id/lblServicoAdicional"
+        android:layout_centerHorizontal="true"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/lblValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/lblV"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/lblP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/petSel"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:visibility="visible"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/lblPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/petShop"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:visibility="visible"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/lblPetshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:layout_alignBaseline="@+id/lblPS"
+        android:layout_alignBottom="@+id/lblPS"
+        android:layout_alignLeft="@+id/lblDataHora"
+        android:layout_alignStart="@+id/lblDataHora"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/lblDH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dataHora"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/lblDataHora"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/lblDataHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:textSize="19sp"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/lblPetshop"
+        android:layout_alignLeft="@+id/lblValor"
+        android:layout_alignStart="@+id/lblValor" />
+
+    <TextView
+        android:id="@+id/lblS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/servico"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/text"
+        android:visibility="visible"
+        android:layout_marginBottom="33dp"
+        android:layout_above="@+id/lblP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="19sp"/>
 </RelativeLayout>

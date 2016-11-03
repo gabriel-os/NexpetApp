@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="@drawable/ic_fundoapp"
     android:orientation="vertical">
 
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="#ccc"
+        android:background="@color/servBackground"
         android:orientation="vertical">
 
         <TextView
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_weight="1"
-            android:text="Forma de pagamento:"
+            android:text="@string/fpagamento"
             android:textColor="@color/text"
             android:textSize="16dp" />
 
@@ -39,47 +39,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Dinheiro" />
+                android:text="@string/dinheiro" />
 
             <RadioButton
                 android:id="@+id/rbDebito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Débito" />
+                android:text="@string/debito" />
 
             <RadioButton
                 android:id="@+id/rbCredito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Crédito" />
+                android:text="@string/credito" />
 
         </RadioGroup>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_above="@+id/btnProximo"
         android:id="@+id/linearS"
-        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear"
         android:layout_marginTop="30dp"
-        android:background="#ccc"
+        android:background="@color/servBackground"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Serviços adicionais:"
+            android:text="@string/sadicional"
             android:textColor="@color/text"
             android:textStyle="bold" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recycler_view4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
@@ -92,7 +90,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Próximo"
-        android:textColor="#fff"
+        android:text="@string/proximo"
+        android:textColor="@color/textWhite"
         android:textSize="16dp" />
 </RelativeLayout>

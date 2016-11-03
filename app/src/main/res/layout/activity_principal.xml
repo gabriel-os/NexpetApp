@@ -14,21 +14,28 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
 
-        <ImageButton
-            android:id="@+id/imgBtnPerfil"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            app:srcCompat="@mipmap/teste" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:ems="10"
-            android:hint="Pesquisar"
-            android:inputType="textPersonName" />
+            <ImageButton
+                android:id="@+id/imgBtnPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_usuario"
+               />
+
+            <EditText
+                android:id="@+id/txtPesquisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@+id/imgBtnPerfil"
+                android:hint="Pesquisar"
+                android:textSize="18dp"
+/>
+        </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
     <TabHost

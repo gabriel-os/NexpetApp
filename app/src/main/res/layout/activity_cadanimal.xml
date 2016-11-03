@@ -18,8 +18,8 @@
         <LinearLayout
             android:id="@+id/linear1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sp_quantidade"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sp_quantidade"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -32,7 +32,7 @@
                 android:layout_height="4dp"
                 android:layout_below="@+id/linear1"
                 android:layout_marginBottom="3dp"
-                android:background="#0c7244" />
+                android:background="@color/colorPrimary" />
 
             <LinearLayout
                 android:id="@+id/linearI1"
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome do pet"
+                    android:hint="@string/nomePet"
                     android:inputType="textPersonName" />
 
                 <RadioGroup
@@ -64,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Femêa" />
+                        android:text="@string/femea" />
 
                     <RadioButton
 
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Macho" />
+                        android:text="@string/macho" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -86,24 +86,24 @@
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
+
                 <Spinner
                     android:id="@+id/sp_tipo1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1" />
-
                 <Spinner
                     android:id="@+id/sp_raca1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/sp_porte1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -118,7 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)"
+                    android:hint="@string/caracteristica"
                     android:inputType="textMultiLine"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -129,7 +129,7 @@
                 android:layout_height="4dp"
                 android:layout_below="@+id/linear1"
                 android:layout_marginBottom="3dp"
-                android:background="#0c7244" />
+                android:background="@color/colorPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -156,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome do pet"
+                    android:hint="@string/nomePet"
                     android:inputType="textPersonName" />
 
                 <RadioGroup
@@ -173,7 +173,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Femêa" />
+                        android:text="@string/femea" />
 
                     <RadioButton
 
@@ -182,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Macho" />
+                        android:text="@string/macho" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -199,20 +199,19 @@
                     android:id="@+id/sp_tipo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1" />
-
                 <Spinner
                     android:id="@+id/sp_raca2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/sp_porte2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -227,7 +226,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)"
+                    android:hint="@string/caracteristica"
                     android:inputType="textMultiLine"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -238,7 +237,7 @@
                 android:layout_height="4dp"
                 android:layout_below="@+id/linear2"
                 android:layout_marginBottom="3dp"
-                android:background="#0c7244" />
+                android:background="@color/colorPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -265,7 +264,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome do pet"
+                    android:hint="@string/nomePet"
                     android:inputType="textPersonName" />
 
                 <RadioGroup
@@ -282,7 +281,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Femêa" />
+                        android:text="@string/femea" />
 
                     <RadioButton
 
@@ -291,7 +290,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Macho" />
+                        android:text="@string/macho" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -308,20 +307,19 @@
                     android:id="@+id/sp_tipo3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1" />
-
                 <Spinner
                     android:id="@+id/sp_raca3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/sp_porte3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -336,7 +334,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)"
+                    android:hint="@string/caracteristica"
                     android:inputType="textMultiLine"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -347,8 +345,9 @@
                 android:layout_height="4dp"
                 android:layout_below="@+id/linear3"
                 android:layout_marginBottom="3dp"
-                android:background="#0c7244" />
+                android:background="@color/colorPrimary" />
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/linear4"
@@ -374,7 +373,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome do pet"
+                    android:hint="@string/nomePet"
                     android:inputType="textPersonName" />
 
                 <RadioGroup
@@ -391,7 +390,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Femêa" />
+                        android:text="@string/femea" />
 
                     <RadioButton
 
@@ -400,7 +399,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Macho" />
+                        android:text="@string/macho" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -417,20 +416,19 @@
                     android:id="@+id/sp_tipo4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1" />
-
                 <Spinner
                     android:id="@+id/sp_raca4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/sp_porte4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -445,7 +443,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)"
+                    android:hint="@string/caracteristica"
                     android:inputType="textMultiLine"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -456,7 +454,7 @@
                 android:layout_height="4dp"
                 android:layout_below="@+id/linear4"
                 android:layout_marginBottom="3dp"
-                android:background="#0c7244" />
+                android:background="@color/colorPrimary" />
         </LinearLayout>
 
         <LinearLayout
@@ -483,7 +481,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nome do pet"
+                    android:hint="@string/nomePet"
                     android:inputType="textPersonName" />
 
                 <RadioGroup
@@ -500,7 +498,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Femêa" />
+                        android:text="@string/femea" />
 
                     <RadioButton
 
@@ -509,7 +507,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:checked="false"
-                        android:text="Macho" />
+                        android:text="@string/macho" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -526,20 +524,19 @@
                     android:id="@+id/sp_tipo5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1" />
-
                 <Spinner
                     android:id="@+id/sp_raca5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
 
                 <Spinner
                     android:id="@+id/sp_porte5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -554,12 +551,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)"
+                    android:hint="@string/caracteristica"
                     android:inputType="textMultiLine"
                     android:textAlignment="center" />
             </LinearLayout>
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/linear1"
+            android:layout_alignStart="@+id/linear1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp" />
 
     </RelativeLayout>
 </ScrollView>

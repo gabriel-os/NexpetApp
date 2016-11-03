@@ -68,7 +68,7 @@ public class AgendarActivity extends AppCompatActivity{
         pDialog.setCancelable(false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
+       // mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
 
         mAdapter = new AdaptadorAgendar(listaAgendar);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -115,7 +115,7 @@ public class AgendarActivity extends AppCompatActivity{
             }
         }));
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+       /* mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
@@ -129,7 +129,7 @@ public class AgendarActivity extends AppCompatActivity{
                     }
                 }, 3000);
             }
-        });
+        });*/
 
         prepareAgendarData();
         mAdapter.notifyDataSetChanged();

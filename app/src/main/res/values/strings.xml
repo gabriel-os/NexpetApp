@@ -5,8 +5,86 @@
     <string name="skip">Avançar</string>
     <string name="start">Vamos Lá!</string>
 
+    <string name="notificacoes">Notificações</string>
+    <string name="logout">Logout</string>
+    <string name="taxidog">Taxi Dog</string>
+    <string name="nservico">Nome do serviço</string>
+    <string name="npet">Nome do pet</string>
+    <string name="caracteristica"> Caracteristica do seu animal:\n(Agressivo, precisa de fucinheira etc)</string>
+    <string name="fpagamento">Forma de pagamento:</string>
+    <string name="dinheiro">Dinheiro</string>
+    <string name="credito">Crédito</string>
+    <string name="debito">Débito </string>
+    <string name="sadicional">Serviços adicionais:</string>
+    <string name="proximo">Próximo</string>
+    <string name="aguardesenha">Digite seu e-mail cadastrado e aguarde sua senha!</string>
+    <string name="email">E-mail</string>
     <string name="slide_1_title">A qualquer HORA e em qualquer LUGAR</string>
     <string name="slide_1_desc">Marque serviços para seu PET a qualquer momento e sem sair de CASA!</string>
+    <string name="recuperar">Recuperar!</string>
+    <string name="erro">Erro</string>
+    <string name="adnotificacao">Ativar/desativar notificações</string>
+    <string name="breve">Em breve...</string>
+    <string name="senha">Senha</string>
+    <string name="esqueceu">Esqueceu a senha? Recupere já!</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastre">Cadastre-se</string>
+    <string name="telefone">Telefone</string>
+    <string name="celular">Celular</string>
+    <string name="numero">Número</string>
+    <string name="complemento">Complemento</string>
+    <string name="cep">CEP</string>
+    <string name="bairro">Bairro</string>
+    <string name="endereco">Endereço</string>
+    <string name="altDadosPet">Alterar dados do Pet</string>
+    <string name="altSenha">Alterar Senha</string>
+    <string name="altDadosUsuario">Alterar dados do Usuário</string>
+    <string name="geral">Configurações Gerais</string>
+    <string name="sucessoAgendado">Parabéns!\nSeu serviço foi agendado com sucesso!</string>
+    <string name="salvarComprovante">Como deseja salvar seu comprovante?</string>
+    <string name="voltarPrincipal">Voltar para a tela principal</string>
+    <string name="enviarEmail">Enviar por e-mail</string>
+    <string name="salvarGaleria">Salvar na galeria</string>
+    <string name="salvarPdf">Salvar como PDF</string>
+    <string name="desmarcar">   Desmarcar   </string>
+
+
+    <string name="voltar">Voltar</string>
+    <string name="confSenha">Confirmar senha</string>
+    <string name="sexo">Sexo:</string>
+    <string name="masculino">Masculino</string>
+    <string name="feminino">Feminino</string>
+    <string name="nome">Nome</string>
+    <string name="nomePet">Nome do pet</string>
+    <string name="femea">Fêmea</string>
+    <string name="macho">Macho</string>
+
+    <string name="faltaPouco">Falta pouco \npara agendar o serviço!</string>
+    <string name="petShop">Petshop:</string>
+    <string name="dataHora">Data e hora:</string>
+
+    <string name="petSel">Pet selecionado:</string>
+    <string name="servAdd">Serviço adicional:</string>
+    <string name="valorTotal">Valor Total:</string>
+    <string name="refazer">Refazer\nagendamento</string>
+    <string name="agendar">Agendar!</string>
+
+    <string name="animal">Animal:</string>
+    <string name="petshop">Pet Shop:</string>
+    <string name="enderecodois">Endereço:</string>
+    <string name="preco">Preço:</string>
+    <string name="data">Data:</string>
+    <string name="servico">Serviço:</string>
+
+    <string name="nomedois">Nome:</string>
+    <string name="emaildois">E-mail:</string>
+    <string name="celulardois">Celular:</string>
+    <string name="telefonedois">Telefone:</string>
+    <string name="horarioFuncionamento">Horário de \nFuncionamento:</string>
+
+    <string name="selPet">Selecione o seu pet:</string>
+    <string name="escolher">Escolher data</string>
+
 
     <string name="slide_2_title">Interface RÁPIDA, FÁCIL e PRÁTICA</string>
     <string name="slide_2_desc">Com menus FÁCEIS, longe de COMPLICAÇÕES e inteirament INTUITIVO, navegue pelo NexPet em uma interface feita para VOCÊ!</string>
@@ -17,8 +95,16 @@
     <string name="slide_4_title">Bem-vindo ao NexPet!!</string>
     <string name="slide_4_desc"></string>
 
+
     <string name="play_again_desc">Para ver novamente, limpe os dados do app</string>
     <string name="play_again">Ver novamente</string>
 
+    <string name="config">Geral</string>
+    <string name="tutorial_title">Passos para identificar o porte do seu cachorrinho</string>
+    <string name="tutorial_part1">1- Encoste-o em uma parede, em pé, com as quatro patas no chão como mostra a figura abaixo;</string>
+    <string name="tutorial_part2">2- Faça uma marquinha na parede na altura onde acaba o pescoço e começa o corpo (cernelha);</string>
+    <string name="tutorial_part3">3- Meça quantos centímetros tem do chão até a marca;</string>
+    <string name="tutorial_part4">4- Em seguida, olhe na tabela abaixo o porte de seu animal de acordo com o peso dele em kg.</string>
+    <string name="tutorial_espaco">\n </string>
 
 </resources>

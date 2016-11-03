@@ -3,24 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    tools:context="com.nexbird.nexpet.activity.BasicoActivity">
-
-    <EditText
-        android:id="@+id/txtNomeUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:background="#e1e0e0"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        android:paddingTop="5dp"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
-        android:textSize="20dp" />
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.nexbird.nexpet.activity.BasicoActivity"
+    android:background="@drawable/ic_fundoapp">
 
     <EditText
         android:id="@+id/txtConfirmaSenha"
@@ -30,13 +17,13 @@
         android:layout_alignStart="@+id/txtSenha"
         android:layout_below="@+id/txtSenha"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:background="#e1e0e0"
+        android:background="@color/campoBackground"
         android:ems="10"
-        android:hint="Confirmar senha"
+        android:hint="@string/confSenha"
         android:inputType="textPassword"
         android:paddingTop="5dp"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
+        android:textColor="@color/text"
+        android:textColorHint="@color/textHint"
         android:textSize="20dp" />
 
     <EditText
@@ -47,13 +34,13 @@
         android:layout_alignStart="@+id/txtEmail"
         android:layout_below="@+id/txtEmail"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:background="#e1e0e0"
+        android:background="@color/campoBackground"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/senha"
         android:inputType="textPassword"
         android:paddingTop="5dp"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
+        android:textColor="@color/text"
+        android:textColorHint="@color/textHint"
         android:textSize="20dp" />
 
     <LinearLayout
@@ -62,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtNomeUsuario"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:background="#e1e0e0"
+        android:background="@color/campoBackground"
         android:orientation="vertical">
 
         <TextView
@@ -70,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sexo:"
+            android:text="@string/sexo"
             android:textSize="15dp" />
 
         <RadioGroup
@@ -85,8 +72,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#e1e0e0"
-                android:text="Masculino"
+                android:background="@color/campoBackground"
+                android:text="@string/masculino"
                 android:textSize="15dp" />
 
             <RadioButton
@@ -94,8 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#e1e0e0"
-                android:text="Feminino"
+                android:background="@color/campoBackground"
+                android:text="@string/feminino"
                 android:textSize="15dp" />
 
         </RadioGroup>
@@ -109,15 +96,32 @@
         android:layout_below="@+id/linear"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:background="#e1e0e0"
-        android:backgroundTint="#e1e0e0"
+        android:background="@color/campoBackground"
+        android:backgroundTint="@color/campoBackground"
         android:ems="10"
-        android:hint="E-mail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:paddingTop="5dp"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
+        android:textColor="@color/text"
+        android:textColorHint="@color/textHint"
         android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/txtNomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="@color/campoBackground"
+        android:ems="10"
+        android:hint="@string/nome"
+        android:inputType="textPersonName"
+        android:paddingTop="5dp"
+        android:textColor="@color/text"
+        android:textColorHint="@color/textHint"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

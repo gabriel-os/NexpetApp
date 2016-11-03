@@ -25,7 +25,6 @@
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contextClickable="false"
                 android:background="@color/colorPrimaryDark"
                 android:clickable="false"
                 android:nestedScrollingEnabled="false"
@@ -67,8 +66,8 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
-            android:text="Voltar"
-            android:textColor="#fff"
+            android:text="@string/voltar"
+            android:textColor="@color/textWhite"
             android:textSize="18dp" />
 
         <Button
@@ -78,8 +77,8 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
-            android:text="Próximo"
-            android:textColor="#fff"
+            android:text="@string/proximo"
+            android:textColor="@color/textWhite"
             android:textSize="18dp" />
 
     </LinearLayout>

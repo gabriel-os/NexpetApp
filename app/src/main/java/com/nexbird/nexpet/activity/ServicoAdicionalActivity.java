@@ -58,7 +58,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
         btnProximo = (Button) findViewById(R.id.btnProximo);
         rgPagamento = (RadioGroup) findViewById(R.id.rgPagamento);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view4);
 
       /*  ServicoAdicional sd = new ServicoAdicional("Taxi Dog","40,00","Transporta o seu animal até sua casa!", false);
         ServicoAdicional sd2 = new ServicoAdicional("Corte de unha","50,00","Corta a unha do seu pet", false);
@@ -68,12 +68,11 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
         listaServico = new ArrayList<ServicoAdicional>();
 
-        for (int i = 1; i <= 15; i++) {
-            ServicoAdicional st = new ServicoAdicional("ServicoAdicional " + i, "androidstudent" + i
-                    + "@gmail.com", "", false);
+        ServicoAdicional st = new ServicoAdicional("Corte de unha", "10.00", "Corta a unha do seu pet!", false);
+        listaServico.add(st);
 
-            listaServico.add(st);
-        }
+        st = new ServicoAdicional("Leva e trás", "25.00", "Leva e trás o seu animal de casa para o petshop", false);
+        listaServico.add(st);
 
         mAdapter = new AdaptadorServicoAd(listaServico);
 
@@ -99,7 +98,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         data = params.getString("data");
         hora = params.getString("hora");
 
-        getAdditional();
+       // getAdditional();
 
         btnProximo.setOnClickListener(this);
     }
@@ -227,6 +226,21 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
                 }
 
+                String data = "";
+                double temp = Double.parseDouble(preco);
+                List<ServicoAdicional> servicoAd = ((AdaptadorServicoAd) mAdapter)
+                        .getServicoSelecionado();
+
+                for (int i = 0; i < servicoAd.size(); i++) {
+                    ServicoAdicional ser = servicoAd.get(i);
+                    if (ser.isSelected() == true) {
+
+                        data = data + ", " + ser.getNomeServico().toString();
+                        temp += Double.parseDouble(ser.getPreco().toString());
+                    }
+
+                }
+
                 Intent j = new Intent(getApplicationContext(), ConfirmarActivity.class);
 
                 Bundle params = new Bundle();
@@ -236,7 +250,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
                 params.putString("endereco", endereco);
                 params.putString("servico", servico);
                 params.putString("servicoAd", "");
-                params.putString("preco", preco);
+                params.putString("preco", String.valueOf(temp));
                 params.putString("formaPag", formaPag);
                 params.putString("data", data);
                 params.putString("hora", hora);
@@ -244,28 +258,6 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
                 j.putExtras(params);
 
                 startActivity(j);
-                String data = "";
-                List<ServicoAdicional> servico = ((AdaptadorServicoAd) mAdapter)
-                        .getServicoSelecionado();
-
-                for (int i = 0; i < servico.size(); i++) {
-                    ServicoAdicional singleStudent = servico.get(i);
-                    if (singleStudent.isSelected() == true) {
-
-                        data = data + "\n" + singleStudent.getNomeServico().toString();
-						/*
-						 * Toast.makeText( CardViewActivity.this, " " +
-						 * singleStudent.getName() + " " +
-						 * singleStudent.getEmailId() + " " +
-						 * singleStudent.isSelected(),
-						 * Toast.LENGTH_SHORT).show();
-						 */
-                    }
-
-                }
-
-                Toast.makeText(ServicoAdicionalActivity.this,"Selected : \n" + data, Toast.LENGTH_LONG)
-                        .show();
 
                 break;
         }

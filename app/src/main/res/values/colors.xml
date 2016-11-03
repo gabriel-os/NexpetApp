@@ -38,9 +38,14 @@
     </array>
 
     <color name="text">#000000</color>
+    <color name="textHint">#999999</color>
+    <color name="textWhite">#fff</color>
+    <color name="textGray">#444</color>
 
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
-
-
+    <color name="menuBackground">#ddd</color>
+    <color name="campoBackground">#e1e0e0</color>
+    <color name="servBackground">#ccc</color>
+    <color name="whiteBackground">#fff</color>
 </resources>

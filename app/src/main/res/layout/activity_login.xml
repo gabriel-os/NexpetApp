@@ -10,23 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.nexbird.nexpet.activity.LoginActivity">
 
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtNome"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:background="#0c7244"
-        android:clickable="true"
-        android:enabled="true"
-        android:text="Entrar"
-        android:textColor="#ffffff"
-        android:textSize="20dp" />
-
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="fill_parent"
@@ -35,32 +18,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
-        android:background="#e1e0e0"
-        android:backgroundTint="#e1e0e0"
+        android:background="@color/campoBackground"
+        android:backgroundTint="@color/campoBackground"
         android:clickable="true"
         android:editable="true"
         android:ems="10"
-        android:hint="E-mail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:paddingTop="5dp"
         android:singleLine="true"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
+        android:textColor="@color/text"
+        android:textColorHint="@color/textHint"
         android:textSize="25dp" />
-
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/btnEntrar"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:background="#0c7244"
-        android:text="Cadastre-se"
-        android:textColor="#fff" />
 
     <EditText
         android:id="@+id/txtNome"
@@ -70,15 +39,15 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="15dp"
-        android:background="#e1e0e0"
-        android:backgroundTint="#e1e0e0"
+        android:background="@color/campoBackground"
+        android:backgroundTint="@color/campoBackground"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/senha"
         android:inputType="textPassword"
         android:paddingTop="5dp"
         android:singleLine="true"
-        android:textColor="#000000"
-        android:textColorHint="#999999"
+        android:textColor="@color/text"
+        android:textColorHint="@color/textHint"
         android:textSize="25dp" />
 
     <ImageView
@@ -98,11 +67,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginRight="0dp"
-        android:textColor="#000"
-        android:text="Esqueceu a senha? Recupere já!"
+        android:textColor="@color/text"
+        android:text="@string/esqueceu"
         android:textSize="18dp"
         android:textAlignment="center"
         android:clickable="true"
         />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:enabled="true"
+        android:text="@string/entrar"
+        android:textColor="@color/textWhite"
+        android:textSize="20dp"
+        android:layout_below="@+id/txtNome"
+        android:layout_alignLeft="@+id/btnCadastrar"
+        android:layout_alignStart="@+id/btnCadastrar" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/cadastre"
+        android:textColor="@color/textWhite"
+        android:layout_below="@+id/btnEntrar"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

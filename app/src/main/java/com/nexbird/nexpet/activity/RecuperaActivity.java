@@ -70,7 +70,6 @@ public class RecuperaActivity extends Activity {
     }
 
 
-
     private void recuperaSenha(final String email) {
         // Tag used to cancel the request
         String tag_string_req = "req_recup";
