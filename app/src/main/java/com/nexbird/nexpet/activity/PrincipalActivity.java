@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TabHost;
 
@@ -29,6 +30,7 @@ public class PrincipalActivity extends ActivityGroup {
         setContentView(R.layout.activity_principal);
 
         btnToolbar = (ImageButton) findViewById(R.id.imgBtnPerfil);
+        final EditText txtPesquisa = (EditText) findViewById(R.id.txtPesquisa);
 
         session = new SessionManager(getApplicationContext());
 
@@ -55,7 +57,7 @@ public class PrincipalActivity extends ActivityGroup {
             alerta.show();
         }
 
-        TabHost host = (TabHost) findViewById(R.id.tabHost);
+        final TabHost host = (TabHost) findViewById(R.id.tabHost);
         host.setup(this.getLocalActivityManager());
 
         TabHost.TabSpec ts1 = host.newTabSpec("tela1");
@@ -78,6 +80,17 @@ public class PrincipalActivity extends ActivityGroup {
             public void onClick(View v) {
                 db.addPet("123456", "Kim", "Pequeno", "Macho","Maltês", "Cachorro", "Nenhuma");
                 db.addPet("12345", "Thor", "Grande", "Femea","Cocker", "Cachorro", "Agressivo");
+            }
+        });
+
+        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                if(host.getCurrentTab() != 0 ){
+                    txtPesquisa.setVisibility(View.GONE);
+                }else {
+                    txtPesquisa.setVisibility(View.VISIBLE);
+                }
             }
         });
 

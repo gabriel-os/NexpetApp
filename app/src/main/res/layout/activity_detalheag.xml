@@ -34,137 +34,155 @@
 
     <TextView
         android:text="@string/animal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView15"
-        android:layout_alignBaseline="@+id/txtAnimal"
-        android:layout_alignBottom="@+id/txtAnimal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@color/text"
-        android:textSize="19sp"/>
-
-    <TextView
-        android:text="@string/petshop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtPetshop"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView16"
-        android:textColor="@color/text"
-        android:textSize="19sp"/>
-
-    <TextView
-        android:text="@string/enderecodois"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/txtEndereco"
-        android:id="@+id/textView17"
-        android:textColor="@color/text"
-        android:textSize="19sp"/>
-
-    <TextView
-        android:text="@string/servico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView18"
-        android:layout_alignBottom="@+id/txtServico"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@color/text"
-        android:textSize="19sp"/>
-
-    <TextView
-        android:text="@string/preco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView20"
-        android:layout_alignBottom="@+id/txtPreco"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="@color/text"
-        android:textSize="19sp"/>
-
-    <TextView
-        android:id="@+id/txtAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:text="@string/erro"
         android:textColor="@color/text"
         android:textSize="19sp"
         android:layout_below="@+id/txtUnique"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:background="@color/servBackground"/>
 
     <TextView
-        android:id="@+id/txtPetshop"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtAnimal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="@string/erro"
+        android:textColor="@color/text"
+        android:textSize="19sp"
+        android:layout_below="@+id/textView15"
+        android:layout_alignLeft="@+id/txtPetshop"
+        android:layout_alignStart="@+id/txtPetshop"
+        android:textAlignment="center"
+        android:background="@color/menuBackground"/>
+
+    <TextView
+        android:text="@string/petshop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView16"
         android:textColor="@color/text"
         android:textSize="19sp"
         android:layout_below="@+id/txtAnimal"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/servBackground"
+        android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/txtPreco"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtPetshop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/erro"
         android:textColor="@color/text"
         android:textSize="19sp"
-        android:layout_below="@+id/txtData"
-        android:layout_alignLeft="@+id/txtAnimal"
-        android:layout_alignStart="@+id/txtAnimal"
-        android:layout_marginTop="43dp" />
+        android:layout_below="@+id/textView16"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/menuBackground"/>
 
     <TextView
-        android:text="@string/data"
-        android:layout_width="wrap_content"
+        android:text="@string/enderecodois"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView19"
-        android:layout_alignBottom="@+id/txtData"
-        android:layout_alignLeft="@+id/textView18"
-        android:layout_alignStart="@+id/textView18"
+        android:id="@+id/textView17"
         android:textColor="@color/text"
-        android:textSize="19sp"/>
+        android:textSize="19sp"
+        android:layout_below="@+id/txtPetshop"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/servBackground"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/txtEndereco"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="@string/erro"
         android:textSize="19sp"
-        android:layout_below="@+id/txtPetshop"
-        android:layout_alignLeft="@+id/txtPetshop"
-        android:layout_alignStart="@+id/txtPetshop"
-        android:textColor="@color/text"/>
+        android:textColor="@color/text"
+        android:layout_below="@+id/textView17"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/menuBackground"/>
 
     <TextView
-        android:id="@+id/txtServico"
-        android:layout_width="wrap_content"
+        android:text="@string/servico"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/erro"
+        android:id="@+id/textView18"
         android:textColor="@color/text"
         android:textSize="19sp"
         android:layout_below="@+id/txtEndereco"
-        android:layout_alignRight="@+id/txtEndereco"
-        android:layout_alignEnd="@+id/txtEndereco" />
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/servBackground"
+        android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/txtData"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtServico"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:text="@string/erro"
         android:textColor="@color/text"
         android:textSize="19sp"
+        android:layout_below="@+id/textView18"
+        android:layout_alignLeft="@+id/txtEndereco"
+        android:layout_alignStart="@+id/txtEndereco"
+        android:textAlignment="center"
+        android:background="@color/menuBackground"/>
+
+    <TextView
+        android:text="@string/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView19"
+        android:textColor="@color/text"
+        android:textSize="19sp"
         android:layout_below="@+id/txtServico"
-        android:layout_alignLeft="@+id/txtServico"
-        android:layout_alignStart="@+id/txtServico" />
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/servBackground"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:text="@string/preco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView20"
+        android:textColor="@color/text"
+        android:textSize="19sp"
+        android:layout_below="@+id/txtData"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/servBackground"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txtPreco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/erro"
+        android:textColor="@color/text"
+        android:textSize="19sp"
+        android:layout_below="@+id/textView20"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/menuBackground"/>
+
+    <TextView
+        android:id="@+id/txtData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/erro"
+        android:textColor="@color/text"
+        android:textSize="19sp"
+        android:textAlignment="center"
+        android:background="@color/menuBackground"
+        android:layout_below="@+id/textView19"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

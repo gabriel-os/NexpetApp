@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -44,113 +45,145 @@
                 android:text="@string/erro"
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold"
-                android:textColor="@color/textWhite"/>
+                android:textColor="@color/textWhite"
+                android:textStyle="bold"/>
         </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:srcCompat="@drawable/i_telefone"
+            android:layout_marginTop="34dp"
+            android:layout_below="@+id/linearTopo"
+            android:layout_alignLeft="@+id/linearTopo"
+            android:layout_alignStart="@+id/linearTopo" />
+
 
         <TextView
             android:id="@+id/lblEndereco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lblTelefone"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="25dp"
             android:text="@string/erro"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text"
-            android:textSize="19sp"/>
-
-        <TextView
-            android:id="@+id/lblHoraFunc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblEndereco"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="25dp"
-            android:text="@string/erro"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/text"
-            android:textSize="19sp"/>
+            android:textSize="19sp"
+            android:layout_below="@+id/textView22"
+            android:layout_alignLeft="@+id/lblTelefone"
+            android:layout_alignStart="@+id/lblTelefone"
+            android:layout_marginTop="11dp" />
 
         <TextView
             android:id="@+id/lblTelefone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearTopo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="18dp"
             android:text="@string/erro"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text"
-            android:textSize="19sp"/>
+            android:textSize="19sp"
+            android:layout_marginStart="18dp"
+            android:layout_below="@+id/textView21"
+            android:layout_toRightOf="@+id/imageView5"
+            android:layout_toEndOf="@+id/imageView5"
+            android:layout_marginTop="12dp"/>
 
-        <TextView
-            android:id="@+id/lblDescricao"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/lblHoraFunc"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="20dp"
-            android:text="@string/erro"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/text"
-            android:textSize="19sp"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/lblDescricao"
-            android:layout_marginTop="20dp"
-            android:scrollbars="vertical" />
+            android:layout_marginBottom="37dp" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:srcCompat="@drawable/i_horario"
+            android:id="@+id/imageView7"
+            android:layout_below="@+id/imageView6"
+            android:layout_alignLeft="@+id/imageView6"
+            android:layout_alignStart="@+id/imageView6"
+            android:layout_marginTop="11dp" />
 
         <TextView
-            android:text="@string/telefonedois"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/lblEndereco"
-            android:layout_alignLeft="@+id/linearTopo"
-            android:layout_alignStart="@+id/linearTopo"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
+        android:id="@+id/lblDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+            android:text="@string/erro"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/text"
+        android:textSize="19sp"
+            android:layout_below="@+id/imageView7"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
             android:id="@+id/textView21"
-            android:textColor="@color/text"
-            android:textSize="19sp"
-            android:layout_alignTop="@+id/lblTelefone" />
-
-        <TextView
-            android:text="@string/horarioFuncionamento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/textView22"
-            android:layout_alignStart="@+id/textView22"
+            android:layout_marginTop="14dp"
+            android:text="@string/telefonedois"
+            android:textColor="@color/text"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/imageView5"
+            android:layout_toRightOf="@+id/imageView5"
+            android:layout_toEndOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/lblHoraFunc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/erro"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/text"
+            android:textSize="19sp"
+            android:layout_above="@+id/lblDescricao"
+            android:layout_alignLeft="@+id/lblEndereco"
+            android:layout_alignStart="@+id/lblEndereco"
+            android:layout_marginBottom="15dp"
+            />
+
+        <TextView
+
             android:id="@+id/textView23"
-            android:textColor="@color/text"
-            android:textSize="19sp"/>
-
-        <TextView
-            android:text="@string/enderecodois"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView22"
+            android:text="@string/horarioFuncionamento"
             android:textColor="@color/text"
             android:textSize="19sp"
-            android:layout_alignBaseline="@+id/lblEndereco"
-            android:layout_alignBottom="@+id/lblEndereco"
-            android:layout_alignLeft="@+id/textView21"
-            android:layout_alignStart="@+id/textView21" />
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/imageView6"
+            android:layout_toRightOf="@+id/imageView7"
+            android:layout_toEndOf="@+id/imageView7" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:srcCompat="@drawable/i_lugar"
+            android:id="@+id/imageView6"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/imageView5"
+            android:layout_alignLeft="@+id/imageView5"
+            android:layout_alignStart="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enderecodois"
+            android:textColor="@color/text"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_marginTop="17dp"
+            android:layout_alignTop="@+id/imageView6"
+            android:layout_toRightOf="@+id/imageView6"
+            android:layout_toEndOf="@+id/imageView6" />
 
     </RelativeLayout>
 </ScrollView>

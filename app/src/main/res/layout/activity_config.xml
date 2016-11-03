@@ -17,19 +17,6 @@
         android:layout_alignLeft="@+id/btnNotificacao"
         android:layout_alignStart="@+id/btnNotificacao" />
 
-    <Button
-        android:id="@+id/btnNotificacao"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/i_notificacao"
-        android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fff"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp" />
-
     <TextView
         android:id="@+id/lblGeral"
         android:layout_width="wrap_content"
@@ -50,20 +37,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
         android:layout_alignBaseline="@+id/btnNotificacao"
-        android:layout_alignBottom="@+id/btnNotificacao"
         android:layout_alignLeft="@+id/btnLogout"
         android:layout_alignStart="@+id/btnLogout" />
-
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/i_logout"
-        android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fff"
-        android:layout_marginBottom="18dp"
-        android:layout_above="@+id/lblLogout"
-        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/lblLogout"
@@ -72,8 +47,33 @@
         android:text="@string/logout"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
-        android:layout_marginBottom="12dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnNotificacao"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/i_notificacao"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="#fff"
+        android:layout_below="@+id/btnGeral"
+        android:layout_toLeftOf="@+id/lblNotificacao"
+        android:layout_toStartOf="@+id/lblNotificacao"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginTop="43dp" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/i_logout"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="#fff"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/lblLogout"
+        android:layout_alignRight="@+id/lblLogout"
+        android:layout_alignEnd="@+id/lblLogout" />
 
 </RelativeLayout>

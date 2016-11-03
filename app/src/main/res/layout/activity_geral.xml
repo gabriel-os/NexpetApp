@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginTop="32dp"
         android:text="@string/geral"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -29,8 +29,9 @@
         android:layout_height="120dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblNot"
-        android:layout_marginTop="350dp"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
         <Button
@@ -52,10 +53,10 @@
             android:layout_alignBottom="@+id/btnSenha"
             android:layout_alignLeft="@+id/lblAlPet"
             android:layout_alignStart="@+id/lblAlPet"
+            android:layout_marginLeft="12dp"
             android:text="@string/altSenha"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:layout_marginLeft="12dp"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -64,8 +65,9 @@
         android:layout_height="120dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblNot"
-        android:layout_marginTop="500dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
         <Button
@@ -84,12 +86,12 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/btnPet"
             android:layout_alignBottom="@+id/btnPet"
+            android:layout_marginLeft="12dp"
             android:layout_toEndOf="@+id/btnDados"
             android:layout_toRightOf="@+id/btnDados"
             android:text="@string/altDadosPet"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:layout_marginLeft="12dp"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -98,8 +100,8 @@
         android:layout_height="120dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lblNot"
-        android:layout_marginTop="200dp"
+        android:layout_below="@+id/lblGeral"
+        android:layout_marginLeft="16dp"
         android:orientation="horizontal">
 
         <Button
