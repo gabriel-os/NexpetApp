@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_fundoapp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nexbird.nexpet.activity.BasicoActivity"
-    android:background="@drawable/ic_fundoapp">
+    tools:context="com.nexbird.nexpet.activity.BasicoActivity">
 
     <EditText
         android:id="@+id/txtConfirmaSenha"
@@ -110,7 +110,10 @@
         android:id="@+id/txtNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="157dp"
         android:background="@color/campoBackground"
         android:ems="10"
         android:hint="@string/nome"
@@ -118,10 +121,7 @@
         android:paddingTop="5dp"
         android:textColor="@color/text"
         android:textColorHint="@color/textHint"
-        android:textSize="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="20dp" />
 
 
 </RelativeLayout>

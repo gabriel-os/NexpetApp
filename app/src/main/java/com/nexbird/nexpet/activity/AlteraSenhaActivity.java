@@ -33,7 +33,7 @@ public class AlteraSenhaActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_geral);
+        setContentView(R.layout.activity_redefinirsenha);
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);

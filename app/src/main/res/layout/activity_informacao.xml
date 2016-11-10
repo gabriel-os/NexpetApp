@@ -153,15 +153,14 @@
 
     <Button
         android:id="@+id/btnSalvar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimaryDark"
-        android:padding="5dp"
-        android:visibility="gone"
-        android:text="Salvar informações"
+        android:text="Salvar"
         android:textColor="#fff"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:visibility="gone" />
 
 </RelativeLayout>

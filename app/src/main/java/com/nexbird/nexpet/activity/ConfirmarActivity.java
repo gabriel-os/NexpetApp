@@ -34,13 +34,6 @@ import java.util.Map;
 
 public class ConfirmarActivity extends AppCompatActivity {
     private static final String TAG = AgendadoActivity.class.getSimpleName();
-    private TextView lblPetshop, lblServico, lblDataHora, lblPet, lblPS, lblDH, lblS, lblP;
-    private Button btnAgendar, btnBack;
-    private SQLiteHandler db;
-    private ProgressDialog pDialog;
-    private SessionManager session;
-    private String dataAgendada, nomeAnimal, nomePetshop, servico, servicoAd, preco, formaPag, endereco;
-
     View.OnClickListener click = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
@@ -50,7 +43,9 @@ public class ConfirmarActivity extends AppCompatActivity {
                     builder.setTitle("Deseja realmente agendar o serviço?");
                     builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface arg0, int arg1) {
-                            prepareAgendarData();
+                            // prepareAgendarData();
+                            Intent i = new Intent(getApplicationContext(), EnviarActivity.class);
+                            startActivity(i);
                         }
                     });
                     builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -65,6 +60,12 @@ public class ConfirmarActivity extends AppCompatActivity {
             }
         }
     };
+    private TextView lblPetshop, lblServico, lblDataHora, lblPet, lblPS, lblDH, lblS, lblP;
+    private Button btnAgendar, btnBack;
+    private SQLiteHandler db;
+    private ProgressDialog pDialog;
+    private SessionManager session;
+    private String dataAgendada, nomeAnimal, nomePetshop, servico, servicoAd, preco, formaPag, endereco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,10 +106,10 @@ public class ConfirmarActivity extends AppCompatActivity {
         lblS = (TextView) findViewById(R.id.lblS);
         lblP = (TextView) findViewById(R.id.lblP);
 
-        lblPetshop.setText(nomePetshop);
+        /*lblPetshop.setText(nomePetshop);
         lblServico.setText(servico);
         lblDataHora.setText(dataAgendada);
-        lblPet.setText(nomeAnimal);
+        lblPet.setText(nomeAnimal);*/
 
         btnAgendar = (Button) findViewById(R.id.btnAgendar);
         btnBack = (Button) findViewById(R.id.btnBack);

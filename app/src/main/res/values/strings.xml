@@ -82,6 +82,15 @@
     <string name="telefonedois">Telefone:</string>
     <string name="horarioFuncionamento">Horário de Funcionamento:</string>
 
+    <string name="redefinir">Redefinir Senha</string>
+    <string name="velha">Senha Antiga</string>
+    <string name="nova">Nova Senha</string>
+    <string name="confirma">Confirmar Senha</string>
+    <string name="enviar">Enviar</string>
+
+    <string name="deletaranimal">Escolha o animal que deseja \n remover</string>
+    <string name="deletar">Deletar</string>
+
     <string name="selPet">Selecione o seu pet:</string>
     <string name="escolher">Escolher data</string>
 

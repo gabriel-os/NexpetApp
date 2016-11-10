@@ -47,13 +47,13 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
         pDialog.setCancelable(false);
 
         btnEmail = (Button) findViewById(R.id.btnEmail);
-        btnPDF = (Button) findViewById(R.id.btnPDF);
-        btnGaleria = (Button) findViewById(R.id.btnGaleria);
+        //  btnPDF = (Button) findViewById(R.id.btnPDF);
+        //btnGaleria = (Button) findViewById(R.id.btnGaleria);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
         Bundle params = getIntent().getExtras();
 
-        dataAgendada = params.getString("dataAgendada");
+/*        dataAgendada = params.getString("dataAgendada");
         nomePetshop = params.getString("nomePetshop");
         nomeAnimal = params.getString("nomeAnimal");
         nomePetshop = params.getString("nomePetshop");
@@ -61,11 +61,11 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
         servicoAd = params.getString("servicoAd");
         preco = params.getString("preco");
         formaPag = params.getString("formaPag");
-        endereco = params.getString("endereco");
+        endereco = params.getString("endereco");*/
 
         btnEmail.setOnClickListener(this);
-        btnPDF.setOnClickListener(this);
-        btnGaleria.setOnClickListener(this);
+//        btnPDF.setOnClickListener(this);
+        // btnGaleria.setOnClickListener(this);
         btnVoltar.setOnClickListener(this);
     }
 
@@ -167,12 +167,12 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(i);
 
                 break;
-            case R.id.btnPDF:
+            /*case R.id.btnPDF:
 
                 break;
             case R.id.btnGaleria:
 
-                break;
+                break;*/
             case R.id.btnVoltar:
                 Intent j = new Intent(getApplicationContext(), PrincipalActivity.class);
                 finish();

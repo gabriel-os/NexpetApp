@@ -9,71 +9,71 @@
         android:id="@+id/btnGeral"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignLeft="@+id/btnNotificacao"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnNotificacao"
         android:layout_marginTop="47dp"
         android:background="@drawable/i_geral"
         android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fff"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/btnNotificacao"
-        android:layout_alignStart="@+id/btnNotificacao" />
-
-    <TextView
-        android:id="@+id/lblGeral"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/config"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/btnGeral"
-        android:layout_alignBottom="@+id/btnGeral"
-        android:layout_alignLeft="@+id/btnLogout"
-        android:layout_alignStart="@+id/btnLogout" />
-
-    <TextView
-        android:id="@+id/lblNotificacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/notificacoes"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_alignBaseline="@+id/btnNotificacao"
-        android:layout_alignLeft="@+id/btnLogout"
-        android:layout_alignStart="@+id/btnLogout" />
-
-    <TextView
-        android:id="@+id/lblLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/btnNotificacao"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/i_notificacao"
         android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fff"
-        android:layout_below="@+id/btnGeral"
-        android:layout_toLeftOf="@+id/lblNotificacao"
-        android:layout_toStartOf="@+id/lblNotificacao"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginTop="43dp" />
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/lblGeral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnGeral"
+        android:layout_alignBottom="@+id/btnGeral"
+        android:layout_alignLeft="@+id/btnLogout"
+        android:layout_alignStart="@+id/btnLogout"
+        android:text="@string/config"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblNotificacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnNotificacao"
+        android:layout_alignBottom="@+id/btnNotificacao"
+        android:layout_alignLeft="@+id/btnLogout"
+        android:layout_alignStart="@+id/btnLogout"
+        android:text="@string/notificacoes"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/lblLogout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
         android:background="@drawable/i_logout"
         android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fff"
-        android:layout_marginBottom="35dp"
-        android:layout_above="@+id/lblLogout"
-        android:layout_alignRight="@+id/lblLogout"
-        android:layout_alignEnd="@+id/lblLogout" />
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/lblLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:text="@string/logout"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginTop="32dp"
         android:text="@string/geral"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -26,18 +26,17 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout1"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnSenha"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_above="@+id/btnPet"
             android:layout_alignLeft="@+id/btnDados"
             android:layout_alignStart="@+id/btnDados"
@@ -60,54 +59,19 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnPet"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignLeft="@+id/btnSenha"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/btnSenha"
-            android:layout_marginBottom="45dp"
-            android:background="@drawable/i_dadospet" />
-
-        <TextView
-            android:id="@+id/lblAlPet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/btnPet"
-            android:layout_alignBottom="@+id/btnPet"
-            android:layout_marginLeft="12dp"
-            android:layout_toEndOf="@+id/btnDados"
-            android:layout_toRightOf="@+id/btnDados"
-            android:text="@string/altDadosPet"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lblGeral"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnDados"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_above="@+id/btnSenha"
             android:layout_marginBottom="50dp"
             android:layout_marginEnd="18dp"
@@ -127,6 +91,74 @@
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
             android:text="@string/altDadosUsuario"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPet"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_alignLeft="@+id/btnSenha"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/btnSenha"
+            android:layout_marginBottom="45dp"
+            android:background="@mipmap/ic_add" />
+
+        <TextView
+            android:id="@+id/lblAlPet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnPet"
+            android:layout_alignBottom="@+id/btnPet"
+            android:layout_marginLeft="12dp"
+            android:layout_toEndOf="@+id/btnDados"
+            android:layout_toRightOf="@+id/btnDados"
+            android:text="@string/altDadosPet"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDel"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_alignLeft="@+id/btnSenha"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/btnSenha"
+            android:layout_marginBottom="45dp"
+            android:background="@mipmap/ic_del" />
+
+        <TextView
+            android:id="@+id/lblDel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnPet"
+            android:layout_alignBottom="@+id/btnPet"
+            android:layout_marginLeft="12dp"
+            android:layout_toEndOf="@+id/btnDados"
+            android:layout_toRightOf="@+id/btnDados"
+            android:text="Deletar pet"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold" />
     </LinearLayout>
