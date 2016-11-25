@@ -33,7 +33,7 @@ import java.util.Map;
  */
 
 public class ConfirmarActivity extends AppCompatActivity {
-    private static final String TAG = AgendadoActivity.class.getSimpleName();
+    private static final String TAG = ConfirmarActivity.class.getSimpleName();
     View.OnClickListener click = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
@@ -43,9 +43,7 @@ public class ConfirmarActivity extends AppCompatActivity {
                     builder.setTitle("Deseja realmente agendar o serviço?");
                     builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface arg0, int arg1) {
-                            // prepareAgendarData();
-                            Intent i = new Intent(getApplicationContext(), EnviarActivity.class);
-                            startActivity(i);
+                            prepareAgendarData();
                         }
                     });
                     builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
@@ -60,7 +58,7 @@ public class ConfirmarActivity extends AppCompatActivity {
             }
         }
     };
-    private TextView lblPetshop, lblServico, lblDataHora, lblPet, lblPS, lblDH, lblS, lblP;
+    private TextView lblPetshop, lblServico, lblDataHora, lblPet, lblServicoAdicional, lblValor, lblPS, lblDH, lblS, lblP;
     private Button btnAgendar, btnBack;
     private SQLiteHandler db;
     private ProgressDialog pDialog;
@@ -71,11 +69,6 @@ public class ConfirmarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar);
-
-/*        if (!session.isLoggedIn()) {
-            Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(i);
-        }*/
 
         Bundle params = getIntent().getExtras();
 
@@ -100,16 +93,20 @@ public class ConfirmarActivity extends AppCompatActivity {
         lblPetshop = (TextView) findViewById(R.id.lblPetshop);
         lblServico = (TextView) findViewById(R.id.lblServico);
         lblDataHora = (TextView) findViewById(R.id.lblDataHora);
+        lblServicoAdicional = (TextView)findViewById(R.id.lblServicoAdicional);
+        lblValor = (TextView)findViewById(R.id.lblValor);
         lblPet = (TextView) findViewById(R.id.lblPet);
         lblPS = (TextView) findViewById(R.id.lblPS);
         lblDH = (TextView) findViewById(R.id.lblDH);
         lblS = (TextView) findViewById(R.id.lblS);
         lblP = (TextView) findViewById(R.id.lblP);
 
-        /*lblPetshop.setText(nomePetshop);
+        lblPetshop.setText(nomePetshop);
         lblServico.setText(servico);
         lblDataHora.setText(dataAgendada);
-        lblPet.setText(nomeAnimal);*/
+        lblPet.setText(nomeAnimal);
+        lblServicoAdicional.setText(servicoAd);
+        lblValor.setText(preco);
 
         btnAgendar = (Button) findViewById(R.id.btnAgendar);
         btnBack = (Button) findViewById(R.id.btnBack);
@@ -143,10 +140,10 @@ public class ConfirmarActivity extends AppCompatActivity {
                     Log.e(TAG, "Resposta do JSON: " + jObj);
 
                     if (!error) {
-                        boolean result = jObj.getBoolean("msg");
+                        String result = jObj.getString("msg");
 
-                        if (result) {
-                            Toast.makeText(getApplicationContext(), "Serviço agendado com sucesso!!", Toast.LENGTH_LONG);
+                        if (!result.isEmpty()) {
+                            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
 
                             Bundle params = new Bundle();
                             params.putString("nomeAnimal", nomeAnimal);
@@ -157,8 +154,11 @@ public class ConfirmarActivity extends AppCompatActivity {
                             params.putString("preco", preco);
                             params.putString("formaPag", formaPag);
                             params.putString("data", dataAgendada);
+
                             Intent i = new Intent(getApplicationContext(), EnviarActivity.class);
+
                             i.putExtras(params);
+
                             finish();
                             startActivity(i);
                         } else {
@@ -191,6 +191,7 @@ public class ConfirmarActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
+
                 params.put("dataAgendada", dataAgendada);
                 Log.e("Data agendada: ", dataAgendada);
                 params.put("nomeAnimal", nomeAnimal);
@@ -203,8 +204,8 @@ public class ConfirmarActivity extends AppCompatActivity {
                 Log.e("Data agendada: ", servico);
                 params.put("precoFinal", preco);
                 Log.e("Data agendada: ", preco);
-                params.put("servicoAdicional", "");
-                Log.e("Data agendada: ", "");
+                params.put("servicoAdicional", servicoAd);
+                Log.e("Data agendada: ", servicoAd);
                 params.put("formaPagamento", formaPag);
                 Log.e("Data agendada: ", formaPag);
                 params.put("pagou", String.valueOf(false));

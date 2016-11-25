@@ -16,6 +16,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.nexbird.nexpet.R;
 import com.nexbird.nexpet.app.AppConfig;
 import com.nexbird.nexpet.app.AppController;
+import com.nexbird.nexpet.helper.SQLiteHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,10 +35,14 @@ public class AdAnimalActivity extends Activity {
     private Spinner sp_tipo, sp_raca, sp_porte;
     private RadioGroup rb_sexo;
     private ProgressDialog pDialog;
+    private SQLiteHandler db;
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cada);
+
+        db = new SQLiteHandler(getApplicationContext());
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -53,19 +58,22 @@ public class AdAnimalActivity extends Activity {
 
     }
 
-    private void prepareAddAnimalData(final String nomeAnimal, final String tipo, final String raca, final String porte, final String sexo, final String caracteristica) {
-        String tag_string_req = "req_DataHora";
+    private void prepareAddAnimalData(final String nomeAnimal, final String tipo, final String raca,
+                                      final String porte, final String sexo, final String caracteristica) {
 
-        pDialog.setMessage("Verificando ...");
+        String tag_string_req = "req_RegisterAnimal";
+
+        pDialog.setMessage("Registrando animal ...");
         showDialog();
 
+        final String uid = db.getUserDetails().get("uid");
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_VERIFICA_DATAHORA, new Response.Listener<String>() {
+                AppConfig.URL_REGISTRAR_ANIMAL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Resposta do DataHora: " + response.toString());
+                Log.e(TAG, "Resposta do registro de animal: " + response.toString());
                 hideDialog();
                 try {
                     JSONObject jObj = new JSONObject(response);
@@ -115,8 +123,14 @@ public class AdAnimalActivity extends Activity {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("nomePetshop", "");
-                params.put("dataMarcada", "");
+                params.put("nome", nomeAnimal);
+                params.put("sexo", sexo);
+                params.put("raca", raca);
+                params.put("porte", porte);
+                params.put("tipo", tipo);
+                params.put("caracteristica", caracteristica);
+                params.put("uid", uid);
+                params.put("quantidade", String.valueOf(1));
                 // params.put("horaMarcada", horaMarcada + ":00");
 
                 return params;

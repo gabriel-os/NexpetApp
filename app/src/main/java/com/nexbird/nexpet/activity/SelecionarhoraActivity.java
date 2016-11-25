@@ -122,12 +122,13 @@ public class SelecionarhoraActivity extends AppCompatActivity implements View.On
         duracaoCao = params.getInt("duracaoCao");
         duracaoGato = params.getInt("duracaoGato");
         horaFunc = params.getString("hora");
-
-        temp = horaFunc.split(" às ");
-
         idPetshop = params.getString("idPetshop");
         nomePetshop = params.getString("nomePetshop");
         enderecoPetshop = params.getString("endereco");
+
+        Log.e("Teste hora:", horaFunc);
+        temp = horaFunc.split(" às ");
+
 
         mAdapter = new AdaptadorHora(this, horas);
         gridView.setAdapter(mAdapter);

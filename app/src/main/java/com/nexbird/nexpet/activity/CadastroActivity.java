@@ -5,10 +5,8 @@ package com.nexbird.nexpet.activity;
 
 import android.app.ActivityGroup;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,18 +54,19 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
     private SQLiteHandler db;
     private List<String> racaGato = new ArrayList<String>();
     private List<String> racaCao = new ArrayList<String>();
-    private List<String> logradouros, numero, tipo;
+    private List<String> logradouros, numero, tipo, raca;
     private List<Animal> listaAnimal = new ArrayList<>();
     private AdaptadorAnimal mAdapter;
     private LinearLayout linear1, linear2, linear3, linear4, linear5;
     private String uid;
+    private ArrayAdapter<String> adaptadorRaca;
     private String sexo = "", nomeUsuario = "", email = "", senha = "", confSenha = "", endereco = "", numeroEndereco = "", complemento = "", cep = "",
             bairro = "", telefone = "", celular = "";
     private int[] txtAnimalView = {R.id.txtAnimal1, R.id.txtAnimal2, R.id.txtAnimal3, R.id.txtAnimal4, R.id.txtAnimal5};
     private int[] rbGroupView = {R.id.rbGruop1, R.id.rbGruop2, R.id.rbGruop1, R.id.rbGruop3, R.id.rbGruop4, R.id.rbGruop5};
     private int[] rbMasculinoView = {R.id.rbMasculino1, R.id.rbMasculino2, R.id.rbMasculino3, R.id.rbMasculino4, R.id.rbMasculino5};
     private int[] rbFemininoView = {R.id.rbFeminino1, R.id.rbFeminino2, R.id.rbFeminino3, R.id.rbFeminino4, R.id.rbFeminino5};
-    private int[] sp_racaView = {R.id.sp_porte1, R.id.sp_porte2, R.id.sp_porte3, R.id.sp_porte4, R.id.sp_porte5};
+    private int[] sp_racaView = {R.id.sp_raca1, R.id.sp_raca2, R.id.sp_raca3, R.id.sp_raca4, R.id.sp_raca5};
     private int[] sp_porteView = {R.id.sp_porte1, R.id.sp_porte2, R.id.sp_porte3, R.id.sp_porte4, R.id.sp_porte5};
     private int[] sp_tipoView = {R.id.sp_tipo1, R.id.sp_tipo2, R.id.sp_tipo3, R.id.sp_tipo4, R.id.sp_tipo5};
     private int[] txtCaracteristicaView = {R.id.txtCaracteristica1, R.id.txtCaracteristica2, R.id.txtCaracteristica3, R.id.txtCaracteristica4, R.id.txtCaracteristica5};
@@ -198,6 +197,10 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
         tipo.add("Gato");
         tipo.add("Cachorro");
 
+        raca = new ArrayList<String>();
+        raca.add("");
+
+        adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, raca);
         ArrayAdapter<String> adaptadorPorte = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, porte);
         ArrayAdapter<String> adaptadorTipo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tipo);
 
@@ -211,17 +214,29 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             sp_tipo = (Spinner) findViewById(sp_tipoView[temp]);
             sp_tipo.setAdapter(adaptadorTipo);
+            sp_tipo.setOnItemSelectedListener(this);
+
+            sp_raca = (Spinner) findViewById(sp_racaView[temp]);
+            sp_raca.setAdapter(adaptadorRaca);
 
             temp++;
         }
 
         rbSexo.check(R.id.rbMasc);
         sp_tipo.setOnItemSelectedListener(this);
+
         linear1.setVisibility(View.GONE);
         linear2.setVisibility(View.GONE);
         linear3.setVisibility(View.GONE);
         linear4.setVisibility(View.GONE);
         linear5.setVisibility(View.GONE);
+
+        host.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                setTag(host.getCurrentTab());
+            }
+        });
     }
 
     private int getItem(int i) {
@@ -532,15 +547,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "Ops!\nHá algo errado com o email digitado\nQue tal verificar? :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
-        }else if(senha.isEmpty() || senha.length() < 6){
+        } else if (senha.isEmpty() || senha.length() < 6) {
             Toast.makeText(getApplicationContext(), "Ops!\nDigite uma senha válida e/ou com no minímo 6 caracteres :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
-        }else if(confirmaSenha.isEmpty()){
+        } else if (confirmaSenha.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de confimar a senha! :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
-        }else if (!senha.equals(confirmaSenha)) {
+        } else if (!senha.equals(confirmaSenha)) {
             Toast.makeText(getApplicationContext(), "Ops!\nAs sennhas não correspondem :D",
                     Toast.LENGTH_LONG).show();
             retorno = true;
@@ -584,7 +599,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
     public boolean testeEtapaTres(int quantidade) {
 
-        final boolean retorno[] = {false};
+        boolean retorno = true;
 
         for (int i = 0; i < quantidade; i++) {
             String nomeAnimal = (findViewById(txtAnimalView[i])).toString();
@@ -606,25 +621,31 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
             } else if (nomeAnimal.isEmpty() && sexo.isEmpty() || porte.isEmpty() || raca.isEmpty() || tipo.isEmpty() || caracteristica.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ops!\nParece que há informações faltando!\nObs:Você pode pular essa etapa",
                         Toast.LENGTH_LONG).show();
+                return false;
             } else if (nomeAnimal.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu o nome do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
                         Toast.LENGTH_LONG).show();
+                return false;
             } else if (sexo.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu o sexo do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
                         Toast.LENGTH_LONG).show();
+                return false;
             } else if (porte.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de selecionar o porte do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
                         Toast.LENGTH_LONG).show();
+                return false;
             } else if (raca.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de selecionar a raça do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
                         Toast.LENGTH_LONG).show();
+                return false;
             } else if (tipo.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Ops!\nParece que esqueceu de selecionar o tipo do " + (quantidade + 1) + "° pet!\nObs:Você pode pular essa etapa",
                         Toast.LENGTH_LONG).show();
+                return false;
             }
         }
 
-        return retorno[0];
+        return retorno;
     }
 
     @Override
@@ -659,7 +680,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                     bairro = String.valueOf(txtBairro.getText());
                     telefone = String.valueOf(txtTelefone.getText());
                     celular = String.valueOf(txtCelular.getText());
-                    if(testeEtapaDois(endereco, numeroEndereco, complemento, cep, bairro, telefone, celular)){
+                    if (testeEtapaDois(endereco, numeroEndereco, complemento, cep, bairro, telefone, celular)) {
                         break;
                     }
                 }
@@ -669,6 +690,7 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                 setTag(current);
 
                 if (btnContinuar.getText().equals("Cadastrar") && host.getCurrentTab() == 2) {
+                    temp = Integer.parseInt(sp_Quantidade.getSelectedItem().toString());
 
                     if (testeEtapaTres(temp)) {
                         btnContinuar.setOnClickListener(new View.OnClickListener() {
@@ -753,24 +775,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             case R.id.sp_tipo1:
                 tipo = parent.getSelectedItem().toString();
-                sp_porte = (Spinner) findViewById(R.id.sp_tipo1);
+                sp_porte = (Spinner) findViewById(R.id.sp_porte1);
 
                 if (tipo.equals("Gato")) {
-                    for(int i = 0; temp > i; i++){
-                        sp_raca = (Spinner) findViewById(sp_racaView[i]);
-                        sp_porte.setEnabled(false);
-                        ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
-                        sp_raca.setAdapter(adaptadorRaca);
-                    }
-
-
+                    sp_raca = (Spinner) findViewById(sp_racaView[0]);
+                    sp_porte.setEnabled(false);
+                    ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
+                    sp_raca.setAdapter(adaptadorRaca);
                 } else if (tipo.equals("Cachorro")) {
-                    for(int i = 0; temp > i; i++){
-                        sp_raca = (Spinner) findViewById(sp_racaView[i]);
-                        sp_porte.setEnabled(true);
-                        ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
-                        sp_raca.setAdapter(adaptadorRaca);
-                    }
+                    sp_raca = (Spinner) findViewById(sp_racaView[0]);
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
@@ -779,13 +792,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             case R.id.sp_tipo2:
                 tipo = parent.getSelectedItem().toString();
-                sp_porte = (Spinner) findViewById(R.id.sp_tipo2);
+                sp_porte = (Spinner) findViewById(R.id.sp_porte2);
 
                 if (tipo.equals("Gato")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[1]);
                     sp_porte.setEnabled(false);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
                     sp_raca.setAdapter(adaptadorRaca);
                 } else if (tipo.equals("Cachorro")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[1]);
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
@@ -794,13 +809,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             case R.id.sp_tipo3:
                 tipo = parent.getSelectedItem().toString();
-                sp_porte = (Spinner) findViewById(R.id.sp_tipo3);
+                sp_porte = (Spinner) findViewById(R.id.sp_porte3);
 
                 if (tipo.equals("Gato")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[2]);
                     sp_porte.setEnabled(false);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
                     sp_raca.setAdapter(adaptadorRaca);
                 } else if (tipo.equals("Cachorro")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[2]);
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
@@ -809,13 +826,15 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             case R.id.sp_tipo4:
                 tipo = parent.getSelectedItem().toString();
-                sp_porte = (Spinner) findViewById(R.id.sp_tipo4);
+                sp_porte = (Spinner) findViewById(R.id.sp_porte4);
 
                 if (tipo.equals("Gato")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[3]);
                     sp_porte.setEnabled(false);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
                     sp_raca.setAdapter(adaptadorRaca);
                 } else if (tipo.equals("Cachorro")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[3]);
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
@@ -824,25 +843,21 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
 
             case R.id.sp_tipo5:
                 tipo = parent.getSelectedItem().toString();
-                sp_porte = (Spinner) findViewById(R.id.sp_tipo5);
+                sp_porte = (Spinner) findViewById(R.id.sp_porte5);
 
                 if (tipo.equals("Gato")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[4]);
                     sp_porte.setEnabled(false);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaGato);
                     sp_raca.setAdapter(adaptadorRaca);
-                    sp_raca.notify();
                 } else if (tipo.equals("Cachorro")) {
+                    sp_raca = (Spinner) findViewById(sp_racaView[4]);
                     sp_porte.setEnabled(true);
                     ArrayAdapter<String> adaptadorRaca = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, racaCao);
                     sp_raca.setAdapter(adaptadorRaca);
-                    sp_raca.notify();
                 }
                 break;
-
-
         }
-
-
     }
 
     @Override

@@ -60,12 +60,6 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         rgPagamento = (RadioGroup) findViewById(R.id.rgPagamento);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view4);
 
-      /*  ServicoAdicional sd = new ServicoAdicional("Taxi Dog","40,00","Transporta o seu animal até sua casa!", false);
-        ServicoAdicional sd2 = new ServicoAdicional("Corte de unha","50,00","Corta a unha do seu pet", false);
-        listaServico.add(sd);
-        listaServico.add(sd2);*/
-
-
         listaServico = new ArrayList<ServicoAdicional>();
 
         ServicoAdicional st = new ServicoAdicional("Corte de unha", "10.00", "Corta a unha do seu pet!", false);
@@ -98,7 +92,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         data = params.getString("data");
         hora = params.getString("hora");
 
-       // getAdditional();
+        // getAdditional();
 
         btnProximo.setOnClickListener(this);
     }
@@ -226,7 +220,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
                 }
 
-                String data = "";
+                String servicoAdicional = "";
                 double temp = Double.parseDouble(preco);
                 List<ServicoAdicional> servicoAd = ((AdaptadorServicoAd) mAdapter)
                         .getServicoSelecionado();
@@ -235,7 +229,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
                     ServicoAdicional ser = servicoAd.get(i);
                     if (ser.isSelected() == true) {
 
-                        data = data + ", " + ser.getNomeServico().toString();
+                        servicoAdicional = servicoAdicional + ", " + ser.getNomeServico().toString();
                         temp += Double.parseDouble(ser.getPreco().toString());
                     }
 
@@ -245,11 +239,14 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
 
                 Bundle params = new Bundle();
 
+                Log.e("Teste preço total: ", String.valueOf(temp));
+                Log.e("Teste serviço ad: ", servicoAdicional);
+
                 params.putString("nomeAnimal", nomeAnimal);
                 params.putString("nomePetshop", nomePetshop);
                 params.putString("endereco", endereco);
                 params.putString("servico", servico);
-                params.putString("servicoAd", "");
+                params.putString("servicoAd", servicoAdicional);
                 params.putString("preco", String.valueOf(temp));
                 params.putString("formaPag", formaPag);
                 params.putString("data", data);

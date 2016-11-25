@@ -112,7 +112,6 @@ public class PerfilpetActivity extends AppCompatActivity {
 
                 Bundle params = new Bundle();
 
-                params.putString("id", id);
                 params.putString("nome", nome);
                 params.putString("precoP", precoP);
                 params.putString("precoM", precoM);
@@ -121,9 +120,8 @@ public class PerfilpetActivity extends AppCompatActivity {
                 params.putString("precoGato", precoGato);
                 params.putInt("duracaoCao", Integer.parseInt(duracaoCao));
                 params.putInt("duracaoGato", Integer.parseInt(duracaoGato));
-                params.putString("descricao", descricao);
-                params.putString("hora", hora);
                 params.putString("idPetshop", uid);
+                params.putString("hora", hora);
                 params.putString("nomePetshop", nomePetshop);
                 params.putString("endereco", enderecoPetshop);
 
