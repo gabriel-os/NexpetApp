@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -172,6 +171,8 @@ public class AgendarActivity extends AppCompatActivity{
                         JSONObject rsTemp = jObj.getJSONObject("response");
                         for (int i = 0; cont > i; i++) {
                             String temp = "";
+                            String[] temp2;
+                            String[] temp3;
                             JSONObject tempRow = rsTemp.getJSONObject(String.valueOf(i));
                             temp += tempRow.getString("unique_index") + ",,,";
                             temp += tempRow.getString("nome") + ",,, ";
@@ -179,7 +180,9 @@ public class AgendarActivity extends AppCompatActivity{
                             temp += tempRow.getString("endereco") + ",,, ";
                             temp += tempRow.getString("nomeResposavel") + ",,,";
                             temp += tempRow.getString("telefone") + ",,,";
-                            temp += tempRow.getString("horaAberta") + " às " + tempRow.getString("horaFechamento") + ",,,";
+                            temp2 = tempRow.getString("horaAberta").split(":", 3);
+                            temp3 = tempRow.getString("horaFechamento").split(":", 3);
+                            temp += temp2[0] + ":" + temp2[1] + " às " + temp3[0] + ":" + temp3[1] + ",,,";
                             temp += tempRow.getString("descricao");
 
                             info.put(i, temp);

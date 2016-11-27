@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="90dp">
 
     <TextView
         android:id="@+id/dataMarcada"
@@ -30,6 +30,27 @@
         android:layout_below="@id/lblNomePetshop"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#f00"
+        android:orientation="horizontal"></LinearLayout>
+
+    <TextView
+        android:id="@+id/txtConfirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/linear"
+        android:text="Confirmado:" />
 
 </RelativeLayout>

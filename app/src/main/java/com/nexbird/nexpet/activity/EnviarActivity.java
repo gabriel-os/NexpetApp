@@ -34,7 +34,7 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnEmail, btnPDF, btnGaleria, btnVoltar;
     private ProgressDialog pDialog;
     private SQLiteHandler db;
-    private String dataAgendada, nomeAnimal, nomePetshop, servico, servicoAd, preco, formaPag, endereco;
+    private String id, dataAgendada, nomeAnimal, nomePetshop, servico, servicoAd, preco, formaPag, endereco;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,8 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
 
         Bundle params = getIntent().getExtras();
 
-/*        dataAgendada = params.getString("dataAgendada");
+        id = params.getString("id");
+        dataAgendada = params.getString("data");
         nomePetshop = params.getString("nomePetshop");
         nomeAnimal = params.getString("nomeAnimal");
         nomePetshop = params.getString("nomePetshop");
@@ -61,66 +62,63 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
         servicoAd = params.getString("servicoAd");
         preco = params.getString("preco");
         formaPag = params.getString("formaPag");
-        endereco = params.getString("endereco");*/
+        endereco = params.getString("endereco");
 
         btnEmail.setOnClickListener(this);
 //        btnPDF.setOnClickListener(this);
         // btnGaleria.setOnClickListener(this);
         btnVoltar.setOnClickListener(this);
+
     }
 
-    private void prepareAgendarData() {
+    private void prepareEnviarData() {
         HashMap<String, String> user = db.getUserDetails();
         final String email = user.get("email");
-        Log.e("aaaaaaaaaaaaaaaa", email);
 
-        String tag_string_req = "req_agendado";
-        pDialog.setMessage("Enviando para o email ...");
-        showDialog();
+        String tag_string_req = "req_envia";
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 AppConfig.URL_ENVIAR_EMAIL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Resposta da inserção: " + response.toString());
-                hideDialog();
+                Log.d(TAG, "Resposta do envio: " + response.toString());
+
 
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
-                    Log.e(TAG, "Resposta do JSON: " + jObj);
 
                     if (!error) {
-                        boolean result = jObj.getBoolean("msg");
 
-                        if (result) {
-                            Toast.makeText(getApplicationContext(), "Serviço agendado com sucesso!!", Toast.LENGTH_LONG);
+                        String mensagem = jObj.getString("msg");
+                        Toast.makeText(getApplicationContext(),
+                                mensagem, Toast.LENGTH_LONG)
+                                .show();
 
-                            Intent i = new Intent(getApplicationContext(), EnviarActivity.class);
-                            finish();
-                            startActivity(i);
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Ocorreu um erro. Tente novamente!", Toast.LENGTH_LONG);
-                        }
+                        Intent i = new Intent(EnviarActivity.this,
+                                LoginActivity.class);
+                        startActivity(i);
+
 
                     } else {
-                        String errorMsg = String.valueOf(jObj.get("error_msg"));
+
+                        String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Log.e(TAG, "Resposta do JSON: " + e);
                     Toast.makeText(getApplicationContext(), "Json erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
+
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Erro ao agendar o serviço: " + error.getMessage());
+                Log.e(TAG, "Erro no envio: " + error.getMessage());
                 Toast.makeText(getApplicationContext(),
                         error.getMessage(), Toast.LENGTH_LONG).show();
                 hideDialog();
@@ -131,21 +129,27 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
             protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<String, String>();
-
+                params.put("id", id);
+                Log.e("Teste", id);
                 params.put("email", email);
+                Log.e("Teste", email);
                 params.put("nomeAnimal", nomeAnimal);
-                params.put("nomeAnimal", nomeAnimal);
+                Log.e("Teste", nomeAnimal);
                 params.put("local", nomePetshop);
+                Log.e("Teste", nomePetshop);
                 params.put("servico", servico);
+                Log.e("Teste", servico);
                 params.put("preco", preco);
+                Log.e("Teste", preco);
                 params.put("servicoAdicional", servicoAd);
+                Log.e("Teste", servicoAd);
                 params.put("dataHora", dataAgendada);
-
+                Log.e("Teste", dataAgendada);
                 return params;
             }
 
         };
-        // Adding request to request queue
+
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
@@ -158,11 +162,13 @@ public class EnviarActivity extends AppCompatActivity implements View.OnClickLis
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnEmail:
                 Intent i = new Intent(getApplicationContext(), PrincipalActivity.class);
+                prepareEnviarData();
                 finish();
                 startActivity(i);
 

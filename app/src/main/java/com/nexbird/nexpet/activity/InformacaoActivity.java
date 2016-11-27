@@ -158,18 +158,6 @@ public class InformacaoActivity extends Activity {
                     if (!error) {
                         boolean status = jObj.getBoolean("msg");
 
-                       /* if (!status) {
-                            lblDisp.setText("Disponível");
-                            lblDisp.setTextColor(Color.GREEN);
-                            Log.d("Teste se foi:", " FOI");
-                            btnContinuar.setEnabled(true);
-                            btnVerificar.setEnabled(false);
-                        } else {
-                            lblDisp.setText("Indisponível");
-                            Log.d("Teste se foi:", " NÃO FOI");
-                            lblDisp.setTextColor(Color.RED);
-                            btnContinuar.setEnabled(false);
-                        }*/
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = String.valueOf(jObj.get("error_msg"));

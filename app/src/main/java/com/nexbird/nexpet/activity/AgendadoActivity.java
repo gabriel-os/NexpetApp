@@ -5,21 +5,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -198,6 +193,7 @@ public class AgendadoActivity extends AppCompatActivity {
                             temp += tempRow.getString("servico") + ",,,";
                             temp += tempRow.getString("precoFinal") + ",,,";
                             temp += tempRow.getString("confirmado");
+
                             info.put(i, temp);
                             Log.e("Linhas: ", String.valueOf(info.get(i)));
                             AgendadoActivity.rs = info;
@@ -210,7 +206,7 @@ public class AgendadoActivity extends AppCompatActivity {
                             String[] temp = info.get((i)).split(",,,");
                             Log.e("Teste Array: ", String.valueOf(temp[0]));
 
-                            Agendados ag = new Agendados(temp[0], temp[1], inverterHora(temp[2]), temp[3], temp[4], temp[5], temp[6], temp[7], temp[0]);
+                            Agendados ag = new Agendados(temp[0], temp[1], inverterHora(temp[2]), temp[3], temp[4], temp[5], temp[6], temp[7], temp[8]);
                             listaAgendada.add(ag);
                             mAdapter.notifyDataSetChanged();
                         }

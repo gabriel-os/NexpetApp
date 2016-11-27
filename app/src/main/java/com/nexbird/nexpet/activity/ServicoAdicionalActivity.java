@@ -65,7 +65,7 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
         ServicoAdicional st = new ServicoAdicional("Corte de unha", "10.00", "Corta a unha do seu pet!", false);
         listaServico.add(st);
 
-        st = new ServicoAdicional("Leva e trás", "25.00", "Leva e trás o seu animal de casa para o petshop", false);
+        st = new ServicoAdicional("Leva e traz", "25.00", "Leva e trás o seu animal de casa para o petshop", false);
         listaServico.add(st);
 
         mAdapter = new AdaptadorServicoAd(listaServico);
@@ -228,9 +228,13 @@ public class ServicoAdicionalActivity extends AppCompatActivity implements View.
                 for (int i = 0; i < servicoAd.size(); i++) {
                     ServicoAdicional ser = servicoAd.get(i);
                     if (ser.isSelected() == true) {
-
-                        servicoAdicional = servicoAdicional + ", " + ser.getNomeServico().toString();
-                        temp += Double.parseDouble(ser.getPreco().toString());
+                        if (i == 0) {
+                            servicoAdicional = servicoAdicional + ser.getNomeServico().toString();
+                            temp += Double.parseDouble(ser.getPreco().toString());
+                        } else {
+                            servicoAdicional = servicoAdicional + ", " + ser.getNomeServico().toString();
+                            temp += Double.parseDouble(ser.getPreco().toString());
+                        }
                     }
 
                 }

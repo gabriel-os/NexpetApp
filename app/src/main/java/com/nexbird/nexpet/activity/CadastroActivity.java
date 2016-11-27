@@ -698,7 +698,8 @@ public class CadastroActivity extends ActivityGroup implements View.OnClickListe
                             @Override
 
                             public void onClick(View v) {
-                                registerUser(nomeUsuario, email, senha, confSenha, sexo, telefone, celular, endereco + ", " + numero, complemento, cep, bairro);
+                                registerUser(nomeUsuario, email, senha, confSenha, sexo, telefone, celular,
+                                        sp_Logradouro.getSelectedItem().toString() + " " + endereco + ", " + numeroEndereco, complemento, cep, bairro);
                             }
 
                         });

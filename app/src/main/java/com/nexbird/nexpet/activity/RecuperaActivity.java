@@ -52,13 +52,11 @@ public class RecuperaActivity extends Activity {
             public void onClick(View view) {
                 String email = inputEmail.getText().toString().trim();
 
-
-                // Check for empty data in the form
                 if (!email.isEmpty()) {
-                    // login user
+
                     recuperaSenha(email);
                 } else {
-                    // Prompt user to enter credentials
+
                     Toast.makeText(getApplicationContext(),
                             "Por favor, digite suas informações", Toast.LENGTH_LONG)
                             .show();
@@ -71,7 +69,7 @@ public class RecuperaActivity extends Activity {
 
 
     private void recuperaSenha(final String email) {
-        // Tag used to cancel the request
+
         String tag_string_req = "req_recup";
 
         pDialog.setMessage("Aguarde...");
@@ -89,7 +87,6 @@ public class RecuperaActivity extends Activity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
 
-                    // Check for error node in json
                     if (!error) {
 
                         String mensagem = jObj.getString("msg");
@@ -109,7 +106,7 @@ public class RecuperaActivity extends Activity {
                                 errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
-                    // JSON error
+                    // JSON erro
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -128,7 +125,7 @@ public class RecuperaActivity extends Activity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting parameters to login url
+
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", email);
                 return params;
@@ -139,7 +136,6 @@ public class RecuperaActivity extends Activity {
         String teste2 = tag_string_req;
         Log.e("-----------------",teste);
         Log.e("**********", teste2);
-        // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
     private void showDialog() {

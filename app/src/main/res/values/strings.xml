@@ -36,7 +36,7 @@
     <string name="cep">CEP</string>
     <string name="bairro">Bairro</string>
     <string name="endereco">Endereço</string>
-    <string name="altDadosPet">Alterar dados do Pet</string>
+    <string name="altDadosPet">Adicionar novo Pet</string>
     <string name="altSenha">Alterar Senha</string>
     <string name="altDadosUsuario">Alterar dados do Usuário</string>
     <string name="geral">Configurações Gerais</string>

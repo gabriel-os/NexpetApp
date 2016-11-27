@@ -32,7 +32,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -107,6 +106,7 @@ public class PerfilpetActivity extends AppCompatActivity {
                 String duracaoCao = ag.getDuracaoCao();
                 String duracaoGato = ag.getDuracaoGato();
                 String descricao = ag.getDescricao();
+
 
                 Intent i = new Intent(getApplicationContext(), SelecionarhoraActivity.class);
 

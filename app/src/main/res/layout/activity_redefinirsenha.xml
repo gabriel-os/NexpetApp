@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/txtSenhaAntiga"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView30"
@@ -33,12 +33,12 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txtSenhaNova"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/txtSenhaAntiga"
         android:layout_marginTop="50dp"
         android:background="@color/campoBackground"
         android:hint="@string/nova"
@@ -48,12 +48,12 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/txtConfirmaSenha"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/txtSenhaNova"
         android:layout_marginTop="50dp"
         android:background="@color/campoBackground"
         android:hint="@string/confirma"
@@ -63,7 +63,7 @@
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnAltera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

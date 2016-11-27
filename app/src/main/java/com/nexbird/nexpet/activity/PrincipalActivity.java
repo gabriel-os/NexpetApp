@@ -39,7 +39,7 @@ public class PrincipalActivity extends ActivityGroup {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
-        if (!session.isRegistredIn()) {
+        /*if (!session.isRegistredIn()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Cadastro pessoal incompleto!");
             builder.setMessage("Deseja completar seu cadastro agora?");
@@ -55,7 +55,7 @@ public class PrincipalActivity extends ActivityGroup {
             });
             AlertDialog alerta = builder.create();
             alerta.show();
-        }
+        }*/
 
         final TabHost host = (TabHost) findViewById(R.id.tabHost);
         host.setup(this.getLocalActivityManager());
@@ -81,9 +81,6 @@ public class PrincipalActivity extends ActivityGroup {
                 Intent i = new Intent(getApplicationContext(), PerfilActivity.class);
 
                 startActivity(i);
-
-                db.addPet("123456", "Kim", "Pequeno", "Macho","Maltês", "Cachorro", "Nenhuma");
-                db.addPet("12345", "Thor", "Grande", "Femea","Cocker", "Cachorro", "Agressivo");
             }
         });
 

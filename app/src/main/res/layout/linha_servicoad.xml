@@ -14,13 +14,25 @@
         android:padding="4dp"
         android:textColor="#fff"
         android:textSize="15dp" />
+
     <TextView
         android:id="@+id/nomeServico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@color/colorPrimaryDark"
-        android:text="TextView"
-        android:textAlignment="center"
+        android:text="Corte de unha"
+        android:textColor="#fff"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/txtValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="R$15,00"
         android:textColor="#fff"
         android:textSize="15dp" />
 

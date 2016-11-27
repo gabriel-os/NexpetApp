@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,6 +16,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.nexbird.nexpet.R;
 import com.nexbird.nexpet.app.AppConfig;
 import com.nexbird.nexpet.app.AppController;
+import com.nexbird.nexpet.helper.SQLiteHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +33,8 @@ public class AlteraSenhaActivity extends Activity {
     private static final String TAG = AlteraSenhaActivity.class.getSimpleName();
     private EditText txtSenhaAntiga, txtSenhaNova, txtSenhaConf;
     private ProgressDialog pDialog;
+    private SQLiteHandler db;
+    private Button btnAltera;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +43,28 @@ public class AlteraSenhaActivity extends Activity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
-        /*txtSenhaAntiga = (EditText) findViewById(R.id.txtSenhaAntiga);
+        db = new SQLiteHandler(getApplicationContext());
+
+        btnAltera = (Button) findViewById(R.id.btnAltera);
+        txtSenhaAntiga = (EditText) findViewById(R.id.txtSenhaAntiga);
         txtSenhaNova = (EditText) findViewById(R.id.txtSenhaNova);
-        txtSenhaConf = (EditText) findViewById(R.id.txtSenhaConf);*/
+        txtSenhaConf = (EditText) findViewById(R.id.txtConfirmaSenha);
+
+        btnAltera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (txtSenhaConf.getText().toString().equals(txtSenhaNova.getText().toString())) {
+                    String temp = db.getUserDetails().get("uid");
+                    prepareAlterarSenhaData(temp, txtSenhaNova.getText().toString());
+                }
+
+            }
+        });
 
     }
-    private void prepareAlterarSenhaData(final String senhaAntiga, final String senhaNova) {
+
+    private void prepareAlterarSenhaData(final String uid, final String pass) {
+
         String tag_string_req = "req_DataHora";
 
         pDialog.setMessage("Verificando ...");
@@ -62,20 +83,10 @@ public class AlteraSenhaActivity extends Activity {
                     boolean error = jObj.getBoolean("error");
 
                     if (!error) {
-                        boolean status = jObj.getBoolean("msg");
+                        String status = jObj.getString("msg");
 
-                       /* if (!status) {
-                            lblDisp.setText("Disponível");
-                            lblDisp.setTextColor(Color.GREEN);
-                            Log.d("Teste se foi:", " FOI");
-                            btnContinuar.setEnabled(true);
-                            btnVerificar.setEnabled(false);
-                        } else {
-                            lblDisp.setText("Indisponível");
-                            Log.d("Teste se foi:", " NÃO FOI");
-                            lblDisp.setTextColor(Color.RED);
-                            btnContinuar.setEnabled(false);
-                        }*/
+                        Toast.makeText(getApplicationContext(),
+                                status, Toast.LENGTH_LONG).show();
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = String.valueOf(jObj.get("error_msg"));
@@ -105,8 +116,8 @@ public class AlteraSenhaActivity extends Activity {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("nomePetshop", "");
-                params.put("dataMarcada", "");
+                params.put("uid", uid);
+                params.put("pass", pass);
                 // params.put("horaMarcada", horaMarcada + ":00");
 
                 return params;

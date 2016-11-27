@@ -4,21 +4,17 @@ package com.nexbird.nexpet.adapter;
  * Created by Gabriel on 12/10/2016.
  */
 
-import java.util.List;
-
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.nexbird.nexpet.R;
+
+import java.util.List;
 
 public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.ViewHolder> {
 
@@ -30,7 +26,7 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
 
     @Override
     public AdaptadorServicoAd.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                             int viewType) {
+                                                            int viewType) {
         // create a new view
         View itemLayoutView = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.linha_servicoad, null);
@@ -46,6 +42,8 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
         final int pos = position;
 
         viewHolder.nomeServico.setText(servico.get(position).getNomeServico());
+        viewHolder.txtValor.setText("R$" + servico.get(position).getPreco());
+        viewHolder.txtValor.setGravity(Gravity.LEFT);
 
         viewHolder.chkSelected.setTag(servico.get(position));
 
@@ -69,9 +67,13 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
         return servico.size();
     }
 
+    public List<ServicoAdicional> getServicoSelecionado() {
+        return servico;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView nomeServico;
+        public TextView nomeServico, txtValor;
 
         public CheckBox chkSelected;
 
@@ -80,15 +82,13 @@ public class AdaptadorServicoAd extends RecyclerView.Adapter<AdaptadorServicoAd.
             super(itemLayoutView);
 
             nomeServico = (TextView) itemLayoutView.findViewById(R.id.nomeServico);
+            txtValor = (TextView) itemLayoutView.findViewById(R.id.txtValor);
 
             chkSelected = (CheckBox) itemLayoutView
                     .findViewById(R.id.cb_servico);
 
         }
 
-    }
-    public List<ServicoAdicional> getServicoSelecionado() {
-        return servico;
     }
 
 }

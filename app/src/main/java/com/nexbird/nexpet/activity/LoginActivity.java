@@ -131,7 +131,7 @@ public class LoginActivity extends Activity {
                 try {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
-
+                    Log.e(TAG, "Resposta do JSON: " + jObj);
                     if (!error) {
 
                         session.setLogin(true);
@@ -148,11 +148,27 @@ public class LoginActivity extends Activity {
                         String complemento = user.getString("complemento");
                         String telefone = user.getString("telefone");
                         String celular = user.getString("celular");
-
                         String[] tempEndereco = endereco.split(", ");
                         String created_at = user.getString("created_at");
 
                         db.addUser(uid, name, email, telefone, celular, tempEndereco[0], tempEndereco[1], cep, bairro, complemento, created_at);
+//"cadAnimal":false,"animal":{"cont":1,"0":{"id":"44","nome":"Kim","sexo":"Macho","raca":"Maltes","porte":"Pequeno","caracteristica":"Agressivo"}}}
+                        if (!jObj.getBoolean("cadAnimal")) {
+                            JSONObject animal = jObj.getJSONObject("animal");
+                            int cont = animal.getInt("cont");
+                            for (int i = 0; i < cont; i++) {
+                                JSONObject temp = animal.getJSONObject(String.valueOf(i));
+                                String id = temp.getString("id");
+                                String nome = temp.getString("nome");
+                                String sexo = temp.getString("sexo");
+                                String raca = temp.getString("raca");
+                                String porte = temp.getString("porte");
+                                // String tipo = temp.getString("tipo");
+                                String caracteristica = temp.getString("caracteristica");
+                                db.addPet(id, nome, porte, sexo, raca, "Cachorro", caracteristica);
+
+                            }
+                        }
 
                         Intent intent = new Intent(LoginActivity.this,
                                 PrincipalActivity.class);
